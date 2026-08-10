@@ -34,7 +34,7 @@
             overflow-x: hidden;
         }
         .hero-bg {
-            background:
+            background: 
                 radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 55%),
                 linear-gradient(180deg, #0B1120 0%, #0F172A 100%);
             position: relative;
@@ -43,7 +43,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image:
+            background-image: 
                 linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
@@ -51,6 +51,7 @@
             pointer-events: none;
         }
 
+        /* Matrix digital rain */
         #matrixRain {
             position: absolute;
             inset: 0;
@@ -76,6 +77,7 @@
             50% { transform: translateY(-30px) scale(1.2); opacity: 0.7; }
         }
 
+        /* Brand logo */
         .brand-logo {
             height: 40px;
             width: 40px;
@@ -233,6 +235,7 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
+        /* ===== Projects – Q-Theme inspired showcase ===== */
         .project-showcase {
             position: relative;
             background: #0A0E1A;
@@ -291,6 +294,7 @@
             border: 1px solid #1E293B;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            group: ;
         }
         .project-card-modern:hover {
             border-color: rgba(56, 189, 248, 0.5);
@@ -330,8 +334,10 @@
             color: #38BDF8;
         }
 
-        /* ===== TEAM – image ready ===== */
-        .team-section { background: #0B1120; }
+        /* ===== Team section – Nexora-style pattern ===== */
+        .team-section {
+            background: #0B1120;
+        }
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -362,10 +368,6 @@
             object-fit: cover;
             display: block;
             background: #1E293B;
-            transition: transform 0.5s ease;
-        }
-        .member-card:hover .photo {
-            transform: scale(1.04);
         }
         .member-card .info {
             padding: 16px 18px 20px;
@@ -404,7 +406,9 @@
             line-height: 1.4;
             color: #e2e8f0;
         }
-        .quote-card p span { color: #38BDF8; }
+        .quote-card p span {
+            color: #38BDF8;
+        }
         .team-intro-link {
             display: inline-flex;
             align-items: center;
@@ -416,8 +420,6 @@
             transition: gap 0.25s;
         }
         .team-intro-link:hover { gap: 12px; }
-
-        /* Avatar fallback when image fails / missing */
         .avatar-fallback {
             width: 100%;
             aspect-ratio: 1 / 1.05;
@@ -430,7 +432,6 @@
             color: #38BDF8;
             font-family: 'Space Grotesk', sans-serif;
         }
-
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease;
@@ -459,6 +460,7 @@
             margin-bottom: 8px;
         }
 
+        /* Partners marquee */
         .partners-marquee {
             overflow: hidden;
             position: relative;
@@ -502,6 +504,7 @@
             filter: brightness(0.95) contrast(1.05);
         }
 
+        /* Engagement bar */
         .engagement-bar {
             background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
             border: 1px solid #334155;
@@ -541,6 +544,7 @@
             background-clip: text;
         }
 
+        /* Neural Network Live Lab (replaces Visual UI Lab) */
         .ui-lab {
             background: rgba(17, 24, 39, 0.85);
             border: 1px solid #334155;
@@ -612,283 +616,63 @@
             100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
         }
         .hero-title-wrap { position: relative; z-index: 5; }
-
-        /* ===== SERVICES – premium UI ===== */
-        .services-section {
-            position: relative;
-            background: #080C16;
-            overflow: hidden;
-        }
-        .services-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(56,189,248,0.4), transparent);
-        }
-        .services-glow {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            pointer-events: none;
-        }
-        .services-glow.left {
-            top: 10%;
-            left: -10%;
-            background: #38BDF8;
-        }
-        .services-glow.right {
-            bottom: 5%;
-            right: -10%;
-            background: #818CF8;
-        }
-
-        .service-mega {
-            position: relative;
-            border-radius: 28px;
-            overflow: hidden;
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            background: linear-gradient(160deg, rgba(17,24,39,0.95) 0%, rgba(15,23,42,0.98) 100%);
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .service-mega:hover {
-            border-color: rgba(56, 189, 248, 0.45);
-            box-shadow:
-                0 30px 60px rgba(0,0,0,0.45),
-                0 0 0 1px rgba(56, 189, 248, 0.2),
-                0 0 80px rgba(56, 189, 248, 0.08);
-            transform: translateY(-6px);
-        }
-        .service-mega .mega-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.18;
-            transition: opacity 0.5s, transform 0.7s;
-        }
-        .service-mega:hover .mega-bg {
-            opacity: 0.28;
-            transform: scale(1.05);
-        }
-        .service-mega .mega-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.7) 50%, rgba(11,17,32,0.85) 100%);
-        }
-        .service-mega .mega-content {
-            position: relative;
-            z-index: 2;
-            padding: 48px 40px;
-        }
-        @media (max-width: 640px) {
-            .service-mega .mega-content { padding: 36px 24px; }
-        }
-
-        .service-icon-wrap {
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            margin-bottom: 24px;
-            position: relative;
-        }
-        .service-icon-wrap::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 22px;
-            border: 1px solid rgba(56,189,248,0.25);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .service-mega:hover .service-icon-wrap::after {
-            opacity: 1;
-        }
-        .service-icon-research {
-            background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(14,165,233,0.1));
-            color: #38BDF8;
-            box-shadow: 0 0 30px rgba(56,189,248,0.2);
-        }
-        .service-icon-product {
-            background: linear-gradient(135deg, rgba(129,140,248,0.25), rgba(99,102,241,0.1));
-            color: #A5B4FC;
-            box-shadow: 0 0 30px rgba(129,140,248,0.2);
-        }
-
-        .service-features {
-            display: grid;
-            gap: 12px;
-            margin-top: 28px;
-        }
-        .service-feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 14px;
-            border-radius: 12px;
-            background: rgba(30, 41, 59, 0.45);
-            border: 1px solid rgba(51, 65, 85, 0.6);
-            transition: all 0.3s;
-        }
-        .service-mega:hover .service-feature {
-            background: rgba(30, 41, 59, 0.7);
-            border-color: rgba(56, 189, 248, 0.2);
-        }
-        .service-feature i {
-            margin-top: 3px;
-            color: #38BDF8;
-            font-size: 13px;
-        }
-        .service-feature span {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            line-height: 1.45;
-        }
-
-        .service-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 32px;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
-        .service-cta-research {
-            background: rgba(56, 189, 248, 0.12);
-            color: #38BDF8;
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-        .service-cta-research:hover {
-            background: #38BDF8;
-            color: #0B1120;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
-        }
-        .service-cta-product {
-            background: rgba(129, 140, 248, 0.12);
-            color: #A5B4FC;
-            border-color: rgba(129, 140, 248, 0.3);
-        }
-        .service-cta-product:hover {
-            background: #818CF8;
-            color: #0B1120;
-            box-shadow: 0 0 30px rgba(129, 140, 248, 0.35);
-        }
-
-        .service-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #38BDF8;
-            margin-bottom: 12px;
-        }
-        .service-badge .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #38BDF8;
-            animation: pulseRing 2s infinite;
-        }
-
-        /* AI mobile phones (kept minimal) */
-        .ai-mobile-section {
-            padding: 80px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            background:
-                radial-gradient(circle, rgba(56,189,248,.12), transparent 55%),
-                #0B1120;
-            flex-wrap: wrap;
-        }
-        .ai-phone {
-            width: 280px;
-            height: 560px;
-            border-radius: 35px;
-            padding: 25px;
-            color: white;
-            background: linear-gradient(180deg, #132b52, #020617);
-            border: 1px solid rgba(56,189,248,.35);
-            box-shadow: 0 30px 70px rgba(0,0,0,.5);
-            text-align: center;
-            position: relative;
-        }
-        .ai-phone h2 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-top: 20px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .ai-phone p { color: #94a3b8; margin-top: 12px; font-size: 0.9rem; }
-        .ai-logo { width: 120px; height: 120px; margin: 40px auto 10px; }
-        .ai-logo img, .ai-logo-small img { width: 100%; height: 100%; object-fit: contain; }
-        .ai-logo-small { width: 64px; height: 64px; margin: 24px auto 8px; }
-        .ai-phone button {
-            position: absolute;
-            bottom: 25px;
-            left: 25px;
-            right: 25px;
-            padding: 14px;
-            border-radius: 16px;
-            background: #38BDF8;
-            border: none;
-            font-weight: 600;
-            color: #0B1120;
-            cursor: pointer;
-        }
-        .ai-box {
-            background: #1e3a5f;
-            margin: 10px 0;
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 0.9rem;
-        }
-        .ai-top { color: #bae6fd; font-size: 0.8rem; margin-bottom: 8px; }
-        .chat-user, .chat-ai {
-            padding: 12px 14px;
-            border-radius: 16px;
-            margin-top: 14px;
-            font-size: 13px;
-            text-align: left;
-        }
-        .chat-user { background: #17345d; }
-        .chat-ai { background: #0f2745; }
-        @media (max-width: 900px) {
-            .ai-mobile-section { flex-direction: column; }
-        }
     </style>
-</head>
+<style>/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"],
+div[id*="pricing"],
+.modal-pricing {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
+}</style></head>
 <body>
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B1120]/90 backdrop-blur-md border-b border-[#1E293B]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <div class="flex items-center gap-3">
-                    <img src="images/relogic-logo_main.png" alt="Relogic Solutions" class="brand-logo" onerror="this.style.display='none'">
+                    <img src="images/relogic-logo_main.png" alt="Relogic Solutions" class="brand-logo">
                     <span class="text-xl font-bold tracking-tight font-display">Relogic</span>
                 </div>
                 <nav class="hidden md:flex items-center gap-7">
                     <a href="#home" class="nav-link active">Home</a>
                     <a href="#about" class="nav-link">About</a>
-                    <a href="#services" class="nav-link">Services</a>
                     <a href="#projects" class="nav-link">Projects</a>
                     <a href="#leadership" class="nav-link">Leadership</a>
                     <a href="#coreteam" class="nav-link">Core Team</a>
@@ -907,7 +691,6 @@
             <nav class="flex flex-col gap-4">
                 <a href="#home" class="nav-link active text-lg">Home</a>
                 <a href="#about" class="nav-link text-lg">About</a>
-                <a href="#services" class="nav-link text-lg">Services</a>
                 <a href="#projects" class="nav-link text-lg">Projects</a>
                 <a href="#leadership" class="nav-link text-lg">Leadership</a>
                 <a href="#coreteam" class="nav-link text-lg">Core Team</a>
@@ -950,8 +733,8 @@
                     Relogic Solutions is an AI-native innovation studio. We transform unstructured data into intelligent, research-driven outcomes through ethical AI and human-centric design.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#services" class="btn-primary px-8 py-3.5 text-base flex items-center gap-2">
-                        Our Services <i class="fas fa-arrow-right text-sm"></i>
+                    <a href="#projects" class="btn-primary px-8 py-3.5 text-base flex items-center gap-2">
+                        Discover More <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                     <a href="#about" class="btn-secondary px-8 py-3.5 text-base flex items-center gap-2">
                         About Us <i class="fas fa-arrow-right text-sm"></i>
@@ -1051,6 +834,7 @@
                         <div class="partner-card"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.src='https://www.nvidia.com/favicon.ico'"></div>
                         <div class="partner-card"><img src="https://logo.clearbit.com/openai.com" alt="OpenAI" onerror="this.src='https://openai.com/favicon.ico'"></div>
                         <div class="partner-card"><img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.src='https://www.meta.com/favicon.ico'"></div>
+                        <!-- duplicate for seamless loop -->
                         <div class="partner-card"><img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.src='https://www.google.com/favicon.ico'"></div>
                         <div class="partner-card"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.src='https://www.microsoft.com/favicon.ico'"></div>
                         <div class="partner-card"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.src='https://www.amazon.com/favicon.ico'"></div>
@@ -1150,125 +934,11 @@
         </div>
     </section>
 
-    <!-- ==================== SERVICES ==================== -->
-    <section id="services" class="services-section py-24 border-t border-[#1E293B]">
-        <div class="services-glow left"></div>
-        <div class="services-glow right"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <div class="section-label">What We Do</div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-5">
-                    Our <span class="text-primary">Services</span>
-                </h2>
-                <p class="text-slate-400 text-lg leading-relaxed">
-                    Two focused practices. One obsession with clarity, craft, and outcomes that feel inevitable.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
-
-                <!-- Research Consultancy -->
-                <div class="service-mega">
-                    <div class="mega-bg" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&h=700&fit=crop');"></div>
-                    <div class="mega-overlay"></div>
-                    <div class="mega-content">
-                        <div class="service-badge">
-                            <span class="dot"></span> Practice 01
-                        </div>
-                        <div class="service-icon-wrap service-icon-research">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-bold font-display mb-4 leading-tight">
-                            Research<br><span class="text-primary">Consultancy</span>
-                        </h3>
-                        <p class="text-slate-400 text-base leading-relaxed max-w-md">
-                            We turn ambiguous questions into rigorous, publishable insight — from literature synthesis and experimental design to ethical AI evaluation and decision-ready reports.
-                        </p>
-
-                        <div class="service-features">
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Literature reviews, systematic synthesis & research roadmaps</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Ethical AI audits, fairness & explainability frameworks</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Clinical / domain data intelligence & bilingual NLP studies</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Threat modeling, APT research & security whitepapers</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Executive briefings and peer-review ready documentation</span>
-                            </div>
-                        </div>
-
-                        <a href="#contact" class="service-cta service-cta-research">
-                            Start a Research Engagement <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Digital Product Development -->
-                <div class="service-mega">
-                    <div class="mega-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=700&fit=crop');"></div>
-                    <div class="mega-overlay"></div>
-                    <div class="mega-content">
-                        <div class="service-badge" style="color: #A5B4FC;">
-                            <span class="dot" style="background: #A5B4FC;"></span> Practice 02
-                        </div>
-                        <div class="service-icon-wrap service-icon-product">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-bold font-display mb-4 leading-tight">
-                            Digital Product<br><span style="color: #A5B4FC;">Development</span>
-                        </h3>
-                        <p class="text-slate-400 text-base leading-relaxed max-w-md">
-                            End-to-end product craft — strategy, interface systems, and production-grade software that feels inevitable the moment someone touches it.
-                        </p>
-
-                        <div class="service-features">
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>Product strategy, information architecture & UX systems</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>High-fidelity UI, design systems & micro-interactions</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>Full-stack / AI-powered product engineering</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>ClinTx, InsightFlow & custom platform builds</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>Launch, iteration and measurable outcome loops</span>
-                            </div>
-                        </div>
-
-                        <a href="#contact" class="service-cta service-cta-product">
-                            Build a Product With Us <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== PROJECTS ==================== -->
+    <!-- ==================== PROJECTS – Q-Theme inspired layout ==================== -->
     <section id="projects" class="project-showcase py-24 border-t border-[#1E293B]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+            <!-- Top: Headline + Featured visual -->
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
                 <div>
                     <div class="section-label">Projects</div>
@@ -1283,20 +953,27 @@
                     </a>
                 </div>
 
+                <!-- Featured overlapping devices visual -->
                 <div class="featured-visual">
+                    <!-- Main large frame -->
                     <div class="device-frame w-[85%] max-w-md">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop" alt="Analytics Dashboard" class="w-full aspect-[4/3] object-cover">
                     </div>
+                    <!-- Floating phone-style card -->
                     <div class="device-float w-36 md:w-44" style="bottom: 8%; left: 0;">
                         <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=700&fit=crop" alt="Clinical App" class="w-full aspect-[9/16] object-cover">
                     </div>
+                    <!-- Floating small card -->
                     <div class="device-float w-40 md:w-48" style="top: 5%; right: -5%;">
                         <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&h=350&fit=crop" alt="Security" class="w-full aspect-video object-cover">
                     </div>
                 </div>
             </div>
 
+            <!-- Project cards grid – modern portfolio style -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- ClinTx -->
                 <div class="project-card-modern group">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="ClinTx Engine">
@@ -1315,6 +992,7 @@
                     </div>
                 </div>
 
+                <!-- APT Detection -->
                 <div class="project-card-modern group">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" alt="APT Detection">
@@ -1332,6 +1010,7 @@
                     </div>
                 </div>
 
+                <!-- InsightFlow -->
                 <div class="project-card-modern group">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="InsightFlow">
@@ -1349,6 +1028,7 @@
                     </div>
                 </div>
 
+                <!-- EthosAI -->
                 <div class="project-card-modern group">
                     <div class="card-img">
                         <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="EthosAI">
@@ -1369,11 +1049,12 @@
         </div>
     </section>
 
-    <!-- ==================== LEADERSHIP ==================== -->
+    <!-- ==================== OUR TEAM (Leadership + Core) – Nexora pattern ==================== -->
     <section id="leadership" class="team-section py-24 border-t border-[#1E293B]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
+                <!-- Left intro (matches image pattern) -->
                 <div class="lg:col-span-4">
                     <div class="section-label">Team</div>
                     <h2 class="text-4xl md:text-5xl font-bold font-display leading-tight mb-5">
@@ -1387,50 +1068,45 @@
                     </a>
                 </div>
 
+                <!-- Right grid: photo cards + quote cards -->
                 <div class="lg:col-span-8">
                     <div class="team-grid">
-                        <!-- Hasnain Imtiaz -->
+                        <!-- Member 1 -->
                         <div class="member-card">
-                            <img class="photo" src="images/team/sakib.jpg" alt="Hasnain Imtiaz"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">HI</div>
+                            <div class="avatar-fallback">HI</div>
                             <div class="info">
                                 <h4>Hasnain Imtiaz</h4>
                                 <p>Co-founder</p>
                             </div>
                         </div>
-                        <!-- Robin Jamal -->
+                        <!-- Member 2 -->
                         <div class="member-card">
-                            <img class="photo" src="images/team/robin.jpg" alt="Robin Jamal"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">RJ</div>
+                            <div class="avatar-fallback">RJ</div>
                             <div class="info">
                                 <h4>Robin Jamal</h4>
                                 <p>Co-founder</p>
                             </div>
                         </div>
+                        <!-- Quote card -->
                         <div class="quote-card">
                             <p>The real value<br>is always<br><span>people.</span></p>
                         </div>
 
+                        <!-- Quote card -->
                         <div class="quote-card">
                             <p>Talent turns<br>vision into<br><span>reality.</span></p>
                         </div>
-                        <!-- Tanvir Mehedi -->
+                        <!-- Member 3 -->
                         <div class="member-card">
-                            <img class="photo" src="images/team/tanvir.jpg" alt="Tanvir Mehedi"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">TM</div>
+                            <div class="avatar-fallback">TM</div>
                             <div class="info">
                                 <h4>Tanvir Mehedi</h4>
                                 <p>Leadership · BUET</p>
                             </div>
                         </div>
-                        <!-- Dr. Tariq Mohammad -->
+                        <!-- Member 4 -->
                         <div class="member-card">
-                            <img class="photo" src="images/team/tarek.png" alt="Dr. Tariq Mohammad"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">TM</div>
+                            <div class="avatar-fallback">TM</div>
                             <div class="info">
                                 <h4>Dr. Tariq Mohammad</h4>
                                 <p>Advisor</p>
@@ -1440,23 +1116,19 @@
                 </div>
             </div>
 
-            <!-- Advisors -->
+            <!-- Advisors row -->
             <div class="mt-6">
                 <p class="text-slate-500 text-xs uppercase tracking-widest mb-5">Advisors</p>
                 <div class="team-grid">
                     <div class="member-card">
-                        <img class="photo" src="images/team/tahsin.jpg" alt="Tahsin H. Khan"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="avatar-fallback" style="display:none;">SE</div>
+                        <div class="avatar-fallback">SE</div>
                         <div class="info">
-                            <h4>Tahsin H. Khan</h4>
+                            <h4>Saba El Kabir</h4>
                             <p>Advisor — Portfolio & Brand</p>
                         </div>
                     </div>
                     <div class="member-card">
-                        <img class="photo" src="images/team/shayn.jpg" alt="Shayne Mallet"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="avatar-fallback" style="display:none;">SM</div>
+                        <div class="avatar-fallback">SM</div>
                         <div class="info">
                             <h4>Shayne Mallet</h4>
                             <p>Advisor — Core Engineering</p>
@@ -1470,7 +1142,7 @@
         </div>
     </section>
 
-    <!-- ==================== CORE TEAM ==================== -->
+    <!-- Core Team -->
     <section id="coreteam" class="team-section py-24 border-t border-[#1E293B]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -1491,18 +1163,14 @@
                 <div class="lg:col-span-8">
                     <div class="team-grid">
                         <div class="member-card">
-                            <img class="photo" src="images/team/Walid.jpg" alt="Sayem Walid"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">SW</div>
+                            <div class="avatar-fallback">SW</div>
                             <div class="info">
                                 <h4>Sayem Walid</h4>
                                 <p>Legal & Communication</p>
                             </div>
                         </div>
                         <div class="member-card">
-                            <img class="photo" src="images/team/Adnan.jpg" alt="Adnan Rahman"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">AR</div>
+                            <div class="avatar-fallback">AR</div>
                             <div class="info">
                                 <h4>Adnan Rahman</h4>
                                 <p>Backend / ML Programmer</p>
@@ -1516,18 +1184,14 @@
                             <p>Data becomes<br>intelligence<br><span>through people.</span></p>
                         </div>
                         <div class="member-card">
-                            <img class="photo" src="images/team/sazzad-hossain-pranto.jpg" alt="Sazzad Hossain Pranto"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">SP</div>
+                            <div class="avatar-fallback">SP</div>
                             <div class="info">
                                 <h4>Sazzad Hossain Pranto</h4>
                                 <p>MERN Stack Developer</p>
                             </div>
                         </div>
                         <div class="member-card">
-                            <img class="photo" src="images/team/hassan-arif.jpg" alt="Hassan Arif"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">HA</div>
+                            <div class="avatar-fallback">HA</div>
                             <div class="info">
                                 <h4>Hassan Arif</h4>
                                 <p>Database Programmer</p>
@@ -1537,20 +1201,17 @@
                 </div>
             </div>
 
+            <!-- Remaining core members -->
             <div class="team-grid mt-2">
                 <div class="member-card">
-                    <img class="photo" src="images/team/mahir-hassan-shuvo.jpg" alt="Mahir Hassan Shuvo"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="avatar-fallback" style="display:none;">MS</div>
+                    <div class="avatar-fallback">MS</div>
                     <div class="info">
                         <h4>Mahir Hassan Shuvo</h4>
                         <p>Research & Analytics</p>
                     </div>
                 </div>
                 <div class="member-card">
-                    <img class="photo" src="images/team/atikul-islam-dipto.jpg" alt="Atikul Islam Dipto"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="avatar-fallback" style="display:none;">AD</div>
+                    <div class="avatar-fallback">AD</div>
                     <div class="info">
                         <h4>Atikul Islam Dipto</h4>
                         <p>Product Developer & Designer</p>
@@ -1563,39 +1224,207 @@
         </div>
     </section>
 
-    <!-- AI Mobile mockups -->
-    <section class="ai-mobile-section">
-        <div class="ai-phone">
-            <div class="ai-logo">
-                <img src="images/team/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
-            </div>
-            <h2>Let's Begin the<br>Future</h2>
-            <p>Smart Solutions for a Better Tomorrow</p>
-            <button>Start Exploring</button>
-        </div>
+    
+<!-- ================= RELOGIC AI MOBILE DESIGN SECTION ================= -->
 
-        <div class="ai-phone">
-            <div class="ai-top">◯ Relogic Solutions</div>
-            <div class="ai-logo-small">
-                <img src="images/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
-            </div>
-            <h2>Welcome to<br>Relogic Solutions</h2>
-            <p>Your Partner in Digital Growth</p>
-            <div class="ai-box">AI Services</div>
-            <div class="ai-box">Cloud Solutions</div>
-            <div class="ai-box">Consulting</div>
-        </div>
+<section class="ai-mobile-section">
 
-        <div class="ai-phone">
-            <div class="ai-top">Ⓡ Relogic Solutions</div>
-            <div class="chat-user">Can you give me a motivational quote?</div>
-            <div class="chat-ai">Of course! 😊<br><br>Every sunrise is a new chapter in your story.</div>
-            <div class="chat-user">Create a futuristic image.</div>
-            <div class="chat-ai">Absolutely! 😎</div>
-        </div>
-    </section>
+<div class="ai-phone">
 
-    <!-- CTA -->
+    <div class="ai-logo">
+        <img src="images/relogic-logo_main.png">
+    </div>
+
+    <h2>Let's Begin the<br>Future</h2>
+
+    <p>Smart Solutions for a Better Tomorrow</p>
+
+    <button>Start Exploring</button>
+
+</div>
+
+
+<div class="ai-phone">
+
+    <div class="ai-top">
+        ◯ Relogic Solutions
+    </div>
+
+    <div class="ai-logo-small">
+        <img src="images/relogic-logo_main.png">
+    </div>
+
+    <h2>
+        Welcome to<br>
+        Relogic Solutions
+    </h2>
+
+    <p>Your Partner in Digital Growth</p>
+
+    <div class="ai-box">
+        AI Services
+    </div>
+
+    <div class="ai-box">
+        Cloud Solutions
+    </div>
+
+    <div class="ai-box">
+        Consulting
+    </div>
+
+</div>
+
+
+<div class="ai-phone">
+
+    <div class="ai-top">
+        Ⓡ Relogic Solutions
+    </div>
+
+    <div class="chat-user">
+        Can you give me a motivational quote?
+    </div>
+
+    <div class="chat-ai">
+        Of course! 😊<br><br>
+        Every sunrise is a new chapter in your story.
+    </div>
+
+    <div class="chat-user">
+        Create a futuristic image.
+    </div>
+
+    <div class="chat-ai">
+        Absolutely! 😎
+    </div>
+
+</div>
+
+
+</section>
+
+
+<style>
+
+.ai-mobile-section{
+    padding:80px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    background:
+    radial-gradient(circle,rgba(56,189,248,.15),transparent 55%),
+    #0B1120;
+}
+
+
+.ai-phone{
+    width:280px;
+    height:560px;
+    border-radius:35px;
+    padding:25px;
+    color:white;
+    background:linear-gradient(180deg,#132b52,#020617);
+    border:1px solid rgba(56,189,248,.35);
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+    text-align:center;
+    position:relative;
+}
+
+
+.ai-phone h2{
+    font-size:28px;
+    font-weight:700;
+    margin-top:25px;
+}
+
+
+.ai-phone p{
+    color:#94a3b8;
+    margin-top:15px;
+}
+
+
+.ai-logo{
+    width:140px;
+    height:140px;
+    margin:45px auto;
+}
+
+
+.ai-logo img,
+.ai-logo-small img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+
+.ai-logo-small{
+    width:70px;
+    height:70px;
+    margin:30px auto;
+}
+
+
+.ai-phone button{
+    position:absolute;
+    bottom:25px;
+    left:25px;
+    right:25px;
+    padding:15px;
+    border-radius:20px;
+    background:#38BDF8;
+    border:none;
+}
+
+
+.ai-box{
+    background:#1e3a5f;
+    margin:12px;
+    padding:15px;
+    border-radius:15px;
+}
+
+
+.ai-top{
+    color:#bae6fd;
+}
+
+
+.chat-user,
+.chat-ai{
+    padding:14px;
+    border-radius:18px;
+    margin-top:18px;
+    font-size:13px;
+    text-align:left;
+}
+
+
+.chat-user{
+    background:#17345d;
+}
+
+
+.chat-ai{
+    background:#0f2745;
+}
+
+
+@media(max-width:900px){
+.ai-mobile-section{
+    flex-direction:column;
+}
+}
+
+</style>
+
+<!-- ================= END AI MOBILE DESIGN SECTION ================= -->
+
+
+<!-- CTA -->
     <section id="contact" class="py-16 bg-[#0B1120] border-t border-[#1E293B]">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <div class="bg-[#111827] border border-[#1E293B] rounded-3xl p-10 md:p-14">
@@ -1618,7 +1447,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="images/relogic-logo_main.png" alt="Relogic" class="brand-logo-lg" onerror="this.style.display='none'">
+                        <img src="relogic-logo.png" alt="Relogic" class="brand-logo-lg">
                         <span class="font-bold font-display">Relogic</span>
                     </div>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -1629,7 +1458,6 @@
                     <h5 class="font-semibold text-sm mb-4">Company</h5>
                     <ul class="space-y-2 text-sm text-slate-500">
                         <li><a href="#about" class="hover:text-primary transition">About</a></li>
-                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
                         <li><a href="#leadership" class="hover:text-primary transition">Leadership</a></li>
                         <li><a href="#projects" class="hover:text-primary transition">Projects</a></li>
                         <li><a href="#coreteam" class="hover:text-primary transition">Core Team</a></li>
@@ -1819,9 +1647,11 @@
                 animateCounter(card, parseInt(card.dataset.target), 900);
             });
         });
+
+        // Visual UI Lab removed — replaced by Neural Network Live (see module script below)
     </script>
 
-    <!-- Three.js Neural Network -->
+    <!-- Three.js Neural Network (auto-running) -->
     <script type="importmap">
     {
       "imports": {
@@ -1891,6 +1721,7 @@
         scene.add(rim);
         scene.add(new THREE.PointLight(0x00ccff, 0.7, 25));
 
+        // Neurons
         const colors = [
           new THREE.Color(0x00f0ff),
           new THREE.Color(0x44aaff),
@@ -1932,6 +1763,7 @@
           }
         });
 
+        // Connections
         for (let li = 0; li < LAYER_SIZES.length - 1; li++) {
           const fromNs = neurons.filter(n => n.layer === li);
           const toNs = neurons.filter(n => n.layer === li + 1);
@@ -1957,6 +1789,7 @@
           });
         }
 
+        // Tiny particles
         const pCount = 280;
         const pos = new Float32Array(pCount * 3);
         const cols = new Float32Array(pCount * 3);
@@ -1979,6 +1812,7 @@
         const particles = new THREE.Points(pGeo, pMat);
         scene.add(particles);
 
+        // Interaction
         renderer.domElement.addEventListener('pointerdown', (e) => {
           const rect = renderer.domElement.getBoundingClientRect();
           mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -2000,6 +1834,7 @@
           renderer.setSize(ww, hh);
         });
 
+        // Auto start
         setTimeout(() => fireInputs(), 600);
         animate(particles);
       }
@@ -2082,6 +1917,7 @@
           }
         });
 
+        // Continuous auto pulse
         if (t - lastAutoTime > 1.6) {
           lastAutoTime = t;
           const inputs = neurons.filter(n => n.layer === 0);
@@ -2096,6 +1932,7 @@
         renderer.render(scene, camera);
       }
 
+      // Start once when ready
       let started = false;
       function tryStart() {
         if (started) return;
@@ -2106,11 +1943,170 @@
       if (document.readyState === 'complete') tryStart();
       else window.addEventListener('load', tryStart);
       setTimeout(tryStart, 500);
+      // Observe size in case of late layout
       if (window.ResizeObserver) {
         const ro = new ResizeObserver(() => tryStart());
         ro.observe(container);
       }
     })();
     </script>
-</body>
+<script>(function () {
+  "use strict";
+
+  // Share link redirector
+  document.body.addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
+    const match = href.match(regex);
+
+    if (match) {
+      const isButton = event.target.closest("button");
+      if (isButton) return;
+
+      event.preventDefault();
+      const chatId = match[1];
+      const shareId = match[2];
+      window.location.href = `/share/${shareId}?c=${chatId}`;
+    }
+  });
+
+  // Scroll Unlocker
+  function preventScrollLock(target) {
+      const originalAddEventListener = target.addEventListener;
+      target.addEventListener = function(type, listener, options) {
+          if (type === 'wheel' || type === 'touchmove') return; 
+          return originalAddEventListener.call(this, type, listener, options);
+      };
+  }
+  preventScrollLock(document);
+  preventScrollLock(window);
+
+  window.addEventListener("hashchange", function (event) {
+      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        history.replaceState(null, null, " ");
+      }
+    }, true
+  );
+
+  const filterRules = [
+    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
+    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
+    { type: "selectorOnly", selector: "#modal-account-payment" },
+    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
+    { type: "selectorOnly", selector: 'a[href="/library"]' },
+    { type: "selectorOnly", selector: 'a[href="/admin"]' },
+    { type: "selectorOnly", selector: 'a[href="/apps"]' },
+    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
+    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
+    { type: "textOnly", text: "Report conversation" },
+    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
+    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
+    { type: "textOnly", text: "Archive" },
+    { type: "textOnly", text: "Start a group chat" },
+    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
+  ];
+
+  function cleanDOM() {
+    document.body.removeAttribute('data-scroll-locked');
+    document.documentElement.removeAttribute('data-scroll-locked');
+    
+    const nextRoot = document.getElementById('__next');
+    if (nextRoot) {
+        nextRoot.removeAttribute('aria-hidden');
+    }
+
+    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
+        el.remove();
+    });
+
+    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
+        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
+            el.remove();
+        }
+    });
+
+    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
+        if (el.parentElement) {
+          el.parentElement.innerHTML = `
+                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
+                `;
+        }
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+      
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.remove();
+    });
+
+    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
+    if (dynamicModal) {
+      dynamicModal.remove();
+    }
+
+    filterRules.forEach((rule) => {
+      if (rule.type === "selectorOnly") {
+        const elements = document.querySelectorAll(rule.selector);
+        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "textOnly") {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let textNode;
+        const nodesToHide = [];
+        while ((textNode = walker.nextNode())) {
+          if (textNode.nodeValue.trim() === rule.text) {
+            const parent = textNode.parentElement;
+            if (parent && parent.children.length === 0) nodesToHide.push(parent);
+          }
+        }
+        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "xpath") {
+        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < snapshot.snapshotLength; i++) {
+          const node = snapshot.snapshotItem(i);
+          if (node) node.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
+  let isCleaning = false;
+  const observer = new MutationObserver((mutationsList) => {
+    if (isCleaning) return;
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'attributes') {
+          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
+          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
+      }
+      if (mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
+                node.remove();
+            }
+        });
+
+        isCleaning = true;
+        cleanDOM();
+        isCleaning = false;
+        break;
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
+  cleanDOM();
+})();
+</script></body>
 </html>
