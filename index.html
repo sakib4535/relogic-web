@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogic · AI-Native Studio | Turning Data into Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#38BDF8',
+                        dark: '#0B1120',
+                        card: '#111827',
+                        accent: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0B1120;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 55%),
+                linear-gradient(180deg, #0B1120 0%, #0F172A 100%);
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+            pointer-events: none;
+        }
+
+        #matrixRain {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #38BDF8;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 8s infinite ease-in-out;
+            z-index: 2;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-30px) scale(1.2); opacity: 0.7; }
+        }
+
+        .brand-logo {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+            border: 2px solid rgba(56, 189, 248, 0.25);
+        }
+        .brand-logo-lg {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-link {
+            color: #94A3B8;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+        .nav-link:hover, .nav-link.active { color: #38BDF8; }
+        .btn-primary {
+            background: #38BDF8;
+            color: #0B1120;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+        }
+        .btn-primary:hover {
+            background: #0EA5E9;
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.5);
+        }
+        .btn-secondary {
+            background: #1E293B;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover {
+            background: #334155;
+            border-color: #38BDF8;
+        }
+        .tech-card {
+            background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+            border-radius: 20px;
+            border: 1px solid #334155;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            flex-shrink: 0;
+        }
+        .tech-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: #38BDF8;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(56, 189, 248, 0.15);
+        }
+        .tech-card.active {
+            transform: scale(1.08);
+            border-color: #38BDF8;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(56, 189, 248, 0.25);
+            z-index: 10;
+        }
+        .tech-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .tech-card:hover img { transform: scale(1.05); }
+        .card-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(11,17,32,0.95) 0%, transparent 100%);
+            padding: 24px 16px 16px;
+        }
+        .carousel-container { position: relative; overflow: hidden; padding: 40px 0; }
+        .carousel-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 20px 0;
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s;
+            color: #fff;
+        }
+        .carousel-btn:hover {
+            background: #38BDF8;
+            color: #0B1120;
+            border-color: #38BDF8;
+        }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #475569;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .dot.active {
+            background: #38BDF8;
+            width: 24px;
+            border-radius: 4px;
+        }
+        .float-icon {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            animation: floatIcon 6s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .sparkle {
+            position: absolute;
+            color: #38BDF8;
+            font-size: 14px;
+            opacity: 0.6;
+            animation: sparkle 3s infinite;
+            z-index: 2;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .project-showcase {
+            position: relative;
+            background: #0A0E1A;
+            overflow: hidden;
+        }
+        .project-showcase::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(56,189,248,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .featured-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 380px;
+        }
+        .device-frame {
+            position: relative;
+            z-index: 2;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(56,189,248,0.15);
+            transition: transform 0.4s ease;
+        }
+        .device-frame:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        .device-frame img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .device-float {
+            position: absolute;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+            border: 1px solid rgba(56,189,248,0.2);
+            z-index: 3;
+            transition: transform 0.4s ease;
+        }
+        .device-float:hover {
+            transform: translateY(-6px) scale(1.03);
+            z-index: 5;
+        }
+
+        .project-card-modern {
+            background: #111827;
+            border-radius: 20px;
+            border: 1px solid #1E293B;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .project-card-modern:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(56, 189, 248, 0.1);
+        }
+        .project-card-modern .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .project-card-modern .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .project-card-modern:hover .card-img img {
+            transform: scale(1.08);
+        }
+        .project-card-modern .card-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(17,24,39,0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .project-card-modern:hover .card-img::after {
+            opacity: 1;
+        }
+        .project-category {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #38BDF8;
+        }
+
+        /* ===== TEAM – image ready ===== */
+        .team-section { background: #0B1120; }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 900px) {
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .team-grid { grid-template-columns: 1fr; }
+        }
+        .member-card {
+            background: #111827;
+            border-radius: 20px;
+            border: 1px solid #1E293B;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .member-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 25px rgba(56, 189, 248, 0.1);
+        }
+        .member-card .photo {
+            width: 100%;
+            aspect-ratio: 1 / 1.05;
+            object-fit: cover;
+            display: block;
+            background: #1E293B;
+            transition: transform 0.5s ease;
+        }
+        .member-card:hover .photo {
+            transform: scale(1.04);
+        }
+        .member-card .info {
+            padding: 16px 18px 20px;
+            text-align: center;
+        }
+        .member-card .info h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .member-card .info p {
+            font-size: 0.8rem;
+            color: #38BDF8;
+        }
+        .quote-card {
+            background: #111827;
+            border-radius: 20px;
+            border: 1px solid #1E293B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 28px;
+            text-align: center;
+            transition: all 0.35s;
+            min-height: 100%;
+        }
+        .quote-card:hover {
+            border-color: rgba(56, 189, 248, 0.35);
+            transform: translateY(-6px);
+        }
+        .quote-card p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: #e2e8f0;
+        }
+        .quote-card p span { color: #38BDF8; }
+        .team-intro-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #38BDF8;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            transition: gap 0.25s;
+        }
+        .team-intro-link:hover { gap: 12px; }
+
+        /* Avatar fallback when image fails / missing */
+        .avatar-fallback {
+            width: 100%;
+            aspect-ratio: 1 / 1.05;
+            background: linear-gradient(145deg, #1e3a5f, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #38BDF8;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open { transform: translateX(0); }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #38BDF8; }
+        .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38BDF8;
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            margin: 3px;
+        }
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #38BDF8;
+            margin-bottom: 8px;
+        }
+
+        .partners-marquee {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+        .partners-track {
+            display: flex;
+            gap: 28px;
+            width: max-content;
+            animation: marquee 32s linear infinite;
+        }
+        .partners-track:hover { animation-play-state: paused; }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .partner-card {
+            flex-shrink: 0;
+            width: 150px;
+            height: 80px;
+            background: #111827;
+            border: 1px solid #1E293B;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            transition: all 0.3s;
+        }
+        .partner-card:hover {
+            border-color: #38BDF8;
+            background: #1E293B;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.12);
+        }
+        .partner-card img {
+            max-height: 36px;
+            max-width: 110px;
+            object-fit: contain;
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .engagement-bar {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+            border: 1px solid #334155;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+        .engagement-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.08), transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(99, 102, 241, 0.08), transparent 50%);
+            pointer-events: none;
+        }
+        .stat-card {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .stat-card:hover {
+            border-color: #38BDF8;
+            background: rgba(30, 41, 59, 0.9);
+            transform: translateY(-3px);
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(90deg, #38BDF8, #818CF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ui-lab {
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 16px;
+            min-height: 320px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        #nn-container {
+            flex: 1;
+            width: 100%;
+            height: 280px;
+            min-height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: #050510;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        #nn-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .nn-overlay {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            right: 12px;
+            z-index: 5;
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .nn-badge {
+            background: rgba(11, 17, 32, 0.75);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #38BDF8;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(6px);
+        }
+        .nn-stats-mini {
+            font-size: 11px;
+            color: #94A3B8;
+            text-align: right;
+            line-height: 1.4;
+        }
+        .nn-stats-mini span { color: #38BDF8; font-weight: 600; }
+        .pulse-ring {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #38BDF8;
+            animation: pulseRing 2s infinite;
+        }
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6); }
+            70% { box-shadow: 0 0 0 12px rgba(56, 189, 248, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+        }
+        .hero-title-wrap { position: relative; z-index: 5; }
+
+        /* ===== SERVICES – premium UI ===== */
+        .services-section {
+            position: relative;
+            background: #080C16;
+            overflow: hidden;
+        }
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56,189,248,0.4), transparent);
+        }
+        .services-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .services-glow.left {
+            top: 10%;
+            left: -10%;
+            background: #38BDF8;
+        }
+        .services-glow.right {
+            bottom: 5%;
+            right: -10%;
+            background: #818CF8;
+        }
+
+        .service-mega {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            background: linear-gradient(160deg, rgba(17,24,39,0.95) 0%, rgba(15,23,42,0.98) 100%);
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .service-mega:hover {
+            border-color: rgba(56, 189, 248, 0.45);
+            box-shadow:
+                0 30px 60px rgba(0,0,0,0.45),
+                0 0 0 1px rgba(56, 189, 248, 0.2),
+                0 0 80px rgba(56, 189, 248, 0.08);
+            transform: translateY(-6px);
+        }
+        .service-mega .mega-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.18;
+            transition: opacity 0.5s, transform 0.7s;
+        }
+        .service-mega:hover .mega-bg {
+            opacity: 0.28;
+            transform: scale(1.05);
+        }
+        .service-mega .mega-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.7) 50%, rgba(11,17,32,0.85) 100%);
+        }
+        .service-mega .mega-content {
+            position: relative;
+            z-index: 2;
+            padding: 48px 40px;
+        }
+        @media (max-width: 640px) {
+            .service-mega .mega-content { padding: 36px 24px; }
+        }
+
+        .service-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .service-icon-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 22px;
+            border: 1px solid rgba(56,189,248,0.25);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .service-mega:hover .service-icon-wrap::after {
+            opacity: 1;
+        }
+        .service-icon-research {
+            background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(14,165,233,0.1));
+            color: #38BDF8;
+            box-shadow: 0 0 30px rgba(56,189,248,0.2);
+        }
+        .service-icon-product {
+            background: linear-gradient(135deg, rgba(129,140,248,0.25), rgba(99,102,241,0.1));
+            color: #A5B4FC;
+            box-shadow: 0 0 30px rgba(129,140,248,0.2);
+        }
+
+        .service-features {
+            display: grid;
+            gap: 12px;
+            margin-top: 28px;
+        }
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+            transition: all 0.3s;
+        }
+        .service-mega:hover .service-feature {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(56, 189, 248, 0.2);
+        }
+        .service-feature i {
+            margin-top: 3px;
+            color: #38BDF8;
+            font-size: 13px;
+        }
+        .service-feature span {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+        }
+
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 32px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .service-cta-research {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38BDF8;
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        .service-cta-research:hover {
+            background: #38BDF8;
+            color: #0B1120;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+        }
+        .service-cta-product {
+            background: rgba(129, 140, 248, 0.12);
+            color: #A5B4FC;
+            border-color: rgba(129, 140, 248, 0.3);
+        }
+        .service-cta-product:hover {
+            background: #818CF8;
+            color: #0B1120;
+            box-shadow: 0 0 30px rgba(129, 140, 248, 0.35);
+        }
+
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #38BDF8;
+            margin-bottom: 12px;
+        }
+        .service-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #38BDF8;
+            animation: pulseRing 2s infinite;
+        }
+
+        /* AI mobile phones (kept minimal) */
+        .ai-mobile-section {
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            background:
+                radial-gradient(circle, rgba(56,189,248,.12), transparent 55%),
+                #0B1120;
+            flex-wrap: wrap;
+        }
+        .ai-phone {
+            width: 280px;
+            height: 560px;
+            border-radius: 35px;
+            padding: 25px;
+            color: white;
+            background: linear-gradient(180deg, #132b52, #020617);
+            border: 1px solid rgba(56,189,248,.35);
+            box-shadow: 0 30px 70px rgba(0,0,0,.5);
+            text-align: center;
+            position: relative;
+        }
+        .ai-phone h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .ai-phone p { color: #94a3b8; margin-top: 12px; font-size: 0.9rem; }
+        .ai-logo { width: 120px; height: 120px; margin: 40px auto 10px; }
+        .ai-logo img, .ai-logo-small img { width: 100%; height: 100%; object-fit: contain; }
+        .ai-logo-small { width: 64px; height: 64px; margin: 24px auto 8px; }
+        .ai-phone button {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            padding: 14px;
+            border-radius: 16px;
+            background: #38BDF8;
+            border: none;
+            font-weight: 600;
+            color: #0B1120;
+            cursor: pointer;
+        }
+        .ai-box {
+            background: #1e3a5f;
+            margin: 10px 0;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+        }
+        .ai-top { color: #bae6fd; font-size: 0.8rem; margin-bottom: 8px; }
+        .chat-user, .chat-ai {
+            padding: 12px 14px;
+            border-radius: 16px;
+            margin-top: 14px;
+            font-size: 13px;
+            text-align: left;
+        }
+        .chat-user { background: #17345d; }
+        .chat-ai { background: #0f2745; }
+        @media (max-width: 900px) {
+            .ai-mobile-section { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B1120]/90 backdrop-blur-md border-b border-[#1E293B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <div class="flex items-center gap-3">
+                    <img src="images/relogic-logo_main.png" alt="Relogic Solutions" class="brand-logo" onerror="this.style.display='none'">
+                    <span class="text-xl font-bold tracking-tight font-display">Relogic</span>
+                </div>
+                <nav class="hidden md:flex items-center gap-7">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#leadership" class="nav-link">Leadership</a>
+                    <a href="#coreteam" class="nav-link">Core Team</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="#contact" class="btn-primary px-5 py-2.5 text-sm hidden sm:inline-flex items-center gap-2">
+                        Let's Talk
+                    </a>
+                    <button id="menuBtn" class="md:hidden w-10 h-10 flex items-center justify-center text-xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu fixed top-16 right-0 bottom-0 w-64 bg-[#0F172A] border-l border-[#1E293B] p-6 md:hidden z-40">
+            <nav class="flex flex-col gap-4">
+                <a href="#home" class="nav-link active text-lg">Home</a>
+                <a href="#about" class="nav-link text-lg">About</a>
+                <a href="#services" class="nav-link text-lg">Services</a>
+                <a href="#projects" class="nav-link text-lg">Projects</a>
+                <a href="#leadership" class="nav-link text-lg">Leadership</a>
+                <a href="#coreteam" class="nav-link text-lg">Core Team</a>
+                <a href="#contact" class="btn-primary px-5 py-3 mt-4 text-center">Let's Talk</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero-bg min-h-screen pt-24 pb-16 relative overflow-hidden">
+        <canvas id="matrixRain"></canvas>
+
+        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 40%; left: 85%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 30%; left: 70%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="top: 75%; left: 50%; animation-delay: 0.5s;"></div>
+
+        <div class="float-icon" style="top: 22%; left: 7%; background: linear-gradient(135deg,#6366F1,#38BDF8); animation-delay: 0s;">
+            <i class="fas fa-brain text-white"></i>
+        </div>
+        <div class="float-icon" style="top: 32%; right: 9%; background: linear-gradient(135deg,#0EA5E9,#38BDF8); animation-delay: 1s;">
+            <i class="fas fa-microchip text-white"></i>
+        </div>
+        <div class="float-icon" style="top: 58%; left: 11%; background: linear-gradient(135deg,#38BDF8,#818CF8); animation-delay: 2s;">
+            <i class="fas fa-network-wired text-white"></i>
+        </div>
+
+        <div class="sparkle" style="top: 18%; left: 25%;"><i class="fas fa-sparkles"></i></div>
+        <div class="sparkle" style="top: 22%; right: 22%; animation-delay: 1s;"><i class="fas fa-star"></i></div>
+        <div class="sparkle" style="top: 48%; right: 14%; animation-delay: 0.5s;"><i class="fas fa-sparkles"></i></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 hero-title-wrap">
+                <p class="text-primary text-sm font-semibold tracking-widest uppercase mb-4">AI-Native Studio · Research Consulting</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight font-display">
+                    Turning Data into<br>Intelligence
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Relogic Solutions is an AI-native innovation studio. We transform unstructured data into intelligent, research-driven outcomes through ethical AI and human-centric design.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#services" class="btn-primary px-8 py-3.5 text-base flex items-center gap-2">
+                        Our Services <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="#about" class="btn-secondary px-8 py-3.5 text-base flex items-center gap-2">
+                        About Us <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tech Image Carousel -->
+            <div class="carousel-container relative">
+                <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="overflow-hidden px-12 md:px-16">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="tech-card w-[260px] md:w-[280px]" data-index="0">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&h=500&fit=crop" alt="AI Robotics">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">AI Robotics</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Intelligent Systems</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-card w-[260px] md:w-[280px]" data-index="1">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=500&fit=crop" alt="Neural Networks">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">Neural Networks</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Deep Learning</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-card active w-[260px] md:w-[280px]" data-index="2">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&h=500&fit=crop" alt="Machine Learning">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">Machine Learning</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Core Intelligence</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-card w-[260px] md:w-[280px]" data-index="3">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=500&h=500&fit=crop" alt="Data Pipelines">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">Data Pipelines</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Analytics Engine</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-card w-[260px] md:w-[280px]" data-index="4">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=500&h=500&fit=crop" alt="Humanoid AI">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">Humanoid AI</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Computer Vision</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-card w-[260px] md:w-[280px]" data-index="5">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=500&fit=crop" alt="Code Intelligence">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">Code Intelligence</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">ML Engineering</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tech-card w-[260px] md:w-[280px]" data-index="6">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=500&fit=crop" alt="Circuit Systems">
+                                <div class="card-label">
+                                    <h3 class="font-semibold text-sm">Circuit Systems</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Edge Computing</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 mt-6" id="dotsContainer">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                    <div class="dot" data-index="3"></div>
+                </div>
+            </div>
+
+            <!-- Partners marquee -->
+            <div class="mt-10 mb-4">
+                <p class="text-center text-slate-500 text-sm uppercase tracking-widest mb-6">Organizations we've collaborated with</p>
+                <div class="partners-marquee">
+                    <div class="partners-track">
+                        <div class="partner-card"><img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.src='https://www.google.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.src='https://www.microsoft.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.src='https://www.amazon.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.src='https://www.nvidia.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/openai.com" alt="OpenAI" onerror="this.src='https://openai.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.src='https://www.meta.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/google.com" alt="Google" onerror="this.src='https://www.google.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" onerror="this.src='https://www.microsoft.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/amazon.com" alt="Amazon" onerror="this.src='https://www.amazon.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/nvidia.com" alt="NVIDIA" onerror="this.src='https://www.nvidia.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/openai.com" alt="OpenAI" onerror="this.src='https://openai.com/favicon.ico'"></div>
+                        <div class="partner-card"><img src="https://logo.clearbit.com/meta.com" alt="Meta" onerror="this.src='https://www.meta.com/favicon.ico'"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Engagement Bar -->
+            <div class="mt-14 engagement-bar p-6 md:p-8 relative z-10">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="pulse-ring"></div>
+                    <span class="text-primary text-xs font-semibold uppercase tracking-widest ml-4">Live Experience · Interact</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-display font-semibold text-lg mb-1">Impact at a Glance</h3>
+                        <p class="text-slate-400 text-sm mb-5">Click any metric to replay the animation</p>
+                        <div class="grid grid-cols-2 gap-3" id="statsGrid">
+                            <div class="stat-card" data-target="47">
+                                <div class="stat-number"><span class="counter">0</span><span class="suffix">+</span></div>
+                                <p class="text-xs text-slate-400 mt-1">Projects Delivered</p>
+                            </div>
+                            <div class="stat-card" data-target="12">
+                                <div class="stat-number"><span class="counter">0</span><span class="suffix">M+</span></div>
+                                <p class="text-xs text-slate-400 mt-1">Data Points Processed</p>
+                            </div>
+                            <div class="stat-card" data-target="98">
+                                <div class="stat-number"><span class="counter">0</span><span class="suffix">%</span></div>
+                                <p class="text-xs text-slate-400 mt-1">Client Satisfaction</p>
+                            </div>
+                            <div class="stat-card" data-target="6">
+                                <div class="stat-number"><span class="counter">0</span><span class="suffix"></span></div>
+                                <p class="text-xs text-slate-400 mt-1">Research Papers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui-lab">
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <h3 class="font-display font-semibold text-lg">Neural Network Live</h3>
+                                <p class="text-slate-400 text-xs">Auto-running signal propagation · click neurons to fire</p>
+                            </div>
+                            <div class="nn-badge">LIVE</div>
+                        </div>
+                        <div id="nn-container">
+                            <div class="nn-overlay">
+                                <div class="nn-badge">NeuroPulse</div>
+                                <div class="nn-stats-mini">
+                                    Signals <span id="nn-fired">0</span><br>
+                                    Active <span id="nn-active">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-[#0B1120] border-t border-[#1E293B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-label">About</div>
+            <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Who We <span class="text-primary">Are</span></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-start mt-10">
+                <div>
+                    <p class="text-slate-400 text-base leading-relaxed mb-5">
+                        Relogic Solutions is an AI-native innovation studio and research consulting hub. We specialize in transforming unstructured data into intelligent, research-driven outcomes.
+                    </p>
+                    <p class="text-slate-400 text-base leading-relaxed mb-6">
+                        Our approach is rooted in <strong class="text-white">ethical AI</strong>, <strong class="text-white">data analytics</strong>, and <strong class="text-white">human-centric innovation</strong>. Technology should serve people.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Ethical AI</span>
+                        <span class="tag">Data Analytics</span>
+                        <span class="tag">Human-Centric</span>
+                        <span class="tag">Research Consulting</span>
+                        <span class="tag">Innovation Studio</span>
+                    </div>
+                </div>
+                <div class="bg-[#111827] border border-[#1E293B] rounded-2xl p-8">
+                    <h3 class="text-xl font-semibold mb-4 font-display">Our Focus</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Clinical data intelligence & bilingual voice recognition</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Advanced Persistent Threat detection frameworks</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Unstructured data → actionable visual stories</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Ethical AI governance, fairness & explainability</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check text-primary mt-1"></i> Research-driven consulting for enterprises</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="services-section py-24 border-t border-[#1E293B]">
+        <div class="services-glow left"></div>
+        <div class="services-glow right"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="section-label">What We Do</div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-5">
+                    Our <span class="text-primary">Services</span>
+                </h2>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    Two focused practices. One obsession with clarity, craft, and outcomes that feel inevitable.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
+
+                <!-- Research Consultancy -->
+                <div class="service-mega">
+                    <div class="mega-bg" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&h=700&fit=crop');"></div>
+                    <div class="mega-overlay"></div>
+                    <div class="mega-content">
+                        <div class="service-badge">
+                            <span class="dot"></span> Practice 01
+                        </div>
+                        <div class="service-icon-wrap service-icon-research">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold font-display mb-4 leading-tight">
+                            Research<br><span class="text-primary">Consultancy</span>
+                        </h3>
+                        <p class="text-slate-400 text-base leading-relaxed max-w-md">
+                            We turn ambiguous questions into rigorous, publishable insight — from literature synthesis and experimental design to ethical AI evaluation and decision-ready reports.
+                        </p>
+
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Literature reviews, systematic synthesis & research roadmaps</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Ethical AI audits, fairness & explainability frameworks</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Clinical / domain data intelligence & bilingual NLP studies</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Threat modeling, APT research & security whitepapers</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Executive briefings and peer-review ready documentation</span>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="service-cta service-cta-research">
+                            Start a Research Engagement <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Digital Product Development -->
+                <div class="service-mega">
+                    <div class="mega-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=700&fit=crop');"></div>
+                    <div class="mega-overlay"></div>
+                    <div class="mega-content">
+                        <div class="service-badge" style="color: #A5B4FC;">
+                            <span class="dot" style="background: #A5B4FC;"></span> Practice 02
+                        </div>
+                        <div class="service-icon-wrap service-icon-product">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-bold font-display mb-4 leading-tight">
+                            Digital Product<br><span style="color: #A5B4FC;">Development</span>
+                        </h3>
+                        <p class="text-slate-400 text-base leading-relaxed max-w-md">
+                            End-to-end product craft — strategy, interface systems, and production-grade software that feels inevitable the moment someone touches it.
+                        </p>
+
+                        <div class="service-features">
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
+                                <span>Product strategy, information architecture & UX systems</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
+                                <span>High-fidelity UI, design systems & micro-interactions</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
+                                <span>Full-stack / AI-powered product engineering</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
+                                <span>ClinTx, InsightFlow & custom platform builds</span>
+                            </div>
+                            <div class="service-feature">
+                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
+                                <span>Launch, iteration and measurable outcome loops</span>
+                            </div>
+                        </div>
+
+                        <a href="#contact" class="service-cta service-cta-product">
+                            Build a Product With Us <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects" class="project-showcase py-24 border-t border-[#1E293B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+                <div>
+                    <div class="section-label">Projects</div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-6">
+                        Our <span class="text-primary">Solutions</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-lg">
+                        Advanced AI-powered tools for healthcare, cybersecurity, analytics and governance — crafted with precision and ethical intelligence.
+                    </p>
+                    <a href="#contact" class="btn-primary px-8 py-3.5 text-base inline-flex items-center gap-2">
+                        Explore All Solutions <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="featured-visual">
+                    <div class="device-frame w-[85%] max-w-md">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop" alt="Analytics Dashboard" class="w-full aspect-[4/3] object-cover">
+                    </div>
+                    <div class="device-float w-36 md:w-44" style="bottom: 8%; left: 0;">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=700&fit=crop" alt="Clinical App" class="w-full aspect-[9/16] object-cover">
+                    </div>
+                    <div class="device-float w-40 md:w-48" style="top: 5%; right: -5%;">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&h=350&fit=crop" alt="Security" class="w-full aspect-video object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="project-card-modern group">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="ClinTx Engine">
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="project-category bg-black/50 backdrop-blur px-2 py-1 rounded">Clinical Engine</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition">ClinTx Engine</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Clinical data ingestion with bilingual voice recognition and OCR for research-ready medical data.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="tag">Voice Recognition</span>
+                            <span class="tag">OCR</span>
+                            <span class="tag">HIPAA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-modern group">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=400&fit=crop" alt="APT Detection">
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="project-category bg-black/50 backdrop-blur px-2 py-1 rounded">Cybersecurity</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition">APT Detection Framework</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Unsupervised learning + real-time network anomaly detection for Advanced Persistent Threats.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="tag">Unsupervised ML</span>
+                            <span class="tag">Zero-day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-modern group">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="InsightFlow">
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="project-category bg-black/50 backdrop-blur px-2 py-1 rounded">Analytics</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition">InsightFlow Analytics</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Turns raw unstructured data into interactive visual stories and actionable business intelligence.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="tag">Visual Storytelling</span>
+                            <span class="tag">Predictive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-modern group">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="EthosAI">
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="project-category bg-black/50 backdrop-blur px-2 py-1 rounded">Governance</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg mb-2 group-hover:text-primary transition">EthosAI Governance</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">Ethical AI platform ensuring fairness, transparency and accountability from development to deployment.</p>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="tag">Fairness</span>
+                            <span class="tag">Explainability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEADERSHIP ==================== -->
+    <section id="leadership" class="team-section py-24 border-t border-[#1E293B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
+                <div class="lg:col-span-4">
+                    <div class="section-label">Team</div>
+                    <h2 class="text-4xl md:text-5xl font-bold font-display leading-tight mb-5">
+                        OUR <span class="text-primary">TEAM</span>
+                    </h2>
+                    <p class="text-slate-400 text-base leading-relaxed max-w-sm">
+                        These people are transforming ideas into exceptional digital experiences and research-driven intelligence.
+                    </p>
+                    <a href="#coreteam" class="team-intro-link">
+                        Meet the Team <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="lg:col-span-8">
+                    <div class="team-grid">
+                        <!-- Hasnain Imtiaz -->
+                        <div class="member-card">
+                            <img class="photo" src="images/team/sakib.jpg" alt="Hasnain Imtiaz"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">HI</div>
+                            <div class="info">
+                                <h4>Hasnain Imtiaz</h4>
+                                <p>Co-founder</p>
+                            </div>
+                        </div>
+                        <!-- Robin Jamal -->
+                        <div class="member-card">
+                            <img class="photo" src="images/team/robin.jpg" alt="Robin Jamal"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">RJ</div>
+                            <div class="info">
+                                <h4>Robin Jamal</h4>
+                                <p>Co-founder</p>
+                            </div>
+                        </div>
+                        <div class="quote-card">
+                            <p>The real value<br>is always<br><span>people.</span></p>
+                        </div>
+
+                        <div class="quote-card">
+                            <p>Talent turns<br>vision into<br><span>reality.</span></p>
+                        </div>
+                        <!-- Tanvir Mehedi -->
+                        <div class="member-card">
+                            <img class="photo" src="images/team/tanvir.jpg" alt="Tanvir Mehedi"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">TM</div>
+                            <div class="info">
+                                <h4>Tanvir Mehedi</h4>
+                                <p>Leadership · BUET</p>
+                            </div>
+                        </div>
+                        <!-- Dr. Tariq Mohammad -->
+                        <div class="member-card">
+                            <img class="photo" src="images/team/tarek.png" alt="Dr. Tariq Mohammad"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">TM</div>
+                            <div class="info">
+                                <h4>Dr. Tariq Mohammad</h4>
+                                <p>Advisor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advisors -->
+            <div class="mt-6">
+                <p class="text-slate-500 text-xs uppercase tracking-widest mb-5">Advisors</p>
+                <div class="team-grid">
+                    <div class="member-card">
+                        <img class="photo" src="images/team/tahsin.jpg" alt="Tahsin H. Khan"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-fallback" style="display:none;">SE</div>
+                        <div class="info">
+                            <h4>Tahsin H. Khan</h4>
+                            <p>Advisor — Portfolio & Brand</p>
+                        </div>
+                    </div>
+                    <div class="member-card">
+                        <img class="photo" src="images/team/shayn.jpg" alt="Shayne Mallet"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-fallback" style="display:none;">SM</div>
+                        <div class="info">
+                            <h4>Shayne Mallet</h4>
+                            <p>Advisor — Core Engineering</p>
+                        </div>
+                    </div>
+                    <div class="quote-card">
+                        <p>Ethical AI<br>starts with<br><span>people.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CORE TEAM ==================== -->
+    <section id="coreteam" class="team-section py-24 border-t border-[#1E293B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
+                <div class="lg:col-span-4">
+                    <div class="section-label">Team</div>
+                    <h2 class="text-4xl md:text-5xl font-bold font-display leading-tight mb-5">
+                        CORE <span class="text-primary">TEAM</span>
+                    </h2>
+                    <p class="text-slate-400 text-base leading-relaxed max-w-sm">
+                        The engine behind our products — engineers, researchers and designers building the future of intelligent systems.
+                    </p>
+                    <a href="#contact" class="team-intro-link">
+                        Work with us <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="lg:col-span-8">
+                    <div class="team-grid">
+                        <div class="member-card">
+                            <img class="photo" src="images/team/Walid.jpg" alt="Sayem Walid"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">SW</div>
+                            <div class="info">
+                                <h4>Sayem Walid</h4>
+                                <p>Legal & Communication</p>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <img class="photo" src="images/team/Adnan.jpg" alt="Adnan Rahman"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">AR</div>
+                            <div class="info">
+                                <h4>Adnan Rahman</h4>
+                                <p>Backend / ML Programmer</p>
+                            </div>
+                        </div>
+                        <div class="quote-card">
+                            <p>Code with<br>purpose.<br><span>Ship with care.</span></p>
+                        </div>
+
+                        <div class="quote-card">
+                            <p>Data becomes<br>intelligence<br><span>through people.</span></p>
+                        </div>
+                        <div class="member-card">
+                            <img class="photo" src="images/team/sazzad-hossain-pranto.jpg" alt="Sazzad Hossain Pranto"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">SP</div>
+                            <div class="info">
+                                <h4>Sazzad Hossain Pranto</h4>
+                                <p>MERN Stack Developer</p>
+                            </div>
+                        </div>
+                        <div class="member-card">
+                            <img class="photo" src="images/team/hassan-arif.jpg" alt="Hassan Arif"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="avatar-fallback" style="display:none;">HA</div>
+                            <div class="info">
+                                <h4>Hassan Arif</h4>
+                                <p>Database Programmer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-grid mt-2">
+                <div class="member-card">
+                    <img class="photo" src="images/team/mahir-hassan-shuvo.jpg" alt="Mahir Hassan Shuvo"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display:none;">MS</div>
+                    <div class="info">
+                        <h4>Mahir Hassan Shuvo</h4>
+                        <p>Research & Analytics</p>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img class="photo" src="images/team/atikul-islam-dipto.jpg" alt="Atikul Islam Dipto"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="avatar-fallback" style="display:none;">AD</div>
+                    <div class="info">
+                        <h4>Atikul Islam Dipto</h4>
+                        <p>Product Developer & Designer</p>
+                    </div>
+                </div>
+                <div class="quote-card">
+                    <p>Build what<br>matters.<br><span>Leave a mark.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Mobile mockups -->
+    <section class="ai-mobile-section">
+        <div class="ai-phone">
+            <div class="ai-logo">
+                <img src="images/team/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
+            </div>
+            <h2>Let's Begin the<br>Future</h2>
+            <p>Smart Solutions for a Better Tomorrow</p>
+            <button>Start Exploring</button>
+        </div>
+
+        <div class="ai-phone">
+            <div class="ai-top">◯ Relogic Solutions</div>
+            <div class="ai-logo-small">
+                <img src="images/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
+            </div>
+            <h2>Welcome to<br>Relogic Solutions</h2>
+            <p>Your Partner in Digital Growth</p>
+            <div class="ai-box">AI Services</div>
+            <div class="ai-box">Cloud Solutions</div>
+            <div class="ai-box">Consulting</div>
+        </div>
+
+        <div class="ai-phone">
+            <div class="ai-top">Ⓡ Relogic Solutions</div>
+            <div class="chat-user">Can you give me a motivational quote?</div>
+            <div class="chat-ai">Of course! 😊<br><br>Every sunrise is a new chapter in your story.</div>
+            <div class="chat-user">Create a futuristic image.</div>
+            <div class="chat-ai">Absolutely! 😎</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="py-16 bg-[#0B1120] border-t border-[#1E293B]">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="bg-[#111827] border border-[#1E293B] rounded-3xl p-10 md:p-14">
+                <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">
+                    Ready to build something<br><span class="text-primary">intelligent</span>?
+                </h2>
+                <p class="text-slate-400 max-w-lg mx-auto mb-8">
+                    Let's turn your unstructured data into research-driven outcomes. We'd love to hear about your next challenge.
+                </p>
+                <a href="mailto:hello@relogic.ai" class="btn-primary px-10 py-4 text-base inline-flex items-center gap-2">
+                    🚀 Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-[#1E293B] bg-[#080E1A]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/relogic-logo_main.png" alt="Relogic" class="brand-logo-lg" onerror="this.style.display='none'">
+                        <span class="font-bold font-display">Relogic</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        AI-native innovation studio & research consulting hub. Transforming unstructured data into intelligent, human-centric outcomes.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-sm mb-4">Company</h5>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li><a href="#about" class="hover:text-primary transition">About</a></li>
+                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="#leadership" class="hover:text-primary transition">Leadership</a></li>
+                        <li><a href="#projects" class="hover:text-primary transition">Projects</a></li>
+                        <li><a href="#coreteam" class="hover:text-primary transition">Core Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-sm mb-4">Focus</h5>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li>Ethical AI</li>
+                        <li>Data Analytics</li>
+                        <li>Research</li>
+                        <li>Innovation</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-sm mb-4">Connect</h5>
+                    <ul class="space-y-2 text-sm text-slate-500">
+                        <li>Dhaka, Bangladesh</li>
+                        <li><a href="mailto:hello@relogic.ai" class="hover:text-primary transition">hello@relogic.ai</a></li>
+                        <li>+880 1234 567890</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-[#1E293B] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+                <span>© 2026 Relogic Solutions. All rights reserved.</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-primary transition">Privacy</a>
+                    <a href="#" class="hover:text-primary transition">Terms</a>
+                    <a href="#" class="hover:text-primary transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Matrix Digital Rain
+        const canvas = document.getElementById('matrixRain');
+        const ctx = canvas.getContext('2d');
+        let width, height, columns, drops;
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789{}[]()<>=+-*/&|!;:';
+        const fontSize = 14;
+
+        function resizeMatrix() {
+            width = canvas.width = canvas.parentElement.offsetWidth;
+            height = canvas.height = canvas.parentElement.offsetHeight;
+            columns = Math.floor(width / fontSize);
+            drops = Array(columns).fill(1);
+        }
+        resizeMatrix();
+        window.addEventListener('resize', resizeMatrix);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(11, 17, 32, 0.08)';
+            ctx.fillRect(0, 0, width, height);
+            ctx.fillStyle = '#38BDF8';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+                ctx.globalAlpha = 0.15 + Math.random() * 0.45;
+                ctx.fillText(text, x, y);
+                if (y > height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(drawMatrix);
+        }
+        drawMatrix();
+
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(a => {
+            a.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuBtn.querySelector('i').classList.remove('fa-times');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Tech carousel
+        const track = document.getElementById('carouselTrack');
+        const cards = Array.from(track.querySelectorAll('.tech-card'));
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('#dotsContainer .dot');
+        let currentIndex = 2;
+        const cardWidth = 280 + 24;
+
+        function updateCarousel() {
+            const offset = (track.parentElement.offsetWidth / 2) - (cardWidth / 2) - (currentIndex * cardWidth);
+            track.style.transform = `translateX(${offset}px)`;
+            cards.forEach((card, i) => card.classList.toggle('active', i === currentIndex));
+            const dotIndex = Math.min(Math.floor(currentIndex / 2), dots.length - 1);
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === dotIndex));
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = Math.max(0, currentIndex - 1);
+            updateCarousel();
+        });
+        nextBtn.addEventListener('click', () => {
+            currentIndex = Math.min(cards.length - 1, currentIndex + 1);
+            updateCarousel();
+        });
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.dataset.index) * 2;
+                updateCarousel();
+            });
+        });
+
+        window.addEventListener('load', updateCarousel);
+        window.addEventListener('resize', updateCarousel);
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % cards.length;
+            updateCarousel();
+        }, 4500);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Active nav
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (window.pageYOffset >= section.offsetTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+
+        // Counters
+        function animateCounter(el, target, duration = 1500) {
+            const counter = el.querySelector('.counter');
+            const startTime = performance.now();
+            function update(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = Math.floor(eased * target);
+                if (progress < 1) requestAnimationFrame(update);
+                else counter.textContent = target;
+            }
+            requestAnimationFrame(update);
+        }
+
+        function runAllCounters() {
+            document.querySelectorAll('.stat-card').forEach(card => {
+                animateCounter(card, parseInt(card.dataset.target));
+            });
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    runAllCounters();
+                    statsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        statsObserver.observe(document.getElementById('statsGrid'));
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('click', () => {
+                animateCounter(card, parseInt(card.dataset.target), 900);
+            });
+        });
+    </script>
+
+    <!-- Three.js Neural Network -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+      }
+    }
+    </script>
+    <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    (function initNeuroPulseEmbed() {
+      const container = document.getElementById('nn-container');
+      if (!container) return;
+
+      const LAYER_SIZES = [5, 7, 6, 4, 2];
+      const LAYER_SPACING = 3.6;
+      const NEURON_SPACING = 0.95;
+      const NEURON_RADIUS = 0.18;
+      const CONNECTION_OPACITY = 0.16;
+      const PULSE_SPEED = 3.2;
+      const ACTIVATION_DECAY = 0.982;
+
+      let scene, camera, renderer, controls;
+      let neurons = [];
+      let connections = [];
+      let signalsFired = 0;
+      let clock = new THREE.Clock();
+      let lastAutoTime = 0;
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+
+      function build() {
+        const w = container.clientWidth || 400;
+        const h = container.clientHeight || 280;
+
+        scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x050510, 0.045);
+
+        camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
+        camera.position.set(0, 1.2, 14);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setSize(w, h);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setClearColor(0x050510);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.1;
+        container.appendChild(renderer.domElement);
+
+        controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.minDistance = 5;
+        controls.maxDistance = 28;
+        controls.enablePan = false;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.6;
+
+        scene.add(new THREE.AmbientLight(0x1a2040, 0.7));
+        const key = new THREE.DirectionalLight(0x88ccff, 0.7);
+        key.position.set(4, 8, 6);
+        scene.add(key);
+        const rim = new THREE.DirectionalLight(0xff44aa, 0.3);
+        rim.position.set(-5, -3, -4);
+        scene.add(rim);
+        scene.add(new THREE.PointLight(0x00ccff, 0.7, 25));
+
+        const colors = [
+          new THREE.Color(0x00f0ff),
+          new THREE.Color(0x44aaff),
+          new THREE.Color(0xaa66ff),
+          new THREE.Color(0xff44aa),
+          new THREE.Color(0xffaa00)
+        ];
+        const totalW = (LAYER_SIZES.length - 1) * LAYER_SPACING;
+        const startX = -totalW / 2;
+
+        LAYER_SIZES.forEach((count, li) => {
+          const x = startX + li * LAYER_SPACING;
+          const totalH = (count - 1) * NEURON_SPACING;
+          const startY = -totalH / 2;
+          for (let i = 0; i < count; i++) {
+            const y = startY + i * NEURON_SPACING;
+            const z = (Math.random() - 0.5) * 0.35;
+            const geo = new THREE.SphereGeometry(NEURON_RADIUS, 16, 16);
+            const mat = new THREE.MeshStandardMaterial({
+              color: colors[li].clone().multiplyScalar(0.35),
+              emissive: colors[li].clone().multiplyScalar(0.15),
+              emissiveIntensity: 0.4,
+              metalness: 0.55,
+              roughness: 0.3,
+              transparent: true,
+              opacity: 0.95
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set(x, y, z);
+            mesh.userData = { isNeuron: true };
+            scene.add(mesh);
+            const light = new THREE.PointLight(colors[li].getHex(), 0, 2.2);
+            light.position.copy(mesh.position);
+            scene.add(light);
+            neurons.push({
+              mesh, light, layer: li, index: i,
+              activation: 0, baseColor: colors[li].clone()
+            });
+          }
+        });
+
+        for (let li = 0; li < LAYER_SIZES.length - 1; li++) {
+          const fromNs = neurons.filter(n => n.layer === li);
+          const toNs = neurons.filter(n => n.layer === li + 1);
+          fromNs.forEach(from => {
+            toNs.forEach(to => {
+              const weight = (Math.random() * 2 - 1) * 1.3;
+              const pts = [from.mesh.position.clone(), to.mesh.position.clone()];
+              const geo = new THREE.BufferGeometry().setFromPoints(pts);
+              const col = weight >= 0 ? new THREE.Color(0x00ccff) : new THREE.Color(0xff4488);
+              const mat = new THREE.LineBasicMaterial({
+                color: col, transparent: true,
+                opacity: CONNECTION_OPACITY * (0.4 + Math.abs(weight) * 0.4),
+                blending: THREE.AdditiveBlending
+              });
+              const line = new THREE.Line(geo, mat);
+              scene.add(line);
+              connections.push({
+                line, from, to, weight,
+                baseOpacity: mat.opacity,
+                pulseProgress: -1
+              });
+            });
+          });
+        }
+
+        const pCount = 280;
+        const pos = new Float32Array(pCount * 3);
+        const cols = new Float32Array(pCount * 3);
+        const cA = new THREE.Color(0x00e5ff);
+        const cB = new THREE.Color(0xff00aa);
+        for (let i = 0; i < pCount; i++) {
+          pos[i*3] = (Math.random()-0.5)*40;
+          pos[i*3+1] = (Math.random()-0.5)*28;
+          pos[i*3+2] = (Math.random()-0.5)*35;
+          const c = Math.random() > 0.5 ? cA : cB;
+          cols[i*3] = c.r; cols[i*3+1] = c.g; cols[i*3+2] = c.b;
+        }
+        const pGeo = new THREE.BufferGeometry();
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        pGeo.setAttribute('color', new THREE.BufferAttribute(cols, 3));
+        const pMat = new THREE.PointsMaterial({
+          size: 0.07, vertexColors: true, transparent: true,
+          opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false
+        });
+        const particles = new THREE.Points(pGeo, pMat);
+        scene.add(particles);
+
+        renderer.domElement.addEventListener('pointerdown', (e) => {
+          const rect = renderer.domElement.getBoundingClientRect();
+          mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+          raycaster.setFromCamera(mouse, camera);
+          const hits = raycaster.intersectObjects(neurons.map(n => n.mesh));
+          if (hits.length) {
+            const n = neurons.find(nn => nn.mesh === hits[0].object);
+            if (n) activate(n, 1.1);
+          }
+        });
+
+        window.addEventListener('resize', () => {
+          const ww = container.clientWidth;
+          const hh = container.clientHeight;
+          if (ww < 10 || hh < 10) return;
+          camera.aspect = ww / hh;
+          camera.updateProjectionMatrix();
+          renderer.setSize(ww, hh);
+        });
+
+        setTimeout(() => fireInputs(), 600);
+        animate(particles);
+      }
+
+      function activate(n, amount = 1) {
+        n.activation = Math.min(1.5, n.activation + amount);
+        signalsFired++;
+        updateMini();
+        n.mesh.material.emissiveIntensity = 2.2;
+        n.light.intensity = 1.6;
+        setTimeout(() => propagate(n), 50);
+      }
+
+      function propagate(src) {
+        connections.filter(c => c.from === src).forEach(conn => {
+          if (Math.abs(conn.weight) < 0.12 || src.activation < 0.12) return;
+          const strength = src.activation * Math.tanh(conn.weight * 1.15);
+          if (Math.abs(strength) < 0.04) return;
+          conn.pulseProgress = 0;
+          conn.line.material.opacity = Math.min(0.8, 0.25 + Math.abs(strength) * 0.55);
+          const dist = src.mesh.position.distanceTo(conn.to.mesh.position);
+          const travel = (dist / PULSE_SPEED) * 900;
+          setTimeout(() => {
+            conn.to.activation = Math.min(1.5, conn.to.activation + Math.abs(strength) * 0.8);
+            updateMini();
+            if (conn.to.activation > 0.18 && conn.to.layer < LAYER_SIZES.length - 1) {
+              setTimeout(() => propagate(conn.to), 30);
+            }
+          }, travel);
+        });
+      }
+
+      function fireInputs() {
+        neurons.filter(n => n.layer === 0).forEach((n, i) => {
+          setTimeout(() => activate(n, 0.85 + Math.random() * 0.35), i * 60);
+        });
+      }
+
+      function updateMini() {
+        const elF = document.getElementById('nn-fired');
+        const elA = document.getElementById('nn-active');
+        if (elF) elF.textContent = signalsFired;
+        if (elA) elA.textContent = neurons.filter(n => n.activation > 0.12).length;
+      }
+
+      function animate(particles) {
+        requestAnimationFrame(() => animate(particles));
+        const dt = Math.min(clock.getDelta(), 0.05);
+        const t = clock.getElapsedTime();
+        controls.update();
+
+        neurons.forEach(n => {
+          n.activation *= ACTIVATION_DECAY;
+          if (n.activation < 0.008) n.activation = 0;
+          const intens = 0.35 + n.activation * 2.1;
+          n.mesh.material.emissiveIntensity = THREE.MathUtils.lerp(n.mesh.material.emissiveIntensity, intens, 0.12);
+          const bright = n.baseColor.clone().multiplyScalar(0.35 + n.activation * 1.3);
+          n.mesh.material.color.lerp(bright, 0.1);
+          n.mesh.material.emissive.lerp(n.baseColor.clone().multiplyScalar(0.2 + n.activation * 0.85), 0.1);
+          const s = 1 + n.activation * 0.32;
+          n.mesh.scale.setScalar(THREE.MathUtils.lerp(n.mesh.scale.x, s, 0.14));
+          n.light.intensity = THREE.MathUtils.lerp(n.light.intensity, n.activation * 1.8, 0.14);
+        });
+
+        connections.forEach(conn => {
+          if (conn.pulseProgress >= 0) {
+            conn.pulseProgress += dt * PULSE_SPEED * 0.5;
+            if (conn.pulseProgress >= 1) {
+              conn.pulseProgress = -1;
+              conn.line.material.opacity = THREE.MathUtils.lerp(conn.line.material.opacity, conn.baseOpacity, 0.25);
+            } else {
+              conn.line.material.opacity = 0.22 + Math.sin(conn.pulseProgress * Math.PI) * 0.5;
+            }
+          } else {
+            conn.line.material.opacity = THREE.MathUtils.lerp(
+              conn.line.material.opacity,
+              conn.baseOpacity * (0.85 + Math.sin(t * 1.4 + conn.weight * 2) * 0.12),
+              0.04
+            );
+          }
+        });
+
+        if (t - lastAutoTime > 1.6) {
+          lastAutoTime = t;
+          const inputs = neurons.filter(n => n.layer === 0);
+          activate(inputs[Math.floor(Math.random() * inputs.length)], 0.65 + Math.random() * 0.4);
+        }
+
+        if (particles) {
+          particles.rotation.y = t * 0.012;
+          particles.rotation.x = Math.sin(t * 0.07) * 0.03;
+        }
+
+        renderer.render(scene, camera);
+      }
+
+      let started = false;
+      function tryStart() {
+        if (started) return;
+        if (!container.clientWidth) return;
+        started = true;
+        build();
+      }
+      if (document.readyState === 'complete') tryStart();
+      else window.addEventListener('load', tryStart);
+      setTimeout(tryStart, 500);
+      if (window.ResizeObserver) {
+        const ro = new ResizeObserver(() => tryStart());
+        ro.observe(container);
+      }
+    })();
+    </script>
+</body>
+</html>
