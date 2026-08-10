@@ -874,8 +874,803 @@
         @media (max-width: 900px) {
             .ai-mobile-section { flex-direction: column; }
         }
+
+
+        /* =========================================================
+           PROJECT INTAKE — premium embedded onboarding experience
+           Namespaced with rp- to avoid collisions with existing UI.
+        ========================================================= */
+        .rp-intake-section {
+            position: relative;
+            overflow: hidden;
+            padding: 110px 0 120px;
+            border-top: 1px solid #1E293B;
+            background:
+                radial-gradient(circle at 14% 14%, rgba(56,189,248,.11), transparent 26%),
+                radial-gradient(circle at 86% 30%, rgba(99,102,241,.11), transparent 28%),
+                linear-gradient(180deg, #090E19 0%, #070B14 55%, #080E1A 100%);
+        }
+        .rp-intake-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(56,189,248,.026) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56,189,248,.026) 1px, transparent 1px);
+            background-size: 64px 64px;
+            -webkit-mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 84%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 84%, transparent);
+        }
+        .rp-intake-section::after {
+            content: '';
+            position: absolute;
+            width: 760px;
+            height: 320px;
+            left: 50%;
+            bottom: -250px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: rgba(56,189,248,.15);
+            filter: blur(120px);
+            pointer-events: none;
+        }
+        .rp-wrap {
+            width: min(1240px, calc(100% - 40px));
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .rp-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 36px;
+            align-items: end;
+            margin-bottom: 54px;
+        }
+        .rp-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 16px;
+            color: #38BDF8;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+        }
+        .rp-kicker-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #38BDF8;
+            box-shadow: 0 0 0 6px rgba(56,189,248,.08), 0 0 22px rgba(56,189,248,.75);
+        }
+        .rp-heading h2 {
+            margin: 0;
+            max-width: 790px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: .98;
+            letter-spacing: -.045em;
+            font-weight: 700;
+        }
+        .rp-heading h2 span {
+            background: linear-gradient(90deg, #fff 0%, #7DD3FC 50%, #A5B4FC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .rp-heading-copy {
+            max-width: 760px;
+            margin-top: 22px;
+            color: #94A3B8;
+            font-size: 15px;
+            line-height: 1.75;
+        }
+        .rp-time-chip {
+            min-width: 190px;
+            padding: 16px 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(148,163,184,.15);
+            background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.012));
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 25px 60px rgba(0,0,0,.28);
+            backdrop-filter: blur(16px);
+        }
+        .rp-time-chip small {
+            display: block;
+            margin-bottom: 6px;
+            color: #64748B;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+        .rp-time-chip strong {
+            display: block;
+            color: #E2E8F0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .rp-layout {
+            display: grid;
+            grid-template-columns: 330px minmax(0, 1fr);
+            gap: 28px;
+            align-items: start;
+        }
+        .rp-rail {
+            position: sticky;
+            top: 104px;
+            border: 1px solid rgba(148,163,184,.12);
+            border-radius: 24px;
+            padding: 26px;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(56,189,248,.08), transparent 32%),
+                linear-gradient(160deg, rgba(15,23,42,.94), rgba(7,11,20,.96));
+            box-shadow: 0 30px 70px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.04);
+            backdrop-filter: blur(18px);
+        }
+        .rp-rail-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-bottom: 20px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(148,163,184,.10);
+        }
+        .rp-asterisk {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            border-radius: 15px;
+            border: 1px solid rgba(56,189,248,.18);
+            background: rgba(56,189,248,.055);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 0 34px rgba(56,189,248,.08);
+        }
+        .rp-asterisk svg line {
+            stroke: #334155;
+            stroke-width: 2.3;
+            stroke-linecap: round;
+            transition: stroke .35s ease, filter .35s ease;
+        }
+        .rp-asterisk svg line.rp-lit {
+            stroke: #38BDF8;
+            filter: drop-shadow(0 0 4px rgba(56,189,248,.8));
+        }
+        .rp-rail-meta {
+            text-align: right;
+        }
+        .rp-rail-meta span {
+            display: block;
+            color: #64748B;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+        .rp-rail-meta strong {
+            display: block;
+            margin-top: 5px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #CBD5E1;
+            font-size: 13px;
+        }
+        .rp-step-nav {
+            position: relative;
+        }
+        .rp-step-nav::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            bottom: 18px;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(56,189,248,.25), rgba(148,163,184,.08));
+        }
+        .rp-step-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 31px 1fr;
+            gap: 14px;
+            padding: 15px 0;
+            opacity: .42;
+            transition: opacity .25s ease, transform .25s ease;
+        }
+        .rp-step-item.rp-active,
+        .rp-step-item.rp-done {
+            opacity: 1;
+        }
+        .rp-step-item.rp-active {
+            transform: translateX(3px);
+        }
+        .rp-step-num {
+            position: relative;
+            z-index: 2;
+            width: 31px;
+            height: 31px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            background: #0B1120;
+            color: #64748B;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(0,0,0,.25);
+        }
+        .rp-step-item.rp-active .rp-step-num {
+            color: #07111F;
+            background: #38BDF8;
+            border-color: #38BDF8;
+            box-shadow: 0 0 28px rgba(56,189,248,.28);
+        }
+        .rp-step-item.rp-done .rp-step-num {
+            color: #67E8F9;
+            border-color: rgba(56,189,248,.45);
+            background: rgba(56,189,248,.09);
+        }
+        .rp-step-copy h3 {
+            margin: 1px 0 4px;
+            color: #E2E8F0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .rp-step-copy p {
+            margin: 0;
+            color: #64748B;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+        .rp-next-box {
+            margin-top: 20px;
+            padding: 16px;
+            border: 1px solid rgba(56,189,248,.12);
+            border-radius: 15px;
+            background: rgba(56,189,248,.04);
+        }
+        .rp-next-box-label {
+            margin-bottom: 10px;
+            color: #38BDF8;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+        .rp-next-box p {
+            margin: 0;
+            color: #94A3B8;
+            font-size: 11.5px;
+            line-height: 1.6;
+        }
+        .rp-form-shell {
+            position: relative;
+            min-height: 640px;
+            border-radius: 26px;
+            border: 1px solid rgba(148,163,184,.13);
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 100% 0%, rgba(99,102,241,.08), transparent 30%),
+                linear-gradient(165deg, rgba(17,24,39,.95), rgba(8,13,24,.98));
+            box-shadow: 0 38px 90px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.045);
+        }
+        .rp-form-shell::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56,189,248,.6), rgba(129,140,248,.45), transparent);
+        }
+        .rp-form-top {
+            padding: 24px 28px 0;
+        }
+        .rp-mobile-progress {
+            display: none;
+        }
+        .rp-progress-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 10px;
+            color: #64748B;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        .rp-progress-track {
+            height: 3px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #1E293B;
+        }
+        .rp-progress-fill {
+            display: block;
+            width: 25%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #38BDF8, #818CF8);
+            box-shadow: 0 0 16px rgba(56,189,248,.5);
+            transition: width .35s cubic-bezier(.22,1,.36,1);
+        }
+        .rp-form {
+            padding: 30px 34px 34px;
+        }
+        .rp-form-step {
+            display: none;
+        }
+        .rp-form-step.rp-active {
+            display: block;
+            animation: rpStepIn .35s cubic-bezier(.22,1,.36,1);
+        }
+        @keyframes rpStepIn {
+            from { opacity: 0; transform: translateY(9px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rp-step-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+        .rp-step-head small {
+            display: block;
+            margin-bottom: 7px;
+            color: #38BDF8;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+        .rp-step-head h3 {
+            margin: 0 0 7px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(24px, 3vw, 31px);
+            line-height: 1.1;
+            letter-spacing: -.02em;
+        }
+        .rp-step-head p {
+            margin: 0;
+            color: #94A3B8;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .rp-step-index {
+            min-width: 52px;
+            height: 52px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(56,189,248,.14);
+            background: rgba(56,189,248,.045);
+            color: #64748B;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .rp-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .rp-field {
+            margin-bottom: 19px;
+        }
+        .rp-field label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: #94A3B8;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .rp-field label em {
+            color: #475569;
+            font-style: normal;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: .02em;
+            text-transform: none;
+        }
+        .rp-required { color: #38BDF8; }
+        .rp-field input,
+        .rp-field textarea,
+        .rp-field select {
+            width: 100%;
+            outline: none;
+            border: 1px solid #243044;
+            border-radius: 12px;
+            background: rgba(8,13,24,.72);
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            padding: 13px 14px;
+            transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .rp-field input:hover,
+        .rp-field textarea:hover,
+        .rp-field select:hover {
+            border-color: #334155;
+        }
+        .rp-field input:focus,
+        .rp-field textarea:focus,
+        .rp-field select:focus {
+            border-color: #38BDF8;
+            background: rgba(8,13,24,.92);
+            box-shadow: 0 0 0 3px rgba(56,189,248,.075), 0 0 28px rgba(56,189,248,.055);
+        }
+        .rp-field input::placeholder,
+        .rp-field textarea::placeholder { color: #475569; }
+        .rp-field textarea {
+            min-height: 132px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+        .rp-field select {
+            appearance: none;
+            background-image:
+                linear-gradient(45deg, transparent 50%, #64748B 50%),
+                linear-gradient(135deg, #64748B 50%, transparent 50%);
+            background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%;
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+        }
+        .rp-choice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+        .rp-choice {
+            position: relative;
+            min-height: 102px;
+            padding: 15px 15px 14px;
+            border: 1px solid #243044;
+            border-radius: 14px;
+            background: rgba(8,13,24,.62);
+            cursor: pointer;
+            transition: border-color .2s ease, background .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+        .rp-choice:hover {
+            transform: translateY(-2px);
+            border-color: #3A4A63;
+            background: rgba(15,23,42,.82);
+        }
+        .rp-choice.rp-selected {
+            border-color: rgba(56,189,248,.7);
+            background: linear-gradient(145deg, rgba(56,189,248,.11), rgba(99,102,241,.055));
+            box-shadow: inset 0 0 0 1px rgba(56,189,248,.07), 0 12px 28px rgba(0,0,0,.18);
+        }
+        .rp-choice-icon {
+            width: 31px;
+            height: 31px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 10px;
+            border-radius: 9px;
+            color: #7DD3FC;
+            background: rgba(56,189,248,.08);
+            border: 1px solid rgba(56,189,248,.11);
+            font-size: 12px;
+        }
+        .rp-choice.rp-selected .rp-choice-icon {
+            color: #0B1120;
+            background: #38BDF8;
+            border-color: #38BDF8;
+            box-shadow: 0 0 20px rgba(56,189,248,.2);
+        }
+        .rp-choice h4 {
+            margin: 0 0 4px;
+            color: #E2E8F0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+        .rp-choice p {
+            margin: 0;
+            color: #64748B;
+            font-size: 10.5px;
+            line-height: 1.5;
+        }
+        .rp-error {
+            display: none;
+            margin-top: 7px;
+            color: #FB7185;
+            font-size: 10.5px;
+        }
+        .rp-field.rp-invalid input,
+        .rp-field.rp-invalid textarea,
+        .rp-field.rp-invalid select {
+            border-color: rgba(251,113,133,.78);
+            box-shadow: 0 0 0 3px rgba(251,113,133,.06);
+        }
+        .rp-field.rp-invalid .rp-error { display: block; }
+        .rp-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 28px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(148,163,184,.09);
+        }
+        .rp-nav-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #475569;
+            font-size: 10.5px;
+        }
+        .rp-nav-note i { color: #38BDF8; }
+        .rp-btns {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .rp-btn {
+            border: 1px solid #334155;
+            border-radius: 11px;
+            padding: 11px 19px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+        .rp-btn-secondary {
+            color: #CBD5E1;
+            background: rgba(15,23,42,.7);
+        }
+        .rp-btn-secondary:hover {
+            background: #1E293B;
+            border-color: #475569;
+        }
+        .rp-btn-primary {
+            color: #07111F;
+            border-color: #38BDF8;
+            background: linear-gradient(135deg, #67E8F9, #38BDF8);
+            box-shadow: 0 12px 26px rgba(56,189,248,.16), inset 0 1px 0 rgba(255,255,255,.5);
+        }
+        .rp-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 34px rgba(56,189,248,.25), 0 0 30px rgba(56,189,248,.11);
+        }
+        .rp-review-block {
+            border: 1px solid #243044;
+            border-radius: 14px;
+            padding: 17px 18px;
+            margin-bottom: 11px;
+            background: rgba(8,13,24,.55);
+        }
+        .rp-review-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .rp-review-head h4 {
+            margin: 0;
+            color: #7DD3FC;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+        }
+        .rp-edit-link {
+            color: #64748B;
+            font-size: 10px;
+            cursor: pointer;
+            transition: color .18s ease;
+        }
+        .rp-edit-link:hover { color: #38BDF8; }
+        .rp-review-row {
+            display: grid;
+            grid-template-columns: 145px 1fr;
+            gap: 18px;
+            padding: 8px 0;
+            border-top: 1px solid rgba(148,163,184,.055);
+            font-size: 11.5px;
+            line-height: 1.5;
+        }
+        .rp-review-key { color: #64748B; }
+        .rp-review-value {
+            color: #CBD5E1;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+        .rp-success {
+            display: none;
+            padding: 54px 36px 48px;
+            text-align: center;
+        }
+        .rp-success.rp-visible {
+            display: block;
+            animation: rpStepIn .45s cubic-bezier(.22,1,.36,1);
+        }
+        .rp-success-mark {
+            width: 74px;
+            height: 74px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 22px;
+            border-radius: 22px;
+            color: #07111F;
+            background: linear-gradient(145deg, #67E8F9, #38BDF8);
+            box-shadow: 0 18px 50px rgba(56,189,248,.21), 0 0 55px rgba(56,189,248,.11);
+            font-size: 25px;
+        }
+        .rp-success h3 {
+            margin: 0 0 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 30px;
+            letter-spacing: -.02em;
+        }
+        .rp-success > p {
+            max-width: 540px;
+            margin: 0 auto 30px;
+            color: #94A3B8;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        .rp-next-list {
+            max-width: 570px;
+            margin: 0 auto;
+            display: grid;
+            gap: 10px;
+            text-align: left;
+        }
+        .rp-next-item {
+            display: grid;
+            grid-template-columns: 38px 1fr;
+            gap: 13px;
+            padding: 14px;
+            border: 1px solid rgba(148,163,184,.10);
+            border-radius: 13px;
+            background: rgba(8,13,24,.55);
+        }
+        .rp-next-item-num {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            color: #38BDF8;
+            background: rgba(56,189,248,.075);
+            border: 1px solid rgba(56,189,248,.12);
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .rp-next-item strong {
+            display: block;
+            margin-bottom: 3px;
+            color: #E2E8F0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12.5px;
+        }
+        .rp-next-item span {
+            color: #64748B;
+            font-size: 10.5px;
+            line-height: 1.5;
+        }
+        @media (max-width: 960px) {
+            .rp-heading { grid-template-columns: 1fr; }
+            .rp-time-chip { display: none; }
+            .rp-layout { grid-template-columns: 1fr; }
+            .rp-rail { display: none; }
+            .rp-mobile-progress { display: block; }
+            .rp-form-shell { min-height: 0; }
+        }
+        @media (max-width: 640px) {
+            .rp-intake-section { padding: 82px 0 88px; }
+            .rp-wrap { width: min(100% - 28px, 1240px); }
+            .rp-heading { margin-bottom: 34px; }
+            .rp-heading-copy { font-size: 13.5px; }
+            .rp-form-top { padding: 20px 20px 0; }
+            .rp-form { padding: 24px 20px 24px; }
+            .rp-grid-2, .rp-choice-grid { grid-template-columns: 1fr; }
+            .rp-step-head { margin-bottom: 22px; }
+            .rp-step-index { display: none; }
+            .rp-nav { align-items: flex-end; }
+            .rp-nav-note { display: none; }
+            .rp-btns { width: 100%; justify-content: flex-end; }
+            .rp-review-row { grid-template-columns: 1fr; gap: 4px; }
+            .rp-review-value { text-align: left; }
+        }
     </style>
 <style>/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"] {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
+}/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"] {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
+}</style><style>/* ==========================================
    🚀 HIDDEN ELEMENTS (Original Rules)
    ========================================== */
 [data-testid="accounts-profile-button"],
@@ -1008,12 +1803,6 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         <div class="particle" style="top: 30%; left: 70%; animation-delay: 1.5s;"></div>
         <div class="particle" style="top: 75%; left: 50%; animation-delay: 0.5s;"></div>
 
-        <div class="float-icon" style="top: 22%; left: 7%; background: linear-gradient(135deg,#6366F1,#38BDF8); animation-delay: 0s;">
-            <i class="fas fa-brain text-white"></i>
-        </div>
-        <div class="float-icon" style="top: 32%; right: 9%; background: linear-gradient(135deg,#0EA5E9,#38BDF8); animation-delay: 1s;">
-            <i class="fas fa-microchip text-white"></i>
-        </div>
         <div class="float-icon" style="top: 58%; left: 11%; background: linear-gradient(135deg,#38BDF8,#818CF8); animation-delay: 2s;">
             <i class="fas fa-network-wired text-white"></i>
         </div>
@@ -1659,7 +2448,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         <div class="ai-phone">
             <div class="ai-top">◯ Relogic Solutions</div>
             <div class="ai-logo-small">
-                <img src="images/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
+                <img src="images/team/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
             </div>
             <h2>Welcome to<br>Relogic Solutions</h2>
             <p>Your Partner in Digital Growth</p>
@@ -2378,22 +3167,469 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         })();
     </script>
 
-    <!-- CTA -->
-    <section id="contact" class="py-16 bg-[#0B1120] border-t border-[#1E293B]">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <div class="bg-[#111827] border border-[#1E293B] rounded-3xl p-10 md:p-14">
-                <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">
-                    Ready to build something<br><span class="text-primary">intelligent</span>?
-                </h2>
-                <p class="text-slate-400 max-w-lg mx-auto mb-8">
-                    Let's turn your unstructured data into research-driven outcomes. We'd love to hear about your next challenge.
-                </p>
-                <a href="mailto:hello@relogic.ai" class="btn-primary px-10 py-4 text-base inline-flex items-center gap-2">
-                    🚀 Get in Touch
-                </a>
+    <!-- ==================== PROJECT INTAKE ==================== -->
+    <section id="contact" class="rp-intake-section">
+        <div class="rp-wrap">
+            <div class="rp-heading">
+                <div>
+                    <div class="rp-kicker"><span class="rp-kicker-dot"></span> Start a project · Relogic Studio</div>
+                    <h2>Tell us what you're <span>building.</span></h2>
+                    <p class="rp-heading-copy">
+                        Four short sections, about four minutes. We turn every answer into a written assumption, then send back a fixed-scope proposal. We work at the intersection of AI/ML research and production systems across healthcare, finance, logistics and operations — outcomes measured by the people who use them, not just the model.
+                    </p>
+                </div>
+                <div class="rp-time-chip">
+                    <small>Project intake</small>
+                    <strong>04 steps · ~4 minutes</strong>
+                </div>
+            </div>
+
+            <div class="rp-layout">
+                <aside class="rp-rail" aria-label="Project intake progress">
+                    <div class="rp-rail-top">
+                        <div class="rp-asterisk" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24">
+                                <line class="rp-mark-seg-0" x1="12" y1="2" x2="12" y2="22"></line>
+                                <line class="rp-mark-seg-1" x1="3.5" y1="6.5" x2="20.5" y2="17.5"></line>
+                                <line class="rp-mark-seg-2" x1="20.5" y1="6.5" x2="3.5" y2="17.5"></line>
+                            </svg>
+                        </div>
+                        <div class="rp-rail-meta">
+                            <span>Client intake</span>
+                            <strong>Relogic · Dhaka</strong>
+                        </div>
+                    </div>
+
+                    <div class="rp-step-nav">
+                        <div class="rp-step-item rp-active" data-rp-rail-step="0">
+                            <div class="rp-step-num">01</div>
+                            <div class="rp-step-copy"><h3>Discovery</h3><p>Who you are and what you're building.</p></div>
+                        </div>
+                        <div class="rp-step-item" data-rp-rail-step="1">
+                            <div class="rp-step-num">02</div>
+                            <div class="rp-step-copy"><h3>Scope &amp; budget</h3><p>Timeline, stage and investment range.</p></div>
+                        </div>
+                        <div class="rp-step-item" data-rp-rail-step="2">
+                            <div class="rp-step-num">03</div>
+                            <div class="rp-step-copy"><h3>Project details</h3><p>What exists today and what doesn't yet.</p></div>
+                        </div>
+                        <div class="rp-step-item" data-rp-rail-step="3">
+                            <div class="rp-step-num">04</div>
+                            <div class="rp-step-copy"><h3>Review &amp; send</h3><p>Check the brief before it goes to the studio.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="rp-next-box">
+                        <div class="rp-next-box-label">What happens next</div>
+                        <p>We turn your answers into assumptions, scope the work clearly, and use that to frame the next conversation.</p>
+                    </div>
+                </aside>
+
+                <div class="rp-form-shell">
+                    <div class="rp-form-top">
+                        <div class="rp-mobile-progress">
+                            <div class="rp-progress-row"><span id="rpProgressText">01 / 04 · Discovery</span><span>Project brief</span></div>
+                        </div>
+                        <div class="rp-progress-track"><span class="rp-progress-fill" id="rpProgressFill"></span></div>
+                    </div>
+
+                    <form class="rp-form" id="rpOnboardForm" novalidate>
+                        <!-- STEP 1 -->
+                        <div class="rp-form-step rp-active" data-rp-step="0">
+                            <div class="rp-step-head">
+                                <div>
+                                    <small>Step 01 · Discovery</small>
+                                    <h3>Start with the basics.</h3>
+                                    <p>Who we're talking to, where to reach you, and the closest fit for the work.</p>
+                                </div>
+                                <div class="rp-step-index">01</div>
+                            </div>
+
+                            <div class="rp-grid-2">
+                                <div class="rp-field" data-rp-field="name">
+                                    <label>Your name <span class="rp-required">Required</span></label>
+                                    <input type="text" name="rp_name" placeholder="Imran Hossain" autocomplete="name">
+                                    <div class="rp-error">Enter your name.</div>
+                                </div>
+                                <div class="rp-field" data-rp-field="email">
+                                    <label>Work email <span class="rp-required">Required</span></label>
+                                    <input type="email" name="rp_email" placeholder="you@company.com" autocomplete="email">
+                                    <div class="rp-error">Enter a valid email.</div>
+                                </div>
+                            </div>
+
+                            <div class="rp-field">
+                                <label>Company <em>Optional</em></label>
+                                <input type="text" name="rp_company" placeholder="Company or product name" autocomplete="organization">
+                            </div>
+
+                            <div class="rp-field" data-rp-field="type">
+                                <label>What are we building? <span class="rp-required">Required</span></label>
+                                <div class="rp-choice-grid" id="rpTypeCards">
+                                    <div class="rp-choice" data-rp-value="Healthcare AI/ML">
+                                        <div class="rp-choice-icon"><i class="fas fa-heart-pulse"></i></div>
+                                        <h4>Healthcare</h4><p>Clinical decision support, triage models and records intelligence.</p>
+                                    </div>
+                                    <div class="rp-choice" data-rp-value="Finance AI/ML">
+                                        <div class="rp-choice-icon"><i class="fas fa-chart-line"></i></div>
+                                        <h4>Finance</h4><p>Risk models, fraud detection, underwriting and forecasting.</p>
+                                    </div>
+                                    <div class="rp-choice" data-rp-value="Logistics & supply chain AI/ML">
+                                        <div class="rp-choice-icon"><i class="fas fa-route"></i></div>
+                                        <h4>Logistics &amp; supply chain</h4><p>Demand forecasting, routing and inventory optimisation.</p>
+                                    </div>
+                                    <div class="rp-choice" data-rp-value="Business operations AI/ML">
+                                        <div class="rp-choice-icon"><i class="fas fa-diagram-project"></i></div>
+                                        <h4>Business operations</h4><p>Process automation, internal tooling and decision support.</p>
+                                    </div>
+                                    <div class="rp-choice" data-rp-value="Product development">
+                                        <div class="rp-choice-icon"><i class="fas fa-cubes"></i></div>
+                                        <h4>Product development</h4><p>An AI/ML feature or capability inside an existing product.</p>
+                                    </div>
+                                    <div class="rp-choice" data-rp-value="Data intelligence platform">
+                                        <div class="rp-choice-icon"><i class="fas fa-database"></i></div>
+                                        <h4>Data intelligence</h4><p>Turn raw operational data into a queryable, trusted asset.</p>
+                                    </div>
+                                </div>
+                                <div class="rp-error">Pick the closest fit.</div>
+                            </div>
+
+                            <div class="rp-field">
+                                <label>In one line, what does it do? <em>Optional</em></label>
+                                <input type="text" name="rp_oneliner" placeholder="e.g. flags at-risk shipments before they miss an SLA">
+                            </div>
+                        </div>
+
+                        <!-- STEP 2 -->
+                        <div class="rp-form-step" data-rp-step="1">
+                            <div class="rp-step-head">
+                                <div>
+                                    <small>Step 02 · Scope &amp; budget</small>
+                                    <h3>Make the proposal realistic.</h3>
+                                    <p>Give us enough context to avoid sending back something generic.</p>
+                                </div>
+                                <div class="rp-step-index">02</div>
+                            </div>
+
+                            <div class="rp-grid-2">
+                                <div class="rp-field" data-rp-field="stage">
+                                    <label>Where is it today? <span class="rp-required">Required</span></label>
+                                    <select name="rp_stage">
+                                        <option value="">Select one</option>
+                                        <option value="Idea / napkin sketch">Idea / napkin sketch</option>
+                                        <option value="Vibe-coded prototype">Vibe-coded prototype</option>
+                                        <option value="Live product, needs work">Live product, needs work</option>
+                                        <option value="Live product, needs to scale">Live product, needs to scale</option>
+                                    </select>
+                                    <div class="rp-error">Let us know the current stage.</div>
+                                </div>
+                                <div class="rp-field" data-rp-field="timeline">
+                                    <label>Target timeline <span class="rp-required">Required</span></label>
+                                    <select name="rp_timeline">
+                                        <option value="">Select one</option>
+                                        <option value="ASAP / under a month">ASAP / under a month</option>
+                                        <option value="1–2 months">1–2 months</option>
+                                        <option value="3–6 months">3–6 months</option>
+                                        <option value="Flexible">Flexible</option>
+                                    </select>
+                                    <div class="rp-error">Let us know your timeline.</div>
+                                </div>
+                            </div>
+
+                            <div class="rp-field" data-rp-field="budget">
+                                <label>Budget range <span class="rp-required">Required</span></label>
+                                <select name="rp_budget">
+                                    <option value="">Select one</option>
+                                    <option value="Under $5k">Under $5k</option>
+                                    <option value="$5k – $15k">$5k – $15k</option>
+                                    <option value="$15k – $40k">$15k – $40k</option>
+                                    <option value="$40k+">$40k+</option>
+                                    <option value="Not sure yet">Not sure yet</option>
+                                </select>
+                                <div class="rp-error">Pick a range — “not sure yet” is completely fine.</div>
+                            </div>
+
+                            <div class="rp-field" data-rp-field="followup">
+                                <label>Preferred follow-up <span class="rp-required">Required</span></label>
+                                <div class="rp-choice-grid" id="rpFollowCards">
+                                    <div class="rp-choice" data-rp-value="Email">
+                                        <div class="rp-choice-icon"><i class="fas fa-envelope"></i></div>
+                                        <h4>Email</h4><p>We'll reply to the work email you entered above.</p>
+                                    </div>
+                                    <div class="rp-choice" data-rp-value="Phone">
+                                        <div class="rp-choice-icon"><i class="fas fa-phone"></i></div>
+                                        <h4>Phone</h4><p>A short call to confirm assumptions and scope.</p>
+                                    </div>
+                                </div>
+                                <div class="rp-error">Choose a follow-up method.</div>
+                            </div>
+
+                            <div class="rp-field" id="rpPhoneField" style="display:none;">
+                                <label>Phone number <em>For phone follow-up</em></label>
+                                <input type="tel" name="rp_phone" placeholder="+880 1XXX XXXXXX" autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <!-- STEP 3 -->
+                        <div class="rp-form-step" data-rp-step="2">
+                            <div class="rp-step-head">
+                                <div>
+                                    <small>Step 03 · Project details</small>
+                                    <h3>Tell us what the form can't guess.</h3>
+                                    <p>Describe what needs to exist, what isn't working and what matters most.</p>
+                                </div>
+                                <div class="rp-step-index">03</div>
+                            </div>
+
+                            <div class="rp-field" data-rp-field="details">
+                                <label>What needs to exist, or what's not working? <span class="rp-required">Required</span></label>
+                                <textarea name="rp_details" placeholder="e.g. we have three years of shipment data sitting unused, and dispatchers still route manually — we need a model that can recommend routes and a human-readable reason for each one..."></textarea>
+                                <div class="rp-error">A few sentences is enough to start.</div>
+                            </div>
+
+                            <div class="rp-field">
+                                <label>Links <em>Repo, staging site, Figma — optional</em></label>
+                                <input type="text" name="rp_links" placeholder="https://...">
+                            </div>
+
+                            <div class="rp-field">
+                                <label>Anything explicitly out of scope? <em>Optional</em></label>
+                                <input type="text" name="rp_outofscope" placeholder="e.g. no mobile app needed yet">
+                            </div>
+                        </div>
+
+                        <!-- STEP 4 -->
+                        <div class="rp-form-step" data-rp-step="3">
+                            <div class="rp-step-head">
+                                <div>
+                                    <small>Step 04 · Review &amp; send</small>
+                                    <h3>One final check.</h3>
+                                    <p>Review the brief. You can jump back to any section before sending it to the studio.</p>
+                                </div>
+                                <div class="rp-step-index">04</div>
+                            </div>
+                            <div id="rpReviewArea"></div>
+                        </div>
+
+                        <div class="rp-nav">
+                            <div class="rp-nav-note"><i class="fas fa-lock"></i><span>Your brief stays between you and the studio.</span></div>
+                            <div class="rp-btns">
+                                <button type="button" class="rp-btn rp-btn-secondary" id="rpBackBtn">Back</button>
+                                <button type="button" class="rp-btn rp-btn-primary" id="rpNextBtn">Continue <i class="fas fa-arrow-right" style="margin-left:7px;font-size:10px;"></i></button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="rp-success" id="rpSuccessPanel">
+                        <div class="rp-success-mark"><i class="fas fa-check"></i></div>
+                        <h3>Sent to the studio.</h3>
+                        <p>We read every submission ourselves — no queue, no account manager. Here's what happens next.</p>
+                        <div class="rp-next-list">
+                            <div class="rp-next-item">
+                                <div class="rp-next-item-num">01</div>
+                                <div><strong>A written assumption</strong><span>We turn your answers into a short brief and confirm we've understood the project.</span></div>
+                            </div>
+                            <div class="rp-next-item">
+                                <div class="rp-next-item-num">02</div>
+                                <div><strong>A scoped proposal</strong><span>Deliverables, milestones, price and what's explicitly out of scope — usually within a few days.</span></div>
+                            </div>
+                            <div class="rp-next-item">
+                                <div class="rp-next-item-num">03</div>
+                                <div><strong>A phased build</strong><span>If you approve the proposal, we start — foundation, core, then launch.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <script>
+    (function initRelogicProjectIntake(){
+        const form = document.getElementById('rpOnboardForm');
+        if (!form) return;
+
+        let state = 0;
+        const totalSteps = 4;
+        const data = { type: '', followup: '' };
+
+        const steps = Array.from(form.querySelectorAll('.rp-form-step'));
+        const railSteps = Array.from(document.querySelectorAll('[data-rp-rail-step]'));
+        const backBtn = document.getElementById('rpBackBtn');
+        const nextBtn = document.getElementById('rpNextBtn');
+        const progressFill = document.getElementById('rpProgressFill');
+        const progressText = document.getElementById('rpProgressText');
+        const successPanel = document.getElementById('rpSuccessPanel');
+        const phoneField = document.getElementById('rpPhoneField');
+        const labels = ['Discovery', 'Scope & budget', 'Project details', 'Review & send'];
+
+        function value(name){
+            const el = form.querySelector('[name="' + name + '"]');
+            return el ? el.value.trim() : '';
+        }
+        function field(name){
+            return form.querySelector('[data-rp-field="' + name + '"]');
+        }
+        function markError(name){
+            const el = field(name);
+            if (el) el.classList.add('rp-invalid');
+        }
+        function clearError(name){
+            const el = field(name);
+            if (el) el.classList.remove('rp-invalid');
+        }
+        function escapeHtml(value){
+            return String(value).replace(/[&<>\"]/g, function(ch){
+                return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[ch];
+            });
+        }
+
+        document.querySelectorAll('#rpTypeCards .rp-choice').forEach(function(card){
+            card.addEventListener('click', function(){
+                document.querySelectorAll('#rpTypeCards .rp-choice').forEach(function(c){ c.classList.remove('rp-selected'); });
+                card.classList.add('rp-selected');
+                data.type = card.dataset.rpValue || '';
+                clearError('type');
+            });
+        });
+
+        document.querySelectorAll('#rpFollowCards .rp-choice').forEach(function(card){
+            card.addEventListener('click', function(){
+                document.querySelectorAll('#rpFollowCards .rp-choice').forEach(function(c){ c.classList.remove('rp-selected'); });
+                card.classList.add('rp-selected');
+                data.followup = card.dataset.rpValue || '';
+                phoneField.style.display = data.followup === 'Phone' ? 'block' : 'none';
+                clearError('followup');
+            });
+        });
+
+        form.querySelectorAll('input, textarea, select').forEach(function(el){
+            el.addEventListener('input', function(){
+                const parent = el.closest('.rp-field');
+                if (parent) parent.classList.remove('rp-invalid');
+            });
+            el.addEventListener('change', function(){
+                const parent = el.closest('.rp-field');
+                if (parent) parent.classList.remove('rp-invalid');
+            });
+        });
+
+        function validateStep(index){
+            let ok = true;
+            if (index === 0) {
+                if (!value('rp_name')) { markError('name'); ok = false; } else clearError('name');
+                const email = value('rp_email');
+                if (!email || !/^\\S+@\\S+\\.\\S+$/.test(email)) { markError('email'); ok = false; } else clearError('email');
+                if (!data.type) { markError('type'); ok = false; } else clearError('type');
+            }
+            if (index === 1) {
+                if (!value('rp_stage')) { markError('stage'); ok = false; } else clearError('stage');
+                if (!value('rp_timeline')) { markError('timeline'); ok = false; } else clearError('timeline');
+                if (!value('rp_budget')) { markError('budget'); ok = false; } else clearError('budget');
+                if (!data.followup) { markError('followup'); ok = false; } else clearError('followup');
+            }
+            if (index === 2) {
+                if (!value('rp_details')) { markError('details'); ok = false; } else clearError('details');
+            }
+            if (!ok) {
+                const invalid = form.querySelector('.rp-invalid');
+                if (invalid) invalid.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }
+            return ok;
+        }
+
+        function updateMark(){
+            const segs = document.querySelectorAll('.rp-asterisk svg line');
+            segs.forEach(function(seg, idx){
+                seg.classList.toggle('rp-lit', idx < Math.max(1, state + 1));
+            });
+        }
+
+        function renderReview(){
+            const rows = [
+                { group: 'Discovery', step: 0, items: [
+                    ['Name', value('rp_name')],
+                    ['Email', value('rp_email')],
+                    ['Company', value('rp_company') || '—'],
+                    ['Building', data.type || '—'],
+                    ['In one line', value('rp_oneliner') || '—']
+                ]},
+                { group: 'Scope & budget', step: 1, items: [
+                    ['Current stage', value('rp_stage')],
+                    ['Timeline', value('rp_timeline')],
+                    ['Budget', value('rp_budget')],
+                    ['Follow-up', data.followup + (data.followup === 'Phone' && value('rp_phone') ? ' · ' + value('rp_phone') : '')]
+                ]},
+                { group: 'Project details', step: 2, items: [
+                    ['Details', value('rp_details')],
+                    ['Links', value('rp_links') || '—'],
+                    ['Out of scope', value('rp_outofscope') || '—']
+                ]}
+            ];
+
+            let html = '';
+            rows.forEach(function(block){
+                html += '<div class="rp-review-block">';
+                html += '<div class="rp-review-head"><h4>' + escapeHtml(block.group) + '</h4><span class="rp-edit-link" data-rp-jump="' + block.step + '">Edit section</span></div>';
+                block.items.forEach(function(pair){
+                    html += '<div class="rp-review-row"><span class="rp-review-key">' + escapeHtml(pair[0]) + '</span><span class="rp-review-value">' + escapeHtml(pair[1]) + '</span></div>';
+                });
+                html += '</div>';
+            });
+            document.getElementById('rpReviewArea').innerHTML = html;
+            document.querySelectorAll('[data-rp-jump]').forEach(function(link){
+                link.addEventListener('click', function(){ goTo(parseInt(link.dataset.rpJump, 10)); });
+            });
+        }
+
+        function goTo(index){
+            state = Math.max(0, Math.min(totalSteps - 1, index));
+            steps.forEach(function(step){ step.classList.remove('rp-active'); });
+            const active = form.querySelector('[data-rp-step="' + state + '"]');
+            if (active) active.classList.add('rp-active');
+
+            railSteps.forEach(function(item, idx){
+                item.classList.remove('rp-active', 'rp-done');
+                if (idx < state) item.classList.add('rp-done');
+                if (idx === state) item.classList.add('rp-active');
+            });
+
+            progressFill.style.width = (((state + 1) / totalSteps) * 100) + '%';
+            progressText.textContent = String(state + 1).padStart(2, '0') + ' / 04 · ' + labels[state];
+            backBtn.style.visibility = state === 0 ? 'hidden' : 'visible';
+            nextBtn.innerHTML = state === totalSteps - 1
+                ? 'Send to the studio <i class="fas fa-paper-plane" style="margin-left:7px;font-size:10px;"></i>'
+                : 'Continue <i class="fas fa-arrow-right" style="margin-left:7px;font-size:10px;"></i>';
+            if (state === totalSteps - 1) renderReview();
+            updateMark();
+
+            const shell = document.querySelector('.rp-form-shell');
+            if (shell && window.innerWidth < 960) {
+                shell.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+        }
+
+        nextBtn.addEventListener('click', function(){
+            if (state === totalSteps - 1) {
+                form.style.display = 'none';
+                successPanel.classList.add('rp-visible');
+                progressFill.style.width = '100%';
+                progressText.textContent = '04 / 04 · Complete';
+                railSteps.forEach(function(item){ item.classList.remove('rp-active'); item.classList.add('rp-done'); });
+                document.querySelectorAll('.rp-asterisk svg line').forEach(function(seg){ seg.classList.add('rp-lit'); });
+                return;
+            }
+            if (!validateStep(state)) return;
+            goTo(state + 1);
+        });
+
+        backBtn.addEventListener('click', function(){
+            if (state > 0) goTo(state - 1);
+        });
+
+        goTo(0);
+    })();
+    </script>
 
     <!-- Footer -->
     <footer class="py-12 border-t border-[#1E293B] bg-[#080E1A]">
@@ -3053,5 +4289,760 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
   observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
   cleanDOM();
 })();
+</script>
+<script>
+/* =========================================================
+   RELOGIC COMPATIBILITY / FUNCTIONAL ENHANCEMENT LAYER
+   Added without deleting or rewriting the existing source.
+   - Makes the project-intake final action produce a complete email draft.
+   - Prevents false "sent" state and duplicate final actions.
+   - Rebuilds only the rendered AI impact map into the requested stages:
+     Healthcare -> Finance -> Manufacturing & Supply Chain -> Cybersecurity.
+   ========================================================= */
+(function relogicCompatibilityLayer(){
+    'use strict';
+
+    function ready(fn){
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn, { once: true });
+        else fn();
+    }
+
+    function safeText(value){
+        return String(value == null ? '' : value).trim();
+    }
+
+    function installProjectIntakeEmailFix(){
+        const form = document.getElementById('rpOnboardForm');
+        const nextBtn = document.getElementById('rpNextBtn');
+        const backBtn = document.getElementById('rpBackBtn');
+        const successPanel = document.getElementById('rpSuccessPanel');
+        const progressFill = document.getElementById('rpProgressFill');
+        const progressText = document.getElementById('rpProgressText');
+        const phoneField = document.getElementById('rpPhoneField');
+        if (!form || !nextBtn || !backBtn || !successPanel) return;
+
+        const studioEmail = 'hello@relogic.ai';
+        const steps = Array.from(form.querySelectorAll('.rp-form-step'));
+        const railSteps = Array.from(document.querySelectorAll('[data-rp-rail-step]'));
+        const labels = ['Discovery', 'Scope & budget', 'Project details', 'Review & send'];
+        let currentStep = Math.max(0, steps.findIndex(function(step){ return step.classList.contains('rp-active'); }));
+        let busy = false;
+
+        function inputValue(name){
+            const el = form.querySelector('[name="' + name + '"]');
+            return el ? safeText(el.value) : '';
+        }
+
+        function selectedValue(containerId){
+            const selected = document.querySelector('#' + containerId + ' .rp-choice.rp-selected');
+            return selected ? safeText(selected.getAttribute('data-rp-value')) : '';
+        }
+
+        function fieldWrapper(fieldName){
+            return form.querySelector('[data-rp-field="' + fieldName + '"]');
+        }
+
+        function markInvalid(fieldName){
+            const wrapper = fieldWrapper(fieldName);
+            if (wrapper) wrapper.classList.add('rp-invalid');
+        }
+
+        function clearInvalid(fieldName){
+            const wrapper = fieldWrapper(fieldName);
+            if (wrapper) wrapper.classList.remove('rp-invalid');
+        }
+
+        function clearAllInvalid(){
+            form.querySelectorAll('.rp-invalid').forEach(function(el){ el.classList.remove('rp-invalid'); });
+        }
+
+        function firstInvalidInStep(index){
+            const step = steps[index];
+            return step ? step.querySelector('.rp-invalid') : null;
+        }
+
+        function validateStep(index, shouldScroll){
+            let ok = true;
+            if (index === 0) {
+                if (!inputValue('rp_name')) { markInvalid('name'); ok = false; } else clearInvalid('name');
+                const email = inputValue('rp_email');
+                if (!email || !/^\S+@\S+\.\S+$/.test(email)) { markInvalid('email'); ok = false; } else clearInvalid('email');
+                if (!selectedValue('rpTypeCards')) { markInvalid('type'); ok = false; } else clearInvalid('type');
+            }
+            if (index === 1) {
+                if (!inputValue('rp_stage')) { markInvalid('stage'); ok = false; } else clearInvalid('stage');
+                if (!inputValue('rp_timeline')) { markInvalid('timeline'); ok = false; } else clearInvalid('timeline');
+                if (!inputValue('rp_budget')) { markInvalid('budget'); ok = false; } else clearInvalid('budget');
+                if (!selectedValue('rpFollowCards')) { markInvalid('followup'); ok = false; } else clearInvalid('followup');
+            }
+            if (index === 2) {
+                if (!inputValue('rp_details')) { markInvalid('details'); ok = false; } else clearInvalid('details');
+            }
+            if (!ok && shouldScroll !== false) {
+                const invalid = firstInvalidInStep(index);
+                if (invalid) invalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return ok;
+        }
+
+        function collectBrief(){
+            const followup = selectedValue('rpFollowCards');
+            return {
+                name: inputValue('rp_name'),
+                email: inputValue('rp_email'),
+                company: inputValue('rp_company'),
+                type: selectedValue('rpTypeCards'),
+                oneliner: inputValue('rp_oneliner'),
+                stage: inputValue('rp_stage'),
+                timeline: inputValue('rp_timeline'),
+                budget: inputValue('rp_budget'),
+                followup: followup,
+                phone: followup === 'Phone' ? inputValue('rp_phone') : '',
+                details: inputValue('rp_details'),
+                links: inputValue('rp_links'),
+                outofscope: inputValue('rp_outofscope')
+            };
+        }
+
+        function escapeHtml(value){
+            return String(value == null ? '' : value).replace(/[&<>\"]/g, function(ch){
+                return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[ch] || ch;
+            });
+        }
+
+        function renderReview(){
+            const area = document.getElementById('rpReviewArea');
+            if (!area) return;
+            const brief = collectBrief();
+            const groups = [
+                { title: 'Discovery', step: 0, rows: [
+                    ['Name', brief.name], ['Email', brief.email], ['Company', brief.company || '—'],
+                    ['Building', brief.type || '—'], ['In one line', brief.oneliner || '—']
+                ]},
+                { title: 'Scope & budget', step: 1, rows: [
+                    ['Current stage', brief.stage], ['Timeline', brief.timeline], ['Budget', brief.budget],
+                    ['Follow-up', brief.followup + (brief.phone ? ' · ' + brief.phone : '')]
+                ]},
+                { title: 'Project details', step: 2, rows: [
+                    ['Details', brief.details], ['Links', brief.links || '—'], ['Out of scope', brief.outofscope || '—']
+                ]}
+            ];
+            let html = '';
+            groups.forEach(function(group){
+                html += '<div class="rp-review-block">';
+                html += '<div class="rp-review-head"><h4>' + escapeHtml(group.title) + '</h4><span class="rp-edit-link" data-rp-enhanced-jump="' + group.step + '">Edit section</span></div>';
+                group.rows.forEach(function(row){
+                    html += '<div class="rp-review-row"><span class="rp-review-key">' + escapeHtml(row[0]) + '</span><span class="rp-review-value">' + escapeHtml(row[1]) + '</span></div>';
+                });
+                html += '</div>';
+            });
+            area.innerHTML = html;
+            area.querySelectorAll('[data-rp-enhanced-jump]').forEach(function(link){
+                link.addEventListener('click', function(){
+                    goTo(parseInt(link.getAttribute('data-rp-enhanced-jump'), 10));
+                });
+            });
+        }
+
+        function updateMark(){
+            document.querySelectorAll('.rp-asterisk svg line').forEach(function(seg, idx){
+                seg.classList.toggle('rp-lit', idx < Math.max(1, currentStep + 1));
+            });
+        }
+
+        function goTo(index){
+            currentStep = Math.max(0, Math.min(steps.length - 1, index));
+            steps.forEach(function(step, idx){ step.classList.toggle('rp-active', idx === currentStep); });
+            railSteps.forEach(function(item, idx){
+                item.classList.remove('rp-active', 'rp-done');
+                if (idx < currentStep) item.classList.add('rp-done');
+                if (idx === currentStep) item.classList.add('rp-active');
+            });
+            if (progressFill) progressFill.style.width = (((currentStep + 1) / steps.length) * 100) + '%';
+            if (progressText) progressText.textContent = String(currentStep + 1).padStart(2, '0') + ' / 04 · ' + labels[currentStep];
+            backBtn.style.visibility = currentStep === 0 ? 'hidden' : 'visible';
+            nextBtn.innerHTML = currentStep === steps.length - 1
+                ? 'Send to the studio <i class="fas fa-paper-plane" style="margin-left:7px;font-size:10px;"></i>'
+                : 'Continue <i class="fas fa-arrow-right" style="margin-left:7px;font-size:10px;"></i>';
+            if (currentStep === steps.length - 1) renderReview();
+            updateMark();
+            const shell = document.querySelector('.rp-form-shell');
+            if (shell && window.innerWidth < 960) shell.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function validateAllBeforeSend(){
+            for (let i = 0; i < 3; i++) {
+                if (!validateStep(i, false)) {
+                    goTo(i);
+                    const invalid = firstInvalidInStep(i);
+                    if (invalid) invalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function buildEmail(brief){
+            const subject = 'Project intake — ' + (brief.company || brief.name || 'New enquiry');
+            const lines = [
+                'Hello Relogic Studio,', '', 'Please find my project intake brief below.', '',
+                'DISCOVERY',
+                'Name: ' + brief.name,
+                'Work email: ' + brief.email,
+                'Company: ' + (brief.company || 'Not provided'),
+                'What we are building: ' + brief.type,
+                'One-line outcome: ' + (brief.oneliner || 'Not provided'), '',
+                'SCOPE & BUDGET',
+                'Current stage: ' + brief.stage,
+                'Timeline: ' + brief.timeline,
+                'Budget: ' + brief.budget,
+                'Preferred follow-up: ' + brief.followup,
+                'Phone: ' + (brief.phone || 'Not provided'), '',
+                'PROJECT DETAILS',
+                brief.details, '',
+                'Links: ' + (brief.links || 'Not provided'),
+                'Explicitly out of scope: ' + (brief.outofscope || 'Not provided'), '',
+                'Regards,', brief.name
+            ];
+            return { subject: subject, body: lines.join('\n') };
+        }
+
+        function openEmailDraft(mail){
+            const href = 'mailto:' + studioEmail + '?subject=' + encodeURIComponent(mail.subject) + '&body=' + encodeURIComponent(mail.body);
+            const link = document.createElement('a');
+            link.href = href;
+            link.style.display = 'none';
+            link.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            return href;
+        }
+
+        function fallbackCopy(text){
+            const area = document.createElement('textarea');
+            area.value = text;
+            area.setAttribute('readonly', '');
+            area.style.cssText = 'position:fixed;left:-9999px;top:-9999px;';
+            document.body.appendChild(area);
+            area.select();
+            try { document.execCommand('copy'); } catch (e) { /* no-op */ }
+            area.remove();
+        }
+
+        function showReadyState(mailtoHref, mail){
+            form.style.display = 'none';
+            successPanel.classList.add('rp-visible');
+            if (progressFill) progressFill.style.width = '100%';
+            if (progressText) progressText.textContent = '04 / 04 · Email ready';
+            railSteps.forEach(function(item){ item.classList.remove('rp-active'); item.classList.add('rp-done'); });
+            document.querySelectorAll('.rp-asterisk svg line').forEach(function(seg){ seg.classList.add('rp-lit'); });
+
+            const title = successPanel.querySelector('h3');
+            const copy = successPanel.querySelector(':scope > p');
+            if (title) title.textContent = 'Your project email is ready.';
+            if (copy) copy.innerHTML = 'A complete email draft has been prepared for <strong style="color:#E2E8F0">' + studioEmail + '</strong>. Review it in your mail app and press Send. If the mail app did not open, use the button below.';
+
+            let actions = successPanel.querySelector('.rp-email-actions');
+            if (!actions) {
+                actions = document.createElement('div');
+                actions.className = 'rp-email-actions';
+                actions.style.cssText = 'display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 24px;';
+                const nextList = successPanel.querySelector('.rp-next-list');
+                if (nextList) successPanel.insertBefore(actions, nextList);
+                else successPanel.appendChild(actions);
+            }
+            actions.innerHTML = '';
+
+            const openAgain = document.createElement('a');
+            openAgain.href = mailtoHref;
+            openAgain.className = 'rp-btn rp-btn-primary';
+            openAgain.style.cssText = 'text-decoration:none;display:inline-flex;align-items:center;gap:8px;';
+            openAgain.innerHTML = '<i class="fas fa-envelope"></i> Open email draft';
+            actions.appendChild(openAgain);
+
+            const copyBtn = document.createElement('button');
+            copyBtn.type = 'button';
+            copyBtn.className = 'rp-btn rp-btn-secondary';
+            copyBtn.innerHTML = '<i class="fas fa-copy" style="margin-right:7px"></i>Copy brief';
+            copyBtn.addEventListener('click', function(){
+                const fullText = mail.subject + '\n\n' + mail.body;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(fullText).then(function(){
+                        copyBtn.textContent = 'Copied';
+                        setTimeout(function(){ copyBtn.innerHTML = '<i class="fas fa-copy" style="margin-right:7px"></i>Copy brief'; }, 1600);
+                    }).catch(function(){ fallbackCopy(fullText); });
+                } else fallbackCopy(fullText);
+            });
+            actions.appendChild(copyBtn);
+        }
+
+        document.querySelectorAll('#rpTypeCards .rp-choice').forEach(function(card){
+            card.addEventListener('click', function(){
+                document.querySelectorAll('#rpTypeCards .rp-choice').forEach(function(item){ item.classList.remove('rp-selected'); });
+                card.classList.add('rp-selected');
+                clearInvalid('type');
+            });
+        });
+        document.querySelectorAll('#rpFollowCards .rp-choice').forEach(function(card){
+            card.addEventListener('click', function(){
+                document.querySelectorAll('#rpFollowCards .rp-choice').forEach(function(item){ item.classList.remove('rp-selected'); });
+                card.classList.add('rp-selected');
+                if (phoneField) phoneField.style.display = card.getAttribute('data-rp-value') === 'Phone' ? 'block' : 'none';
+                clearInvalid('followup');
+            });
+        });
+        form.querySelectorAll('input, textarea, select').forEach(function(el){
+            function clearParent(){ const parent = el.closest('.rp-field'); if (parent) parent.classList.remove('rp-invalid'); }
+            el.addEventListener('input', clearParent);
+            el.addEventListener('change', clearParent);
+        });
+
+        nextBtn.addEventListener('click', function(event){
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            if (busy) return;
+
+            if (currentStep < steps.length - 1) {
+                if (!validateStep(currentStep, true)) return;
+                goTo(currentStep + 1);
+                return;
+            }
+
+            if (!validateAllBeforeSend()) return;
+            busy = true;
+            nextBtn.disabled = true;
+            nextBtn.setAttribute('aria-busy', 'true');
+            nextBtn.innerHTML = 'Preparing email <i class="fas fa-spinner fa-spin" style="margin-left:7px;font-size:10px;"></i>';
+
+            const brief = collectBrief();
+            const mail = buildEmail(brief);
+            const mailtoHref = openEmailDraft(mail);
+            showReadyState(mailtoHref, mail);
+
+            nextBtn.disabled = false;
+            nextBtn.removeAttribute('aria-busy');
+            busy = false;
+        }, true);
+
+        backBtn.addEventListener('click', function(event){
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            if (currentStep > 0) goTo(currentStep - 1);
+        }, true);
+
+        clearAllInvalid();
+        goTo(currentStep);
+    }
+
+    function installIndustryImpactMap(){
+        const section = document.getElementById('ai-innovation-map');
+        const svg = document.getElementById('ai30Sankey');
+        if (!section || !svg || section.dataset.ai30AddOnlyInstalled === 'true') return;
+        section.dataset.ai30AddOnlyInstalled = 'true';
+
+        const NS = 'http://www.w3.org/2000/svg';
+
+        // Keep the original map intact. Add only Healthcare and Cybersecurity.
+        const filter = section.querySelector('.ai30-filter');
+        if (filter) {
+            if (!filter.querySelector('[data-ai30-filter="healthcare"]')) {
+                const healthcareButton = document.createElement('button');
+                healthcareButton.type = 'button';
+                healthcareButton.setAttribute('data-ai30-filter', 'healthcare');
+                healthcareButton.textContent = 'Healthcare';
+                const financeButton = filter.querySelector('[data-ai30-filter="finance"]');
+                if (financeButton) filter.insertBefore(healthcareButton, financeButton);
+                else filter.appendChild(healthcareButton);
+            }
+            if (!filter.querySelector('[data-ai30-filter="cybersecurity"]')) {
+                const cybersecurityButton = document.createElement('button');
+                cybersecurityButton.type = 'button';
+                cybersecurityButton.setAttribute('data-ai30-filter', 'cybersecurity');
+                cybersecurityButton.textContent = 'Cybersecurity';
+                const riskButton = filter.querySelector('[data-ai30-filter="risk"]');
+                if (riskButton) filter.insertBefore(cybersecurityButton, riskButton);
+                else filter.appendChild(cybersecurityButton);
+            }
+        }
+
+        function makePath(id, topic, title, copy, d, stroke, width, extraClass){
+            const path = document.createElementNS(NS, 'path');
+            if (id) path.id = id;
+            path.setAttribute('class', extraClass || 'ai30-flow');
+            path.setAttribute('d', d);
+            path.setAttribute('stroke', stroke);
+            path.setAttribute('stroke-width', String(width));
+            path.setAttribute('fill', 'none');
+            if ((extraClass || 'ai30-flow') === 'ai30-flow') {
+                path.setAttribute('data-ai30-topic', topic);
+                path.setAttribute('data-ai30-title', title);
+                path.setAttribute('data-ai30-copy', copy);
+                path.setAttribute('data-ai30-added', 'true');
+            }
+            return path;
+        }
+
+        const firstNode = svg.querySelector('.ai30-node');
+        const flowLayer = document.createElementNS(NS, 'g');
+        flowLayer.setAttribute('data-ai30-added-layer', 'flows');
+
+        const flowDefs = [
+            // AI evolution -> Healthcare: all three eras feed the new industry node.
+            ['ai30HealthFlow1','healthcare','Statistical AI → Healthcare','Statistical learning supported early clinical risk scoring, decision support and structured medical analytics.','M305 145 C382 132 430 118 505 118','url(#ai30GradCyan)',12],
+            ['ai30HealthFlow2','healthcare','Deep Learning → Healthcare','Deep learning accelerated medical imaging, pattern recognition, clinical prediction and language-based health intelligence.','M305 316 C392 292 430 145 505 145','url(#ai30GradPurple)',15],
+            ['ai30HealthFlow3','healthcare','Generative & Agentic AI → Healthcare','Generative and agentic systems extend healthcare AI into documentation, multimodal assistance, research and care workflows.','M305 500 C402 438 438 170 505 168','url(#ai30GradMagenta)',18],
+
+            // AI evolution -> Cybersecurity: every AI era also changes defensive capability and attack surface.
+            ['ai30CyberFlow1','cybersecurity','Statistical AI → Cybersecurity','Statistical anomaly detection and rules established early automated threat, fraud and intrusion monitoring.','M305 178 C396 225 425 547 505 547','url(#ai30GradCyan)',10],
+            ['ai30CyberFlow2','cybersecurity','Deep Learning → Cybersecurity','Deep learning improved behavioral detection, malware analysis, traffic classification and large-scale security analytics.','M305 346 C394 392 430 570 505 570','url(#ai30GradPurple)',13],
+            ['ai30CyberFlow3','cybersecurity','Generative & Agentic AI → Cybersecurity','Generative and agentic AI strengthens security operations while also creating new model, identity and synthetic-content attack surfaces.','M305 526 C392 526 430 596 505 596','url(#ai30GradMagenta)',16],
+
+            // Healthcare -> existing adoption gaps. No existing node is removed or replaced.
+            ['ai30HealthGap1','healthcare','Healthcare → Fragmented Data','Clinical AI depends on connected, governed and interoperable data across records, imaging, laboratories and operational systems.','M745 116 C802 116 828 150 880 150','url(#ai30GradCyan)',12],
+            ['ai30HealthGap2','healthcare','Healthcare → Pilot-to-Scale Gap','Clinical validation, workflow integration, safety and deployment requirements can slow the transition from prototype to routine care.','M745 151 C813 166 828 299 880 308','url(#ai30GradPurple)',10],
+
+            // Cybersecurity -> existing adoption/governance gaps, keeping the original risk column untouched.
+            ['ai30CyberGap1','cybersecurity','Cybersecurity → Pilot-to-Scale Gap','Security AI must integrate reliably with production telemetry, identity systems, response workflows and operational controls.','M745 568 C812 545 830 365 880 346','url(#ai30GradCyan)',10],
+            ['ai30CyberGap2','cybersecurity','Cybersecurity → Human & Governance Gap','Effective cyber AI still depends on oversight, accountability, access controls, skilled analysts and trusted operating procedures.','M745 596 C808 596 830 524 880 514','url(#ai30GradPurple)',12]
+        ];
+
+        flowDefs.forEach(function(item){
+            const d = item[4];
+            flowLayer.appendChild(makePath('', '', '', '', d, 'url(#ai30GradDepth)', item[6] + 6, 'ai30-flow-depth'));
+            flowLayer.appendChild(makePath(item[0], item[1], item[2], item[3], d, item[5], item[6], 'ai30-flow'));
+        });
+
+        if (firstNode) svg.insertBefore(flowLayer, firstNode);
+        else svg.appendChild(flowLayer);
+
+        function makeNode(topic, title, copy, x, y, height, barColor, label, line1, line2){
+            const g = document.createElementNS(NS, 'g');
+            g.setAttribute('class', 'ai30-node');
+            g.setAttribute('data-ai30-topic', topic);
+            g.setAttribute('data-ai30-title', title);
+            g.setAttribute('data-ai30-copy', copy);
+            g.setAttribute('data-ai30-added', 'true');
+
+            const bg = document.createElementNS(NS, 'rect');
+            bg.setAttribute('x', x); bg.setAttribute('y', y); bg.setAttribute('rx', '11');
+            bg.setAttribute('width', '240'); bg.setAttribute('height', height); bg.setAttribute('class', 'ai30-node-bg');
+            g.appendChild(bg);
+
+            const bar = document.createElementNS(NS, 'rect');
+            bar.setAttribute('x', x); bar.setAttribute('y', y + 15); bar.setAttribute('rx', '3');
+            bar.setAttribute('width', '5'); bar.setAttribute('height', height - 30); bar.setAttribute('fill', barColor); bar.setAttribute('class', 'ai30-node-bar');
+            g.appendChild(bar);
+
+            function text(tx, ty, cls, value, style){
+                const t = document.createElementNS(NS, 'text');
+                t.setAttribute('x', tx); t.setAttribute('y', ty); t.setAttribute('class', cls);
+                if (style) t.setAttribute('style', style);
+                t.textContent = value;
+                g.appendChild(t);
+            }
+            text(x + 25, y + 28, 'ai30-node-year', 'INDUSTRY');
+            text(x + 25, y + 51, 'ai30-node-title', label, 'font-size:17px');
+            text(x + 25, y + 72, 'ai30-node-sub', line1);
+            text(x + 25, y + 88, 'ai30-node-sub', line2);
+            return g;
+        }
+
+        const healthcareNode = makeNode(
+            'healthcare',
+            'Healthcare',
+            'AI supports clinical prediction, medical imaging, documentation, decision support, patient operations and multimodal health intelligence.',
+            505, 78, 100, '#20e8db', 'Healthcare',
+            'Clinical AI • imaging • prediction',
+            'NLP • decision support • operations'
+        );
+        const cybersecurityNode = makeNode(
+            'cybersecurity',
+            'Cybersecurity',
+            'AI supports anomaly detection, threat intelligence, behavioral security analytics, identity protection and increasingly automated cyber defense.',
+            505, 532, 88, '#ff38b8', 'Cybersecurity',
+            'Threats • identity • anomaly detection',
+            'Security analytics • AI defense'
+        );
+
+        // Put the two additions in the same Industry Impact column without moving Finance or Manufacturing.
+        const timeline = Array.from(svg.children).find(function(el){
+            return el.tagName && el.tagName.toLowerCase() === 'line' && el.getAttribute('y1') === '630';
+        });
+        if (timeline) {
+            svg.insertBefore(healthcareNode, timeline);
+            svg.insertBefore(cybersecurityNode, timeline);
+        } else {
+            svg.appendChild(healthcareNode);
+            svg.appendChild(cybersecurityNode);
+        }
+
+        // Add subtle animated signals to the two new additions only.
+        const particleLayer = document.createElementNS(NS, 'g');
+        particleLayer.setAttribute('data-ai30-added-layer', 'particles');
+        function particle(pathId, fill, dur, begin){
+            const circle = document.createElementNS(NS, 'circle');
+            circle.setAttribute('r', '2.5');
+            circle.setAttribute('fill', fill);
+            circle.setAttribute('class', 'ai30-pulse');
+            const motion = document.createElementNS(NS, 'animateMotion');
+            motion.setAttribute('dur', dur);
+            motion.setAttribute('repeatCount', 'indefinite');
+            if (begin) motion.setAttribute('begin', begin);
+            const mpath = document.createElementNS(NS, 'mpath');
+            mpath.setAttribute('href', '#' + pathId);
+            motion.appendChild(mpath);
+            circle.appendChild(motion);
+            return circle;
+        }
+        particleLayer.appendChild(particle('ai30HealthFlow3', '#b4ffff', '5.4s', '-1s'));
+        particleLayer.appendChild(particle('ai30CyberFlow3', '#ffc4fb', '5.9s', '-2.2s'));
+        if (timeline) svg.insertBefore(particleLayer, timeline);
+        else svg.appendChild(particleLayer);
+
+        const tooltip = document.getElementById('ai30Tooltip');
+        const tooltipTitle = document.getElementById('ai30TooltipTitle');
+        const tooltipCopy = document.getElementById('ai30TooltipCopy');
+        const tooltipTag = document.getElementById('ai30TooltipTag');
+
+        function moveTooltip(event){
+            if (!tooltip) return;
+            let x = event.clientX + 18;
+            let y = event.clientY + 18;
+            if (x + 265 > window.innerWidth) x = event.clientX - 255;
+            if (y + 170 > window.innerHeight) y = event.clientY - 160;
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+        }
+        function showTooltip(event, title, copy, tag){
+            if (!tooltip) return;
+            if (tooltipTitle) tooltipTitle.textContent = title || '';
+            if (tooltipCopy) tooltipCopy.textContent = copy || '';
+            if (tooltipTag) tooltipTag.textContent = tag || 'INTELLIGENCE FLOW';
+            tooltip.classList.add('ai30-show');
+            tooltip.setAttribute('aria-hidden', 'false');
+            moveTooltip(event);
+        }
+        function hideTooltip(){
+            if (!tooltip) return;
+            tooltip.classList.remove('ai30-show');
+            tooltip.setAttribute('aria-hidden', 'true');
+        }
+
+        const addedFlows = Array.from(svg.querySelectorAll('.ai30-flow[data-ai30-added="true"]'));
+        const addedNodes = Array.from(svg.querySelectorAll('.ai30-node[data-ai30-added="true"]'));
+
+        addedFlows.forEach(function(flow){
+            const originalWidth = parseFloat(flow.getAttribute('stroke-width')) || 8;
+            flow.addEventListener('mouseenter', function(event){
+                svg.querySelectorAll('.ai30-flow').forEach(function(item){ item.style.opacity = item === flow ? '1' : '.10'; });
+                flow.style.filter = 'brightness(1.45) saturate(1.3)';
+                flow.setAttribute('stroke-width', String(originalWidth + 5));
+                showTooltip(event, flow.getAttribute('data-ai30-title'), flow.getAttribute('data-ai30-copy'), 'AI FLOW');
+            });
+            flow.addEventListener('mousemove', moveTooltip);
+            flow.addEventListener('mouseleave', function(){
+                svg.querySelectorAll('.ai30-flow').forEach(function(item){ item.style.opacity = ''; item.style.filter = ''; });
+                flow.setAttribute('stroke-width', String(originalWidth));
+                hideTooltip();
+            });
+        });
+
+        addedNodes.forEach(function(node){
+            node.addEventListener('mouseenter', function(event){
+                svg.querySelectorAll('.ai30-node').forEach(function(item){ item.style.opacity = item === node ? '1' : '.32'; });
+                node.style.filter = 'brightness(1.22) drop-shadow(0 0 13px rgba(85,195,255,.18))';
+                showTooltip(event, node.getAttribute('data-ai30-title'), node.getAttribute('data-ai30-copy'), 'STRATEGIC NODE');
+            });
+            node.addEventListener('mousemove', moveTooltip);
+            node.addEventListener('mouseleave', function(){
+                svg.querySelectorAll('.ai30-node').forEach(function(item){ item.style.opacity = ''; item.style.filter = ''; });
+                hideTooltip();
+            });
+        });
+
+        // One additional filter handler keeps the two added nodes synchronized with the original filters.
+        Array.from(section.querySelectorAll('[data-ai30-filter]')).forEach(function(button){
+            button.addEventListener('click', function(){
+                const topic = button.getAttribute('data-ai30-filter') || 'all';
+                section.querySelectorAll('[data-ai30-filter]').forEach(function(btn){ btn.classList.toggle('ai30-active', btn === button); });
+                svg.querySelectorAll('.ai30-flow').forEach(function(flow){
+                    const flowTopic = flow.getAttribute('data-ai30-topic');
+                    flow.style.opacity = topic === 'all' || flowTopic === topic ? '1' : '.07';
+                });
+                svg.querySelectorAll('.ai30-node').forEach(function(node){
+                    const nodeTopic = node.getAttribute('data-ai30-topic');
+                    node.style.opacity = topic === 'all' || nodeTopic === topic || nodeTopic === 'all' ? '1' : '.17';
+                });
+            });
+        });
+    }
+
+    // This compatibility layer is inserted at the end of <body>, so the target DOM already exists.
+    // Run immediately to avoid load-order races with external libraries or deferred/module scripts.
+    installProjectIntakeEmailFix();
+    installIndustryImpactMap();
+})();
+
+</script>
+<script>(function () {
+  "use strict";
+
+  // Share link redirector
+  document.body.addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
+    const match = href.match(regex);
+
+    if (match) {
+      const isButton = event.target.closest("button");
+      if (isButton) return;
+
+      event.preventDefault();
+      const chatId = match[1];
+      const shareId = match[2];
+      window.location.href = `/share/${shareId}?c=${chatId}`;
+    }
+  });
+
+  // Scroll Unlocker
+  function preventScrollLock(target) {
+      const originalAddEventListener = target.addEventListener;
+      target.addEventListener = function(type, listener, options) {
+          if (type === 'wheel' || type === 'touchmove') return; 
+          return originalAddEventListener.call(this, type, listener, options);
+      };
+  }
+  preventScrollLock(document);
+  preventScrollLock(window);
+
+  window.addEventListener("hashchange", function (event) {
+      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        history.replaceState(null, null, " ");
+      }
+    }, true
+  );
+
+  const filterRules = [
+    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
+    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
+    { type: "selectorOnly", selector: "#modal-account-payment" },
+    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
+    { type: "selectorOnly", selector: 'a[href="/library"]' },
+    { type: "selectorOnly", selector: 'a[href="/admin"]' },
+    { type: "selectorOnly", selector: 'a[href="/apps"]' },
+    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
+    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
+    { type: "textOnly", text: "Report conversation" },
+    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
+    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
+    { type: "textOnly", text: "Archive" },
+    { type: "textOnly", text: "Start a group chat" },
+    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
+  ];
+
+  function cleanDOM() {
+    document.body.removeAttribute('data-scroll-locked');
+    document.documentElement.removeAttribute('data-scroll-locked');
+    
+    const nextRoot = document.getElementById('__next');
+    if (nextRoot) {
+        nextRoot.removeAttribute('aria-hidden');
+    }
+
+    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
+        el.remove();
+    });
+
+    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
+        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
+            el.remove();
+        }
+    });
+
+    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
+        if (el.parentElement) {
+          el.parentElement.innerHTML = `
+                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
+                `;
+        }
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+      
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.remove();
+    });
+
+    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
+    if (dynamicModal) {
+      dynamicModal.remove();
+    }
+
+    filterRules.forEach((rule) => {
+      if (rule.type === "selectorOnly") {
+        const elements = document.querySelectorAll(rule.selector);
+        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "textOnly") {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let textNode;
+        const nodesToHide = [];
+        while ((textNode = walker.nextNode())) {
+          if (textNode.nodeValue.trim() === rule.text) {
+            const parent = textNode.parentElement;
+            if (parent && parent.children.length === 0) nodesToHide.push(parent);
+          }
+        }
+        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "xpath") {
+        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < snapshot.snapshotLength; i++) {
+          const node = snapshot.snapshotItem(i);
+          if (node) node.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
+  let isCleaning = false;
+  const observer = new MutationObserver((mutationsList) => {
+    if (isCleaning) return;
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'attributes') {
+          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
+          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
+      }
+      if (mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
+                node.remove();
+            }
+        });
+
+        isCleaning = true;
+        cleanDOM();
+        isCleaning = false;
+        break;
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
+  cleanDOM();
+})();
 </script></body>
 </html>
+
