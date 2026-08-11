@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<rect width="1200" height="760" fill="#F7FAF9"/>
+<g stroke="#D7E2DF" stroke-width="1">
+  <path d="M120 120H1100M120 220H1100M120 320H1100M120 420H1100M120 520H1100M120 620H1100"/>
+  <path d="M120 120V640M300 120V640M480 120V640M660 120V640M840 120V640M1020 120V640"/>
+</g>
+<path d="M120 640H1100M120 110V640" stroke="#243A38" stroke-width="2"/>
+
+<title id="title">Hospital acquired infection surveillance graph placeholder</title><desc id="desc">Illustrative surveillance trend chart.</desc>
+<text x="120" y="70" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#10201F">Hospital-Acquired Infection Surveillance</text>
+<text x="120" y="98" font-family="Arial, sans-serif" font-size="16" fill="#6C7C79">Facility trend monitoring · study graph placeholder</text>
+<g fill="#BCD9D5"><rect x="170" y="420" width="90" height="220"/><rect x="340" y="360" width="90" height="280"/><rect x="510" y="440" width="90" height="200"/><rect x="680" y="315" width="90" height="325"/><rect x="850" y="390" width="90" height="250"/></g>
+<path d="M120 520 C220 500 300 455 390 470 S560 420 640 405 S810 340 900 365 S1030 300 1100 260" fill="none" stroke="#176F76" stroke-width="8"/>
+<path d="M120 575 C260 570 360 550 480 535 S700 500 830 470 S990 430 1100 400" fill="none" stroke="#7B4B86" stroke-width="5" opacity=".8"/>
+<text x="120" y="704" font-family="Arial, sans-serif" font-size="18" fill="#516664">Illustrative graph slot — replace with the final study figure</text>
+</svg>

@@ -807,72 +807,92 @@
             animation: pulseRing 2s infinite;
         }
 
-        /* AI mobile phones (kept minimal) */
+        /* ===== RELOGIC MOBILE EXPERIENCE - realistic app UI ===== */
         .ai-mobile-section {
-            padding: 80px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
+            padding: 110px 20px 120px;
             background:
-                radial-gradient(circle, rgba(56,189,248,.12), transparent 55%),
-                #0B1120;
-            flex-wrap: wrap;
+                radial-gradient(circle at 50% 0%, rgba(56,189,248,.12), transparent 30%),
+                radial-gradient(circle at 78% 55%, rgba(99,102,241,.08), transparent 28%),
+                linear-gradient(180deg,#0B1120 0%,#07101d 100%);
+            border-top: 1px solid #1E293B;
+            overflow: hidden;
         }
-        .ai-phone {
-            width: 280px;
-            height: 560px;
-            border-radius: 35px;
-            padding: 25px;
-            color: white;
-            background: linear-gradient(180deg, #132b52, #020617);
-            border: 1px solid rgba(56,189,248,.35);
-            box-shadow: 0 30px 70px rgba(0,0,0,.5);
-            text-align: center;
-            position: relative;
+        .mobile-showcase-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+        .mobile-showcase-kicker { color:#38BDF8; font-size:11px; font-weight:800; letter-spacing:.17em; text-transform:uppercase; }
+        .mobile-showcase-head h2 { margin:14px 0 16px; font:700 clamp(38px,5vw,64px)/.96 'Space Grotesk',sans-serif; letter-spacing:-.045em; }
+        .mobile-showcase-head p { color:#94A3B8; font-size:14px; line-height:1.75; max-width:650px; margin:0 auto; }
+        .mobile-device-row { display:grid; grid-template-columns:repeat(3,minmax(280px,340px)); justify-content:center; gap:34px; align-items:start; }
+        .mobile-device { width:100%; aspect-ratio: .49 / 1; min-height:650px; max-height:710px; padding:9px; border-radius:48px; background:linear-gradient(145deg,#263449,#05070b 48%,#152338); border:1px solid #334155; box-shadow:0 36px 90px rgba(0,0,0,.52),inset 0 0 0 1px rgba(255,255,255,.05); position:relative; }
+        .mobile-device:before { content:""; position:absolute; width:3px; height:70px; left:-4px; top:145px; border-radius:4px 0 0 4px; background:#263449; box-shadow:0 88px 0 #263449; }
+        .mobile-device:after { content:""; position:absolute; width:3px; height:105px; right:-4px; top:190px; border-radius:0 4px 4px 0; background:#263449; }
+        .mobile-screen { height:100%; min-height:632px; border-radius:39px; overflow:hidden; position:relative; border:1px solid rgba(125,211,252,.16); background:linear-gradient(180deg,#122b4d 0%,#0b1f39 42%,#071329 100%); color:white; display:flex; flex-direction:column; }
+        .mobile-screen.screen-home { background:radial-gradient(circle at 55% 15%,rgba(56,189,248,.16),transparent 25%),linear-gradient(180deg,#132d51,#071329 68%); }
+        .mobile-screen.screen-dashboard { background:linear-gradient(180deg,#10294a 0%,#091a31 48%,#071329 100%); }
+        .mobile-screen.screen-chat { background:linear-gradient(180deg,#112b4d 0%,#08172d 48%,#071329 100%); }
+        .mobile-island { position:absolute; z-index:10; top:10px; left:50%; transform:translateX(-50%); width:92px; height:27px; border-radius:20px; background:#020408; box-shadow:inset 0 0 0 1px #111827; }
+        .mobile-status { height:47px; padding:14px 20px 0; display:flex; align-items:center; justify-content:space-between; font-size:9px; font-weight:700; color:#dbeafe; position:relative; z-index:6; }
+        .mobile-status-icons { display:flex; align-items:center; gap:5px; font-size:8px; letter-spacing:-.04em; }
+        .mobile-appbar { padding:10px 20px 12px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+        .mobile-brand { display:flex; align-items:center; gap:9px; font:600 12px 'Space Grotesk',sans-serif; }
+        .mobile-brand img { width:28px; height:28px; border-radius:50%; object-fit:cover; border:1px solid rgba(125,211,252,.28); box-shadow:0 0 18px rgba(56,189,248,.14); }
+        .mobile-icon-btn { width:30px; height:30px; border-radius:50%; display:grid; place-items:center; border:1px solid rgba(148,163,184,.18); background:rgba(255,255,255,.045); color:#dbeafe; font-size:11px; }
+        .mobile-home-body { padding:40px 24px 22px; text-align:center; display:flex; flex:1; flex-direction:column; align-items:center; }
+        .mobile-logo-orb { width:104px; height:104px; border-radius:50%; padding:14px; background:rgba(255,255,255,.96); display:grid; place-items:center; box-shadow:0 22px 55px rgba(56,189,248,.12); margin-top:18px; }
+        .mobile-logo-orb img { width:100%; height:100%; object-fit:contain; border-radius:50%; }
+        .mobile-home-body h3 { margin:34px 0 13px; font:700 30px/1.05 'Space Grotesk',sans-serif; letter-spacing:-.035em; }
+        .mobile-home-body p { margin:0; max-width:250px; color:#9fc6e9; font-size:12px; line-height:1.65; }
+        .mobile-mini-metrics { width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:7px; margin:28px 0 18px; }
+        .mobile-mini-metric { padding:10px 4px; border-radius:13px; background:rgba(255,255,255,.045); border:1px solid rgba(148,163,184,.12); }
+        .mobile-mini-metric b { display:block; font:700 14px 'Space Grotesk'; color:#e0f2fe; }
+        .mobile-mini-metric span { display:block; margin-top:3px; color:#6f91b2; font-size:7px; text-transform:uppercase; letter-spacing:.07em; }
+        .mobile-primary { width:100%; margin-top:auto; padding:14px 16px; border-radius:16px; background:linear-gradient(135deg,#67E8F9,#38BDF8); color:#062033; font-size:11px; font-weight:800; display:flex; justify-content:center; gap:9px; align-items:center; box-shadow:0 14px 30px rgba(56,189,248,.15); }
+        .mobile-content { padding:10px 20px 84px; flex:1; overflow:hidden; }
+        .mobile-greeting { margin:8px 0 4px; color:#7fa6ca; font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+        .mobile-title { margin:0 0 20px; font:600 25px/1.06 'Space Grotesk',sans-serif; letter-spacing:-.035em; }
+        .mobile-service-card { display:grid; grid-template-columns:42px 1fr auto; align-items:center; gap:12px; padding:13px; margin-bottom:10px; border-radius:17px; background:linear-gradient(135deg,rgba(43,78,125,.82),rgba(30,64,111,.66)); border:1px solid rgba(125,211,252,.1); }
+        .mobile-service-icon { width:42px; height:42px; border-radius:13px; display:grid; place-items:center; background:rgba(56,189,248,.12); color:#7dd3fc; font-size:14px; }
+        .mobile-service-card b { display:block; font:600 11px 'Space Grotesk'; }
+        .mobile-service-card span { color:#87a9c7; font-size:8px; line-height:1.4; }
+        .mobile-service-card em { font-style:normal; color:#7dd3fc; font-size:13px; }
+        .mobile-project { margin-top:18px; padding:16px; border-radius:18px; background:rgba(5,15,32,.62); border:1px solid rgba(148,163,184,.12); }
+        .mobile-project-top { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+        .mobile-project small { color:#6d8baa; font-size:7px; letter-spacing:.1em; text-transform:uppercase; }
+        .mobile-project strong { display:block; margin-top:5px; font:600 12px 'Space Grotesk'; }
+        .mobile-project-badge { padding:5px 7px; border-radius:999px; background:rgba(94,234,212,.08); color:#99f6e4; font-size:7px; font-weight:800; }
+        .mobile-progress { height:5px; margin-top:15px; border-radius:999px; background:#1b3552; overflow:hidden; }
+        .mobile-progress i { display:block; width:68%; height:100%; background:linear-gradient(90deg,#38BDF8,#5EEAD4); border-radius:inherit; }
+        .mobile-nav { position:absolute; left:12px; right:12px; bottom:12px; height:58px; border-radius:20px; display:grid; grid-template-columns:repeat(3,1fr); align-items:center; background:rgba(4,13,28,.92); border:1px solid rgba(148,163,184,.13); backdrop-filter:blur(14px); }
+        .mobile-nav a { display:flex; flex-direction:column; align-items:center; gap:3px; color:#6e8baa; font-size:7px; font-weight:700; }
+        .mobile-nav a b { font-size:15px; line-height:1; font-weight:500; }
+        .mobile-nav a.active { color:#7dd3fc; }
+        .mobile-chat-head { padding:10px 20px 14px; display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(148,163,184,.09); }
+        .mobile-chat-avatar { width:34px; height:34px; border-radius:50%; padding:4px; background:white; }
+        .mobile-chat-avatar img { width:100%; height:100%; border-radius:50%; object-fit:cover; }
+        .mobile-chat-head b { display:block; font:600 11px 'Space Grotesk'; }
+        .mobile-chat-head span { display:flex; align-items:center; gap:5px; margin-top:2px; color:#76a0c3; font-size:7px; }
+        .mobile-chat-head span:before { content:""; width:6px; height:6px; border-radius:50%; background:#5eead4; }
+        .mobile-chat { padding:18px 17px 96px; display:flex; flex:1; flex-direction:column; gap:10px; overflow:hidden; }
+        .mobile-message { max-width:86%; padding:12px 13px; border-radius:17px; font-size:10px; line-height:1.55; }
+        .mobile-message.user { margin-left:auto; background:#214a7e; border-bottom-right-radius:6px; }
+        .mobile-message.ai { margin-right:auto; background:#123458; color:#d9eaff; border-bottom-left-radius:6px; }
+        .mobile-message.ai b { color:#7dd3fc; }
+        .mobile-suggestions { display:flex; flex-wrap:wrap; gap:6px; margin-top:3px; }
+        .mobile-suggestions span { padding:7px 9px; border-radius:999px; background:rgba(56,189,248,.07); border:1px solid rgba(56,189,248,.12); color:#8fc9eb; font-size:7px; }
+        .mobile-composer { position:absolute; left:14px; right:14px; bottom:18px; display:grid; grid-template-columns:1fr 34px; gap:7px; align-items:center; padding:7px 7px 7px 13px; border-radius:19px; background:#0b2441; border:1px solid rgba(148,163,184,.14); }
+        .mobile-composer span { color:#6d8baa; font-size:8px; }
+        .mobile-send { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:#38BDF8; color:#072033; font-size:13px; font-weight:900; }
+        .mobile-home-indicator { position:absolute; bottom:6px; left:50%; transform:translateX(-50%); width:100px; height:4px; border-radius:4px; background:rgba(226,232,240,.76); }
+        @media (max-width: 1080px) {
+            .mobile-device-row { grid-template-columns:repeat(3,310px); justify-content:start; overflow-x:auto; padding:0 calc((100vw - 310px)/2) 18px; scroll-snap-type:x mandatory; scrollbar-width:none; }
+            .mobile-device-row::-webkit-scrollbar { display:none; }
+            .mobile-device { scroll-snap-align:center; }
         }
-        .ai-phone h2 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-top: 20px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .ai-phone p { color: #94a3b8; margin-top: 12px; font-size: 0.9rem; }
-        .ai-logo { width: 120px; height: 120px; margin: 40px auto 10px; }
-        .ai-logo img, .ai-logo-small img { width: 100%; height: 100%; object-fit: contain; }
-        .ai-logo-small { width: 64px; height: 64px; margin: 24px auto 8px; }
-        .ai-phone button {
-            position: absolute;
-            bottom: 25px;
-            left: 25px;
-            right: 25px;
-            padding: 14px;
-            border-radius: 16px;
-            background: #38BDF8;
-            border: none;
-            font-weight: 600;
-            color: #0B1120;
-            cursor: pointer;
-        }
-        .ai-box {
-            background: #1e3a5f;
-            margin: 10px 0;
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 0.9rem;
-        }
-        .ai-top { color: #bae6fd; font-size: 0.8rem; margin-bottom: 8px; }
-        .chat-user, .chat-ai {
-            padding: 12px 14px;
-            border-radius: 16px;
-            margin-top: 14px;
-            font-size: 13px;
-            text-align: left;
-        }
-        .chat-user { background: #17345d; }
-        .chat-ai { background: #0f2745; }
-        @media (max-width: 900px) {
-            .ai-mobile-section { flex-direction: column; }
+        @media (max-width: 480px) {
+            .ai-mobile-section { padding:82px 0 90px; }
+            .mobile-showcase-head { padding:0 22px; margin-bottom:38px; }
+            .mobile-device-row { grid-template-columns:repeat(3,286px); padding:0 calc((100vw - 286px)/2) 14px; gap:18px; }
+            .mobile-device { min-height:610px; border-radius:43px; }
+            .mobile-screen { min-height:592px; border-radius:34px; }
         }
 
 
@@ -1759,16 +1779,15 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 md:h-20">
                 <div class="flex items-center gap-3">
-                    <img src="images/team/relogic-logo_main.png" alt="Relogic Solutions" class="brand-logo" onerror="this.style.display='none'">
+                    <img src="images/team/relogic-logo-main-crop.png" alt="Relogic Solutions" class="brand-logo" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';">
                     <span class="text-xl font-bold tracking-tight font-display">Relogic</span>
                 </div>
                 <nav class="hidden md:flex items-center gap-7">
                     <a href="#home" class="nav-link active">Home</a>
                     <a href="#about" class="nav-link">About</a>
-                    <a href="#services" class="nav-link">Services</a>
+                    <a href="services.html" class="nav-link">Services</a>
                     <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#leadership" class="nav-link">Leadership</a>
-                    <a href="#coreteam" class="nav-link">Core Team</a>
+                    <a href="people.html" class="nav-link">Our People</a>
                 </nav>
                 <div class="flex items-center gap-3">
                     <a href="#contact" class="btn-primary px-5 py-2.5 text-sm hidden sm:inline-flex items-center gap-2">
@@ -1784,10 +1803,9 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <nav class="flex flex-col gap-4">
                 <a href="#home" class="nav-link active text-lg">Home</a>
                 <a href="#about" class="nav-link text-lg">About</a>
-                <a href="#services" class="nav-link text-lg">Services</a>
+                <a href="services.html" class="nav-link text-lg">Services</a>
                 <a href="#projects" class="nav-link text-lg">Projects</a>
-                <a href="#leadership" class="nav-link text-lg">Leadership</a>
-                <a href="#coreteam" class="nav-link text-lg">Core Team</a>
+                <a href="people.html" class="nav-link text-lg">Our People</a>
                 <a href="#contact" class="btn-primary px-5 py-3 mt-4 text-center">Let's Talk</a>
             </nav>
         </div>
@@ -1821,7 +1839,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                     Relogic Solutions is an AI-native innovation studio. We transform unstructured data into intelligent, research-driven outcomes through ethical AI and human-centric design.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#services" class="btn-primary px-8 py-3.5 text-base flex items-center gap-2">
+                    <a href="services.html" class="btn-primary px-8 py-3.5 text-base flex items-center gap-2">
                         Our Services <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                     <a href="#about" class="btn-secondary px-8 py-3.5 text-base flex items-center gap-2">
@@ -2021,120 +2039,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         </div>
     </section>
 
-    <!-- ==================== SERVICES ==================== -->
-    <section id="services" class="services-section py-24 border-t border-[#1E293B]">
-        <div class="services-glow left"></div>
-        <div class="services-glow right"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <div class="section-label">What We Do</div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-tight mb-5">
-                    Our <span class="text-primary">Services</span>
-                </h2>
-                <p class="text-slate-400 text-lg leading-relaxed">
-                    Two focused practices. One obsession with clarity, craft, and outcomes that feel inevitable.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10">
-
-                <!-- Research Consultancy -->
-                <div class="service-mega">
-                    <div class="mega-bg" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&h=700&fit=crop');"></div>
-                    <div class="mega-overlay"></div>
-                    <div class="mega-content">
-                        <div class="service-badge">
-                            <span class="dot"></span> Practice 01
-                        </div>
-                        <div class="service-icon-wrap service-icon-research">
-                            <i class="fas fa-flask"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-bold font-display mb-4 leading-tight">
-                            Research<br><span class="text-primary">Consultancy</span>
-                        </h3>
-                        <p class="text-slate-400 text-base leading-relaxed max-w-md">
-                            We turn ambiguous questions into rigorous, publishable insight — from literature synthesis and experimental design to ethical AI evaluation and decision-ready reports.
-                        </p>
-
-                        <div class="service-features">
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Literature reviews, systematic synthesis & research roadmaps</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Ethical AI audits, fairness & explainability frameworks</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Clinical / domain data intelligence & bilingual NLP studies</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Threat modeling, APT research & security whitepapers</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Executive briefings and peer-review ready documentation</span>
-                            </div>
-                        </div>
-
-                        <a href="#contact" class="service-cta service-cta-research">
-                            Start a Research Engagement <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Digital Product Development -->
-                <div class="service-mega">
-                    <div class="mega-bg" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=700&fit=crop');"></div>
-                    <div class="mega-overlay"></div>
-                    <div class="mega-content">
-                        <div class="service-badge" style="color: #A5B4FC;">
-                            <span class="dot" style="background: #A5B4FC;"></span> Practice 02
-                        </div>
-                        <div class="service-icon-wrap service-icon-product">
-                            <i class="fas fa-layer-group"></i>
-                        </div>
-                        <h3 class="text-3xl md:text-4xl font-bold font-display mb-4 leading-tight">
-                            Digital Product<br><span style="color: #A5B4FC;">Development</span>
-                        </h3>
-                        <p class="text-slate-400 text-base leading-relaxed max-w-md">
-                            End-to-end product craft — strategy, interface systems, and production-grade software that feels inevitable the moment someone touches it.
-                        </p>
-
-                        <div class="service-features">
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>Product strategy, information architecture & UX systems</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>High-fidelity UI, design systems & micro-interactions</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>Full-stack / AI-powered product engineering</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>ClinTx, InsightFlow & custom platform builds</span>
-                            </div>
-                            <div class="service-feature">
-                                <i class="fas fa-check-circle" style="color: #A5B4FC;"></i>
-                                <span>Launch, iteration and measurable outcome loops</span>
-                            </div>
-                        </div>
-
-                        <a href="#contact" class="service-cta service-cta-product">
-                            Build a Product With Us <i class="fas fa-arrow-right text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Services moved to dedicated pages: services.html, research.html, digital-product.html -->
 
     <!-- ==================== PROJECTS ==================== -->
     <section id="projects" class="project-showcase py-24 border-t border-[#1E293B]">
@@ -2149,8 +2054,8 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                     <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-lg">
                         Advanced AI-powered tools for healthcare, cybersecurity, analytics and governance — crafted with precision and ethical intelligence.
                     </p>
-                    <a href="#contact" class="btn-primary px-8 py-3.5 text-base inline-flex items-center gap-2">
-                        Explore All Solutions <i class="fas fa-arrow-right text-sm"></i>
+                    <a href="services.html" class="btn-primary px-8 py-3.5 text-base inline-flex items-center gap-2">
+                        Explore All the Services <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
 
@@ -2240,229 +2145,101 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         </div>
     </section>
 
-    <!-- ==================== LEADERSHIP ==================== -->
-    <section id="leadership" class="team-section py-24 border-t border-[#1E293B]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
+    <!-- ==================== OUR PEOPLE ==================== -->
+    <section id="people" class="team-section py-24 border-t border-[#1E293B] relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(circle at 82% 15%,rgba(56,189,248,.09),transparent 30%),radial-gradient(circle at 12% 90%,rgba(129,140,248,.08),transparent 28%);"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
                 <div class="lg:col-span-4">
-                    <div class="section-label">Team</div>
+                    <div class="section-label">Our People</div>
                     <h2 class="text-4xl md:text-5xl font-bold font-display leading-tight mb-5">
-                        OUR <span class="text-primary">TEAM</span>
+                        ONE TEAM.<br><span class="text-primary">DIFFERENT STRENGTHS.</span>
                     </h2>
                     <p class="text-slate-400 text-base leading-relaxed max-w-sm">
-                        These people are transforming ideas into exceptional digital experiences and research-driven intelligence.
+                        Leadership, advisors and the core team now live together in one dedicated people space. Explore the team, then open any profile to view that person’s individual page.
                     </p>
-                    <a href="#coreteam" class="team-intro-link">
-                        Meet the Team <i class="fas fa-arrow-right text-sm"></i>
+                    <a href="people.html" class="team-intro-link">
+                        Meet Our People <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
 
-                <div class="lg:col-span-8">
-                    <div class="team-grid">
-                        <!-- Hasnain Imtiaz -->
-                        <div class="member-card">
-                            <img class="photo" src="images/team/sakib.jpg" alt="Hasnain Imtiaz"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">HI</div>
-                            <div class="info">
-                                <h4>Hasnain Imtiaz</h4>
-                                <p>Co-founder</p>
-                            </div>
-                        </div>
-                        <!-- Robin Jamal -->
-                        <div class="member-card">
-                            <img class="photo" src="images/team/robin.jpg" alt="Robin Jamal"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">RJ</div>
-                            <div class="info">
-                                <h4>Robin Jamal</h4>
-                                <p>Co-founder</p>
-                            </div>
-                        </div>
-                        <div class="quote-card">
-                            <p>The real value<br>is always<br><span>people.</span></p>
-                        </div>
-
-                        <div class="quote-card">
-                            <p>Talent turns<br>vision into<br><span>reality.</span></p>
-                        </div>
-                        <!-- Tanvir Mehedi -->
-                        <div class="member-card">
-                            <img class="photo" src="images/team/tanvir.jpg" alt="Tanvir Mehedi"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">TM</div>
-                            <div class="info">
-                                <h4>Tanvir Mehedi</h4>
-                                <p>Leadership · BUET</p>
-                            </div>
-                        </div>
-                        <!-- Dr. Tariq Mohammad -->
-                        <div class="member-card">
-                            <img class="photo" src="images/team/tarek.png" alt="Dr. Tariq Mohammad"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">TM</div>
-                            <div class="info">
-                                <h4>Dr. Tariq Mohammad</h4>
-                                <p>Advisor</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Advisors -->
-            <div class="mt-6">
-                <p class="text-slate-500 text-xs uppercase tracking-widest mb-5">Advisors</p>
-                <div class="team-grid">
-                    <div class="member-card">
-                        <img class="photo" src="images/team/tahsin.jpg" alt="Tahsin H. Khan"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="avatar-fallback" style="display:none;">SE</div>
-                        <div class="info">
-                            <h4>Tahsin H. Khan</h4>
-                            <p>Advisor — Portfolio & Brand</p>
-                        </div>
-                    </div>
-                    <div class="member-card">
-                        <img class="photo" src="images/team/shayn.jpg" alt="Shayne Mallet"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="avatar-fallback" style="display:none;">SM</div>
-                        <div class="info">
-                            <h4>Shayne Mallet</h4>
-                            <p>Advisor — Core Engineering</p>
-                        </div>
-                    </div>
-                    <div class="quote-card">
-                        <p>Ethical AI<br>starts with<br><span>people.</span></p>
-                    </div>
+                <div class="lg:col-span-8 grid sm:grid-cols-3 gap-5">
+                    <a href="people.html#leadership" class="group bg-[#111827] border border-[#1E293B] rounded-2xl p-6 min-h-[250px] flex flex-col justify-between hover:-translate-y-2 hover:border-sky-400/50 transition-all duration-300">
+                        <div class="flex items-center justify-between"><span class="text-xs uppercase tracking-[.18em] text-slate-500">01</span><i class="fas fa-compass text-primary"></i></div>
+                        <div><div class="text-4xl font-display font-semibold mb-3">Leadership</div><p class="text-sm text-slate-400 leading-relaxed">Founders and leadership profiles shaping Relogic’s direction.</p></div>
+                        <span class="text-primary text-sm font-semibold mt-6">View leadership →</span>
+                    </a>
+                    <a href="people.html#advisors" class="group bg-[#111827] border border-[#1E293B] rounded-2xl p-6 min-h-[250px] flex flex-col justify-between hover:-translate-y-2 hover:border-sky-400/50 transition-all duration-300">
+                        <div class="flex items-center justify-between"><span class="text-xs uppercase tracking-[.18em] text-slate-500">02</span><i class="fas fa-circle-nodes text-primary"></i></div>
+                        <div><div class="text-4xl font-display font-semibold mb-3">Advisors</div><p class="text-sm text-slate-400 leading-relaxed">Specialist advisors supporting portfolio, brand and engineering direction.</p></div>
+                        <span class="text-primary text-sm font-semibold mt-6">View advisors →</span>
+                    </a>
+                    <a href="people.html#core-team" class="group bg-[#111827] border border-[#1E293B] rounded-2xl p-6 min-h-[250px] flex flex-col justify-between hover:-translate-y-2 hover:border-sky-400/50 transition-all duration-300">
+                        <div class="flex items-center justify-between"><span class="text-xs uppercase tracking-[.18em] text-slate-500">03</span><i class="fas fa-code-branch text-primary"></i></div>
+                        <div><div class="text-4xl font-display font-semibold mb-3">Core Team</div><p class="text-sm text-slate-400 leading-relaxed">Engineering, research, data, legal and product talent building the work.</p></div>
+                        <span class="text-primary text-sm font-semibold mt-6">View core team →</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== CORE TEAM ==================== -->
-    <section id="coreteam" class="team-section py-24 border-t border-[#1E293B]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
-                <div class="lg:col-span-4">
-                    <div class="section-label">Team</div>
-                    <h2 class="text-4xl md:text-5xl font-bold font-display leading-tight mb-5">
-                        CORE <span class="text-primary">TEAM</span>
-                    </h2>
-                    <p class="text-slate-400 text-base leading-relaxed max-w-sm">
-                        The engine behind our products — engineers, researchers and designers building the future of intelligent systems.
-                    </p>
-                    <a href="#contact" class="team-intro-link">
-                        Work with us <i class="fas fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-
-                <div class="lg:col-span-8">
-                    <div class="team-grid">
-                        <div class="member-card">
-                            <img class="photo" src="images/team/Walid.jpg" alt="Sayem Walid"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">SW</div>
-                            <div class="info">
-                                <h4>Sayem Walid</h4>
-                                <p>Legal & Communication</p>
-                            </div>
-                        </div>
-                        <div class="member-card">
-                            <img class="photo" src="images/team/Adnan.jpg" alt="Adnan Rahman"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">AR</div>
-                            <div class="info">
-                                <h4>Adnan Rahman</h4>
-                                <p>Backend / ML Programmer</p>
-                            </div>
-                        </div>
-                        <div class="quote-card">
-                            <p>Code with<br>purpose.<br><span>Ship with care.</span></p>
-                        </div>
-
-                        <div class="quote-card">
-                            <p>Data becomes<br>intelligence<br><span>through people.</span></p>
-                        </div>
-                        <div class="member-card">
-                            <img class="photo" src="images/team/sazzad-hossain-pranto.jpg" alt="Sazzad Hossain Pranto"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">SP</div>
-                            <div class="info">
-                                <h4>Sazzad Hossain Pranto</h4>
-                                <p>MERN Stack Developer</p>
-                            </div>
-                        </div>
-                        <div class="member-card">
-                            <img class="photo" src="images/team/hassan-arif.jpg" alt="Hassan Arif"
-                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <div class="avatar-fallback" style="display:none;">HA</div>
-                            <div class="info">
-                                <h4>Hassan Arif</h4>
-                                <p>Database Programmer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-grid mt-2">
-                <div class="member-card">
-                    <img class="photo" src="images/team/mahir-hassan-shuvo.jpg" alt="Mahir Hassan Shuvo"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="avatar-fallback" style="display:none;">MS</div>
-                    <div class="info">
-                        <h4>Mahir Hassan Shuvo</h4>
-                        <p>Research & Analytics</p>
-                    </div>
-                </div>
-                <div class="member-card">
-                    <img class="photo" src="images/team/atikul-islam-dipto.jpg" alt="Atikul Islam Dipto"
-                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="avatar-fallback" style="display:none;">AD</div>
-                    <div class="info">
-                        <h4>Atikul Islam Dipto</h4>
-                        <p>Product Developer & Designer</p>
-                    </div>
-                </div>
-                <div class="quote-card">
-                    <p>Build what<br>matters.<br><span>Leave a mark.</span></p>
-                </div>
-            </div>
+    <!-- Relogic Mobile Experience -->
+    <section class="ai-mobile-section" aria-labelledby="mobileExperienceTitle">
+        <div class="mobile-showcase-head">
+            <div class="mobile-showcase-kicker">Mobile Experience</div>
+            <h2 id="mobileExperienceTitle">Relogic, designed like a real app.</h2>
+            <p>Three product states - onboarding, studio dashboard and AI conversation - rebuilt with device framing, status bars, navigation, app controls and the Relogic logo used throughout.</p>
         </div>
-    </section>
-
-    <!-- AI Mobile mockups -->
-    <section class="ai-mobile-section">
-        <div class="ai-phone">
-            <div class="ai-logo">
-                <img src="images/team/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
+        <div class="mobile-device-row">
+            <div class="mobile-device" aria-label="Relogic mobile onboarding screen">
+                <div class="mobile-screen screen-home">
+                    <div class="mobile-island"></div>
+                    <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
+                    <div class="mobile-home-body">
+                        <div class="mobile-logo-orb"><img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"></div>
+                        <h3>Build the future<br>with intelligence.</h3>
+                        <p>Research, AI and digital products shaped around real problems and measurable outcomes.</p>
+                        <div class="mobile-mini-metrics"><div class="mobile-mini-metric"><b>AI</b><span>Native</span></div><div class="mobile-mini-metric"><b>R&D</b><span>Research</span></div><div class="mobile-mini-metric"><b>UX</b><span>Human</span></div></div>
+                        <a class="mobile-primary" href="services.html">Explore Relogic <span>&rarr;</span></a>
+                    </div>
+                    <div class="mobile-home-indicator"></div>
+                </div>
             </div>
-            <h2>Let's Begin the<br>Future</h2>
-            <p>Smart Solutions for a Better Tomorrow</p>
-            <button>Start Exploring</button>
-        </div>
 
-        <div class="ai-phone">
-            <div class="ai-top">◯ Relogic Solutions</div>
-            <div class="ai-logo-small">
-                <img src="images/team/relogic-logo_main.png" alt="Relogic" onerror="this.style.opacity=0.3">
+            <div class="mobile-device" aria-label="Relogic mobile studio dashboard">
+                <div class="mobile-screen screen-dashboard">
+                    <div class="mobile-island"></div>
+                    <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
+                    <div class="mobile-appbar"><div class="mobile-brand"><img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"><span>Relogic Studio</span></div><div class="mobile-icon-btn">+</div></div>
+                    <div class="mobile-content">
+                        <div class="mobile-greeting">Your workspace</div>
+                        <h3 class="mobile-title">What do you want<br>to build today?</h3>
+                        <a href="research.html" class="mobile-service-card"><span class="mobile-service-icon">R</span><span><b>Research Consulting</b><span>Evidence, analysis and study design</span></span><em>&rarr;</em></a>
+                        <a href="digital-product.html" class="mobile-service-card"><span class="mobile-service-icon">P</span><span><b>Digital Products</b><span>Strategy, UX and product engineering</span></span><em>&rarr;</em></a>
+                        <div class="mobile-project"><div class="mobile-project-top"><div><small>Active engagement</small><strong>Discovery Sprint</strong></div><span class="mobile-project-badge">In progress</span></div><div class="mobile-progress"><i></i></div></div>
+                    </div>
+                    <nav class="mobile-nav" aria-label="Mobile preview navigation"><a class="active" href="index.html"><b>⌂</b>Home</a><a href="services.html"><b>◇</b>Work</a><a href="people.html"><b>◎</b>People</a></nav>
+                    <div class="mobile-home-indicator"></div>
+                </div>
             </div>
-            <h2>Welcome to<br>Relogic Solutions</h2>
-            <p>Your Partner in Digital Growth</p>
-            <div class="ai-box">AI Services</div>
-            <div class="ai-box">Cloud Solutions</div>
-            <div class="ai-box">Consulting</div>
-        </div>
 
-        <div class="ai-phone">
-            <div class="ai-top">Ⓡ Relogic Solutions</div>
-            <div class="chat-user">Can you give me a motivational quote?</div>
-            <div class="chat-ai">Of course! 😊<br><br>Every sunrise is a new chapter in your story.</div>
-            <div class="chat-user">Create a futuristic image.</div>
-            <div class="chat-ai">Absolutely! 😎</div>
+            <div class="mobile-device" aria-label="Relogic AI conversation screen">
+                <div class="mobile-screen screen-chat">
+                    <div class="mobile-island"></div>
+                    <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
+                    <div class="mobile-chat-head"><div class="mobile-chat-avatar"><img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"></div><div><b>Relogic AI Studio</b><span>Online</span></div></div>
+                    <div class="mobile-chat">
+                        <div class="mobile-message user">We have messy clinical survey data. Where should we start?</div>
+                        <div class="mobile-message ai"><b>Start with the research question.</b><br><br>Then we can map variables, data quality, missingness and the analysis plan before building a model.</div>
+                        <div class="mobile-message user">Can this become a visual research dashboard too?</div>
+                        <div class="mobile-message ai">Yes. We can move from validated analysis into an interactive product once the evidence layer is stable.</div>
+                        <div class="mobile-suggestions"><span>Research plan</span><span>Data audit</span><span>Dashboard idea</span></div>
+                    </div>
+                    <div class="mobile-composer"><span>Ask Relogic AI...</span><div class="mobile-send">&uarr;</div></div>
+                    <div class="mobile-home-indicator"></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2782,7 +2559,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 
         <div class="ai30-wrap">
             <div class="ai30-brand">
-                <img src="images/team/relogic-logo_main.png" alt="Relogic" onerror="this.style.display='none'">
+                <img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';">
                 <span>Relogic</span>
                 <span class="ai30-brand-divider">/</span>
                 <span style="color:#647087;">Intelligence Map</span>
@@ -3637,7 +3414,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
                 <div>
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="images/team/relogic-logo_main.png" alt="Relogic" class="brand-logo-lg" onerror="this.style.display='none'">
+                        <img src="images/team/relogic-logo-main-crop.png" alt="Relogic" class="brand-logo-lg" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';">
                         <span class="font-bold font-display">Relogic</span>
                     </div>
                     <p class="text-slate-500 text-sm leading-relaxed">
@@ -3648,10 +3425,9 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                     <h5 class="font-semibold text-sm mb-4">Company</h5>
                     <ul class="space-y-2 text-sm text-slate-500">
                         <li><a href="#about" class="hover:text-primary transition">About</a></li>
-                        <li><a href="#services" class="hover:text-primary transition">Services</a></li>
-                        <li><a href="#leadership" class="hover:text-primary transition">Leadership</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition">Services</a></li>
+                        <li><a href="people.html" class="hover:text-primary transition">Our People</a></li>
                         <li><a href="#projects" class="hover:text-primary transition">Projects</a></li>
-                        <li><a href="#coreteam" class="hover:text-primary transition">Core Team</a></li>
                     </ul>
                 </div>
                 <div>

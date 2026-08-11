@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<rect width="1200" height="760" fill="#F7FAF9"/>
+<g stroke="#D7E2DF" stroke-width="1">
+  <path d="M120 120H1100M120 220H1100M120 320H1100M120 420H1100M120 520H1100M120 620H1100"/>
+  <path d="M120 120V640M300 120V640M480 120V640M660 120V640M840 120V640M1020 120V640"/>
+</g>
+<path d="M120 640H1100M120 110V640" stroke="#243A38" stroke-width="2"/>
+
+<title id="title">Dengue incidence and seasonality graph placeholder</title><desc id="desc">Illustrative epidemiological time-series graph.</desc>
+<text x="120" y="70" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#10201F">Seasonal Dengue Incidence Pattern</text>
+<text x="120" y="98" font-family="Arial, sans-serif" font-size="16" fill="#6C7C79">Monthly incidence index · study graph placeholder</text>
+<path d="M120 570 C190 550 230 510 300 535 S410 520 480 475 S590 420 660 445 S760 325 840 280 S950 390 1020 310 S1080 235 1100 220" fill="none" stroke="#118C8A" stroke-width="8" stroke-linecap="round"/>
+<path d="M120 590 C210 600 270 575 340 565 S470 545 540 530 S670 505 750 470 S880 450 960 410 S1050 390 1100 360" fill="none" stroke="#5E63B6" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+<g fill="#118C8A"><circle cx="300" cy="535" r="8"/><circle cx="480" cy="475" r="8"/><circle cx="660" cy="445" r="8"/><circle cx="840" cy="280" r="8"/><circle cx="1020" cy="310" r="8"/></g>
+<text x="120" y="704" font-family="Arial, sans-serif" font-size="18" fill="#516664">Illustrative graph slot — replace with the final study figure</text>
+</svg>

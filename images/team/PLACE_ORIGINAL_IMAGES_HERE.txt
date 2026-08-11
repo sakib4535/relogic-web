@@ -1,0 +1,16 @@
+The supplied HTML references these local image files, but the image files themselves were not included in the upload.
+
+images/team/Adnan.jpg
+images/team/Walid.jpg
+images/team/atikul-islam-dipto.jpg
+images/team/hassan-arif.jpg
+images/team/mahir-hassan-shuvo.jpg
+images/team/relogic-logo-main-crop.png
+images/team/relogic-logo_main.png
+images/team/robin.jpg
+images/team/sakib.jpg
+images/team/sazzad-hossain-pranto.jpg
+images/team/shayn.jpg
+images/team/tahsin.jpg
+images/team/tanvir.jpg
+images/team/tarek.png

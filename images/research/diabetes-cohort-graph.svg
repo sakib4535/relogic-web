@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<rect width="1200" height="760" fill="#F7FAF9"/>
+<g stroke="#D7E2DF" stroke-width="1">
+  <path d="M120 120H1100M120 220H1100M120 320H1100M120 420H1100M120 520H1100M120 620H1100"/>
+  <path d="M120 120V640M300 120V640M480 120V640M660 120V640M840 120V640M1020 120V640"/>
+</g>
+<path d="M120 640H1100M120 110V640" stroke="#243A38" stroke-width="2"/>
+
+<title id="title">Diabetes cohort risk graph placeholder</title><desc id="desc">Illustrative cohort risk curve and scatter plot.</desc>
+<text x="120" y="70" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#10201F">Type 2 Diabetes Cohort Risk &amp; Follow-up</text>
+<text x="120" y="98" font-family="Arial, sans-serif" font-size="16" fill="#6C7C79">Risk trajectory · study graph placeholder</text>
+<path d="M120 590 C280 570 390 525 500 495 S710 430 820 350 S990 250 1100 205" fill="none" stroke="#167F83" stroke-width="8"/>
+<path d="M120 615 C260 610 380 595 500 560 S710 520 840 450 S1000 380 1100 330" fill="none" stroke="#6F63B9" stroke-width="5" opacity=".85"/>
+<g fill="#167F83" opacity=".8"><circle cx="240" cy="555" r="10"/><circle cx="365" cy="530" r="9"/><circle cx="525" cy="472" r="11"/><circle cx="690" cy="438" r="8"/><circle cx="835" cy="344" r="10"/><circle cx="1000" cy="266" r="9"/></g>
+<text x="120" y="704" font-family="Arial, sans-serif" font-size="18" fill="#516664">Illustrative graph slot — replace with the final study figure</text>
+</svg>

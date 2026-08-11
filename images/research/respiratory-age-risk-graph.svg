@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<rect width="1200" height="760" fill="#F7FAF9"/>
+<g stroke="#D7E2DF" stroke-width="1">
+  <path d="M120 120H1100M120 220H1100M120 320H1100M120 420H1100M120 520H1100M120 620H1100"/>
+  <path d="M120 120V640M300 120V640M480 120V640M660 120V640M840 120V640M1020 120V640"/>
+</g>
+<path d="M120 640H1100M120 110V640" stroke="#243A38" stroke-width="2"/>
+
+<title id="title">Respiratory infection age-specific risk graph placeholder</title><desc id="desc">Illustrative age-stratified risk curves.</desc>
+<text x="120" y="70" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#10201F">Respiratory Infection Burden by Age Group</text>
+<text x="120" y="98" font-family="Arial, sans-serif" font-size="16" fill="#6C7C79">Age-stratified incidence · study graph placeholder</text>
+<path d="M120 520 C220 420 280 380 360 400 S510 500 590 470 S720 340 810 360 S960 300 1100 250" fill="none" stroke="#0E807D" stroke-width="8"/>
+<path d="M120 590 C220 570 330 540 430 520 S620 465 720 430 S900 390 1100 330" fill="none" stroke="#71559B" stroke-width="6" opacity=".9"/>
+<path d="M120 610 C250 600 390 590 530 560 S760 520 900 470 S1030 430 1100 405" fill="none" stroke="#3C6C93" stroke-width="5" opacity=".78"/>
+<text x="120" y="704" font-family="Arial, sans-serif" font-size="18" fill="#516664">Illustrative graph slot — replace with the final study figure</text>
+</svg>

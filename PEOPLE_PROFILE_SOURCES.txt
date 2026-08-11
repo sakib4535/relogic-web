@@ -1,0 +1,33 @@
+RELOGIC PEOPLE PROFILE RESEARCH NOTES
+
+Approach
+- Public web research was performed for every listed person.
+- Public details were used only where the identity match was reasonably strong.
+- Where search results were ambiguous, unrelated, or insufficient, no external biography was imported. Those pages use a role-based professional description from the current Relogic team title.
+
+Public profile material used
+1. Hasnain Imtiaz
+   - GitHub portfolio: https://github.com/sakib4535/hasnain-portfolio
+   - Kaggle profile: https://www.kaggle.com/sakibimtiaz/code
+   - Used for machine-learning, data-science, statistics and Python background signals.
+
+2. Robin Jamal
+   - Portfolio: https://pyakathon.github.io/robin-portfolio/
+   - Used for project operations, strategy/research/product operations, selected experience, education and tools.
+
+3. Sayem Walid
+   - Portfolio: https://walid-portfolio-opal.vercel.app/
+   - Used for HR operations, talent acquisition, corporate data management and strategic project execution background signals.
+
+Role-based profiles after public search
+- Tanvir Mehedi
+- Dr. Tariq Mohammad
+- Tahsin H. Khan
+- Shayne Mallet
+- Adnan Rahman
+- Sazzad Hossain Pranto
+- Hassan Arif
+- Mahir Hassan Shuvo
+- Atikul Islam Dipto
+
+For these names, search results were not sufficiently specific to confidently connect a public profile to the Relogic team member. The profile copy therefore describes the responsibilities and professional contribution implied by the person's Relogic position rather than importing potentially incorrect personal facts.
