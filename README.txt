@@ -40,3 +40,14 @@ LATEST UPDATE
 - See PEOPLE_PROFILE_SOURCES.txt for the research basis.
 - The homepage Relogic mobile showcase has been rebuilt as three realistic mobile-device UI screens with status bars, device shells, navigation and app controls.
 - All new mobile screens use the same Relogic logo paths as the rest of the site.
+
+RESPONSIVE UPDATE
+-----------------
+A shared responsive.css layer now supports the complete site across:
+- Small phones (320px+)
+- Standard phones (360–430px)
+- Tablets (600–900px)
+- Laptops (1024–1366px)
+- Desktop displays (1440–1920px+)
+
+Responsive behavior includes mobile-safe typography, touch-sized controls, horizontal navigation on secondary pages, stacked layouts where appropriate, adaptive research/product diagrams, responsive person profiles, mobile-friendly project intake forms, and a horizontally swipeable Relogic mobile UI showcase on narrow screens.
