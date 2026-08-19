@@ -61,6 +61,45 @@
             pointer-events: none;
         }
 
+                #webThreadsBg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 4;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        @media (max-width: 640px) {
+            #webThreadsBg { opacity: 0.42; }
+        }
+
+                #heroSceneReel {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+        @media (max-width: 640px) {
+            #heroSceneReel { opacity: 0.65; }
+        }
+
+                .rp-decrypt-char {
+            display: inline-block;
+        }
+        .rp-decrypt-encrypted {
+            color: #38BDF8;
+            opacity: 0.7;
+        }
+        .rp-decrypt-revealed {
+            color: inherit;
+            opacity: 1;
+            transition: color 0.15s ease;
+        }
+
         .particle {
             position: absolute;
             width: 4px;
@@ -503,101 +542,110 @@
         }
 
         .engagement-bar {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
-            border: 1px solid #334155;
+            background: linear-gradient(160deg, #05080f 0%, #0B1120 40%, #0a0e1a 100%);
+            border: 1px solid rgba(56, 189, 248, 0.22);
             border-radius: 24px;
             overflow: hidden;
             position: relative;
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.45),
+                0 0 0 1px rgba(56,189,248,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.04);
         }
         .engagement-bar::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.08), transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(99, 102, 241, 0.08), transparent 50%);
+            background:
+                radial-gradient(circle at 18% 20%, rgba(56, 189, 248, 0.1), transparent 42%),
+                radial-gradient(circle at 82% 70%, rgba(129, 140, 248, 0.08), transparent 40%);
             pointer-events: none;
+            z-index: 0;
         }
-        .stat-card {
-            background: rgba(17, 24, 39, 0.7);
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .stat-card:hover {
-            border-color: #38BDF8;
-            background: rgba(30, 41, 59, 0.9);
-            transform: translateY(-3px);
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(90deg, #38BDF8, #818CF8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .ui-lab {
-            background: rgba(17, 24, 39, 0.85);
-            border: 1px solid #334155;
-            border-radius: 16px;
-            padding: 16px;
-            min-height: 320px;
+        .nn-frame-head {
             position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            z-index: 2;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.6);
+            background: linear-gradient(180deg, rgba(15,23,42,0.85) 0%, rgba(11,17,32,0.4) 100%);
         }
-        #nn-container {
-            flex: 1;
+        .nn-canvas-wrap {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            height: 280px;
-            min-height: 260px;
-            border-radius: 12px;
+            height: min(62vh, 560px);
+            min-height: 380px;
+            background: radial-gradient(circle at 50% 45%, #12161f 0%, #05070c 70%);
             overflow: hidden;
-            position: relative;
-            background: #050510;
-            border: 1px solid rgba(56, 189, 248, 0.2);
         }
-        #nn-container canvas {
+        #neuralNetCanvas {
             display: block;
-            width: 100% !important;
-            height: 100% !important;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            touch-action: none;
         }
-        .nn-overlay {
-            position: absolute;
-            top: 10px;
-            left: 12px;
-            right: 12px;
-            z-index: 5;
-            pointer-events: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .nn-badge {
-            background: rgba(11, 17, 32, 0.75);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            color: #38BDF8;
-            font-size: 10px;
+        .nn-frame-select {
+            appearance: none;
+            background: rgba(8,13,24,0.9);
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 8px 32px 8px 12px;
+            font-size: 12px;
             font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 4px 10px;
-            border-radius: 20px;
-            backdrop-filter: blur(6px);
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            background-image:
+                linear-gradient(45deg, transparent 50%, #64748B 50%),
+                linear-gradient(135deg, #64748B 50%, transparent 50%);
+            background-position: calc(100% - 14px) 50%, calc(100% - 9px) 50%;
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+            transition: border-color 0.2s;
         }
-        .nn-stats-mini {
-            font-size: 11px;
-            color: #94A3B8;
-            text-align: right;
-            line-height: 1.4;
+        .nn-frame-select:hover, .nn-frame-select:focus {
+            border-color: #38BDF8;
+            outline: none;
         }
-        .nn-stats-mini span { color: #38BDF8; font-weight: 600; }
+        .nn-frame-btn {
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: rgba(15,23,42,0.8);
+            color: #cbd5e1;
+        }
+        .nn-frame-btn:hover {
+            transform: translateY(-1px);
+        }
+        .nn-frame-btn-ok {
+            border-color: rgba(52, 211, 153, 0.4);
+            color: #6ee7b7;
+            background: rgba(16, 185, 129, 0.12);
+        }
+        .nn-frame-btn-ok:hover {
+            background: rgba(16, 185, 129, 0.28);
+            box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
+        }
+        .nn-frame-btn-warn {
+            border-color: rgba(251, 113, 133, 0.4);
+            color: #fda4af;
+            background: rgba(244, 63, 94, 0.1);
+        }
+        .nn-frame-btn-warn:hover {
+            background: rgba(244, 63, 94, 0.25);
+            box-shadow: 0 0 18px rgba(244, 63, 94, 0.18);
+        }
+        @media (max-width: 640px) {
+            .nn-canvas-wrap {
+                height: 420px;
+                min-height: 320px;
+            }
+        }
         .pulse-ring {
             position: absolute;
             width: 12px;
@@ -1815,6 +1863,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     <!-- Hero -->
     <section id="home" class="hero-bg min-h-screen pt-24 pb-16 relative overflow-hidden">
         <canvas id="matrixRain"></canvas>
+        <canvas id="heroSceneReel" aria-hidden="true"></canvas>
 
         <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
         <div class="particle" style="top: 40%; left: 85%; animation-delay: 1s;"></div>
@@ -1951,55 +2000,29 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                 </div>
             </div>
 
-            <!-- Interactive Engagement Bar -->
-            <div class="mt-14 engagement-bar p-6 md:p-8 relative z-10">
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="pulse-ring"></div>
-                    <span class="text-primary text-xs font-semibold uppercase tracking-widest ml-4">Live Experience · Interact</span>
+            <!-- Neural Network Live Frame -->
+            <div class="mt-14 engagement-bar p-0 relative z-10 overflow-hidden">
+                <div class="nn-frame-head px-6 pt-6 pb-3 md:px-8 md:pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="pulse-ring"></div>
+                        <div class="ml-4">
+                            <span class="text-primary text-xs font-semibold uppercase tracking-widest">Neural Network · Live</span>
+                            <h3 class="font-display font-semibold text-lg mt-1">Gradient mind field</h3>
+                            <p class="text-slate-400 text-xs mt-0.5">Move the cursor to reshape the field · click to drop an agent · reward or punish the swarm</p>
+                        </div>
+                    </div>
+                    <div class="nn-agent-controls flex flex-wrap items-center gap-2">
+                        <select id="agentTypeSelector" class="nn-frame-select" aria-label="Agent type">
+                            <option value="creativity">Creativity</option>
+                            <option value="ethical">Ethical</option>
+                            <option value="linguistic">Linguistic</option>
+                        </select>
+                        <button type="button" id="rewardButton" class="nn-frame-btn nn-frame-btn-ok">Reward</button>
+                        <button type="button" id="punishButton" class="nn-frame-btn nn-frame-btn-warn">Punish</button>
+                    </div>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="font-display font-semibold text-lg mb-1">Impact at a Glance</h3>
-                        <p class="text-slate-400 text-sm mb-5">Click any metric to replay the animation</p>
-                        <div class="grid grid-cols-2 gap-3" id="statsGrid">
-                            <div class="stat-card" data-target="47">
-                                <div class="stat-number"><span class="counter">0</span><span class="suffix">+</span></div>
-                                <p class="text-xs text-slate-400 mt-1">Projects Delivered</p>
-                            </div>
-                            <div class="stat-card" data-target="12">
-                                <div class="stat-number"><span class="counter">0</span><span class="suffix">M+</span></div>
-                                <p class="text-xs text-slate-400 mt-1">Data Points Processed</p>
-                            </div>
-                            <div class="stat-card" data-target="98">
-                                <div class="stat-number"><span class="counter">0</span><span class="suffix">%</span></div>
-                                <p class="text-xs text-slate-400 mt-1">Client Satisfaction</p>
-                            </div>
-                            <div class="stat-card" data-target="6">
-                                <div class="stat-number"><span class="counter">0</span><span class="suffix"></span></div>
-                                <p class="text-xs text-slate-400 mt-1">Research Papers</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="ui-lab">
-                        <div class="flex items-center justify-between mb-3">
-                            <div>
-                                <h3 class="font-display font-semibold text-lg">Neural Network Live</h3>
-                                <p class="text-slate-400 text-xs">Auto-running signal propagation · click neurons to fire</p>
-                            </div>
-                            <div class="nn-badge">LIVE</div>
-                        </div>
-                        <div id="nn-container">
-                            <div class="nn-overlay">
-                                <div class="nn-badge">NeuroPulse</div>
-                                <div class="nn-stats-mini">
-                                    Signals <span id="nn-fired">0</span><br>
-                                    Active <span id="nn-active">0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="neuralNetFrame" class="nn-canvas-wrap">
+                    <canvas id="neuralNetCanvas" aria-label="Interactive neural network animation"></canvas>
                 </div>
             </div>
         </div>
@@ -3580,332 +3603,330 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             });
         });
 
-        // Counters
-        function animateCounter(el, target, duration = 1500) {
-            const counter = el.querySelector('.counter');
-            const startTime = performance.now();
-            function update(now) {
-                const progress = Math.min((now - startTime) / duration, 1);
-                const eased = 1 - Math.pow(1 - progress, 3);
-                counter.textContent = Math.floor(eased * target);
-                if (progress < 1) requestAnimationFrame(update);
-                else counter.textContent = target;
+    </script>
+
+    <!-- Neural field — design language (gradient nodes, glow links, agents) -->
+    <script>
+    (function initRelogicNeuralField() {
+        'use strict';
+        var frame = document.getElementById('neuralNetFrame');
+        var canvas = document.getElementById('neuralNetCanvas');
+        if (!frame || !canvas) return;
+        var ctx = canvas.getContext('2d');
+
+        // Visual DNA from the reference design
+        var NODE_COLORS = ['#ff6b6b', '#ffdd59', '#1e90ff'];
+        var AGENT_COLORS = { creativity: '#ff6b6b', ethical: '#32cd32', linguistic: '#8a2be2' };
+        var AGENT_FORCE = { creativity: 0.7, ethical: 0.5, linguistic: 0.6 };
+
+        var nodes = [];
+        var agents = [];
+        var anchors = [];
+        var mouse = { x: 0, y: 0 };
+        var W = 0, H = 0, dpr = 1;
+        var rewardPulse = 0;
+        var punishPulse = 0;
+        var started = false;
+
+        var COUNT = 95;
+        var LINK_DIST = 130;
+        var MAX_LINKS = 4;
+        var FRICTION = 0.88;
+        var TRAIL = 14;
+
+        function resize() {
+            var r = frame.getBoundingClientRect();
+            W = Math.max(1, Math.floor(r.width));
+            H = Math.max(1, Math.floor(r.height));
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.floor(W * dpr);
+            canvas.height = Math.floor(H * dpr);
+            canvas.style.width = W + 'px';
+            canvas.style.height = H + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            if (!mouse.x && !mouse.y) {
+                mouse.x = W * 0.5;
+                mouse.y = H * 0.45;
             }
-            requestAnimationFrame(update);
+            // soft brain-shaped anchors (design motif)
+            anchors = [
+                [0.22, 0.32], [0.78, 0.32], [0.22, 0.68], [0.78, 0.68],
+                [0.50, 0.14], [0.50, 0.86], [0.36, 0.50], [0.64, 0.50]
+            ].map(function (p) { return { x: p[0] * W, y: p[1] * H }; });
         }
 
-        function runAllCounters() {
-            document.querySelectorAll('.stat-card').forEach(card => {
-                animateCounter(card, parseInt(card.dataset.target));
+        function makeNode() {
+            return {
+                x: Math.random() * W,
+                y: Math.random() * H,
+                vx: (Math.random() - 0.5) * 1.4,
+                vy: (Math.random() - 0.5) * 1.4,
+                r: 2 + Math.random() * 3.2,
+                base: 2 + Math.random() * 3.2,
+                phase: Math.random() * Math.PI * 2,
+                energy: 0.7 + Math.random() * 0.5,
+                trail: [],
+                permanent: Math.random() > 0.92
+            };
+        }
+
+        function seed() {
+            nodes = [];
+            for (var i = 0; i < COUNT; i++) nodes.push(makeNode());
+        }
+
+        function spawnAgent(x, y, type) {
+            agents.push({
+                x: x, y: y,
+                vx: (Math.random() - 0.5) * 2,
+                vy: (Math.random() - 0.5) * 2,
+                r: 6 + Math.random() * 8,
+                type: type,
+                color: AGENT_COLORS[type] || '#38BDF8',
+                force: AGENT_FORCE[type] || 0.5,
+                life: 1
             });
         }
 
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    runAllCounters();
-                    statsObserver.disconnect();
+        canvas.addEventListener('mousemove', function (e) {
+            var rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        canvas.addEventListener('click', function (e) {
+            var rect = canvas.getBoundingClientRect();
+            var sel = document.getElementById('agentTypeSelector');
+            var type = sel ? sel.value : 'creativity';
+            spawnAgent(e.clientX - rect.left, e.clientY - rect.top, type);
+        });
+        var rb = document.getElementById('rewardButton');
+        var pb = document.getElementById('punishButton');
+        if (rb) rb.addEventListener('click', function () { rewardPulse = 1; });
+        if (pb) pb.addEventListener('click', function () { punishPulse = 1; });
+
+        function step() {
+            // agents
+            for (var a = agents.length - 1; a >= 0; a--) {
+                var ag = agents[a];
+                var mdx = ag.x - mouse.x, mdy = ag.y - mouse.y;
+                var md = Math.hypot(mdx, mdy);
+                if (md < 140 && md > 0.1) {
+                    var f = (140 - md) / 140;
+                    ag.vx += (mdx / md) * f * 1.2;
+                    ag.vy += (mdy / md) * f * 1.2;
                 }
-            });
-        }, { threshold: 0.3 });
-        statsObserver.observe(document.getElementById('statsGrid'));
-
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.addEventListener('click', () => {
-                animateCounter(card, parseInt(card.dataset.target), 900);
-            });
-        });
-    </script>
-
-    <!-- Three.js Neural Network -->
-    <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
-      }
-    }
-    </script>
-    <script type="module">
-    import * as THREE from 'three';
-    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-    (function initNeuroPulseEmbed() {
-      const container = document.getElementById('nn-container');
-      if (!container) return;
-
-      const LAYER_SIZES = [5, 7, 6, 4, 2];
-      const LAYER_SPACING = 3.6;
-      const NEURON_SPACING = 0.95;
-      const NEURON_RADIUS = 0.18;
-      const CONNECTION_OPACITY = 0.16;
-      const PULSE_SPEED = 3.2;
-      const ACTIVATION_DECAY = 0.982;
-
-      let scene, camera, renderer, controls;
-      let neurons = [];
-      let connections = [];
-      let signalsFired = 0;
-      let clock = new THREE.Clock();
-      let lastAutoTime = 0;
-      const raycaster = new THREE.Raycaster();
-      const mouse = new THREE.Vector2();
-
-      function build() {
-        const w = container.clientWidth || 400;
-        const h = container.clientHeight || 280;
-
-        scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x050510, 0.045);
-
-        camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
-        camera.position.set(0, 1.2, 14);
-
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-        renderer.setSize(w, h);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.setClearColor(0x050510);
-        renderer.toneMapping = THREE.ACESFilmicToneMapping;
-        renderer.toneMappingExposure = 1.1;
-        container.appendChild(renderer.domElement);
-
-        controls = new OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.08;
-        controls.minDistance = 5;
-        controls.maxDistance = 28;
-        controls.enablePan = false;
-        controls.autoRotate = true;
-        controls.autoRotateSpeed = 0.6;
-
-        scene.add(new THREE.AmbientLight(0x1a2040, 0.7));
-        const key = new THREE.DirectionalLight(0x88ccff, 0.7);
-        key.position.set(4, 8, 6);
-        scene.add(key);
-        const rim = new THREE.DirectionalLight(0xff44aa, 0.3);
-        rim.position.set(-5, -3, -4);
-        scene.add(rim);
-        scene.add(new THREE.PointLight(0x00ccff, 0.7, 25));
-
-        const colors = [
-          new THREE.Color(0x00f0ff),
-          new THREE.Color(0x44aaff),
-          new THREE.Color(0xaa66ff),
-          new THREE.Color(0xff44aa),
-          new THREE.Color(0xffaa00)
-        ];
-        const totalW = (LAYER_SIZES.length - 1) * LAYER_SPACING;
-        const startX = -totalW / 2;
-
-        LAYER_SIZES.forEach((count, li) => {
-          const x = startX + li * LAYER_SPACING;
-          const totalH = (count - 1) * NEURON_SPACING;
-          const startY = -totalH / 2;
-          for (let i = 0; i < count; i++) {
-            const y = startY + i * NEURON_SPACING;
-            const z = (Math.random() - 0.5) * 0.35;
-            const geo = new THREE.SphereGeometry(NEURON_RADIUS, 16, 16);
-            const mat = new THREE.MeshStandardMaterial({
-              color: colors[li].clone().multiplyScalar(0.35),
-              emissive: colors[li].clone().multiplyScalar(0.15),
-              emissiveIntensity: 0.4,
-              metalness: 0.55,
-              roughness: 0.3,
-              transparent: true,
-              opacity: 0.95
-            });
-            const mesh = new THREE.Mesh(geo, mat);
-            mesh.position.set(x, y, z);
-            mesh.userData = { isNeuron: true };
-            scene.add(mesh);
-            const light = new THREE.PointLight(colors[li].getHex(), 0, 2.2);
-            light.position.copy(mesh.position);
-            scene.add(light);
-            neurons.push({
-              mesh, light, layer: li, index: i,
-              activation: 0, baseColor: colors[li].clone()
-            });
-          }
-        });
-
-        for (let li = 0; li < LAYER_SIZES.length - 1; li++) {
-          const fromNs = neurons.filter(n => n.layer === li);
-          const toNs = neurons.filter(n => n.layer === li + 1);
-          fromNs.forEach(from => {
-            toNs.forEach(to => {
-              const weight = (Math.random() * 2 - 1) * 1.3;
-              const pts = [from.mesh.position.clone(), to.mesh.position.clone()];
-              const geo = new THREE.BufferGeometry().setFromPoints(pts);
-              const col = weight >= 0 ? new THREE.Color(0x00ccff) : new THREE.Color(0xff4488);
-              const mat = new THREE.LineBasicMaterial({
-                color: col, transparent: true,
-                opacity: CONNECTION_OPACITY * (0.4 + Math.abs(weight) * 0.4),
-                blending: THREE.AdditiveBlending
-              });
-              const line = new THREE.Line(geo, mat);
-              scene.add(line);
-              connections.push({
-                line, from, to, weight,
-                baseOpacity: mat.opacity,
-                pulseProgress: -1
-              });
-            });
-          });
-        }
-
-        const pCount = 280;
-        const pos = new Float32Array(pCount * 3);
-        const cols = new Float32Array(pCount * 3);
-        const cA = new THREE.Color(0x00e5ff);
-        const cB = new THREE.Color(0xff00aa);
-        for (let i = 0; i < pCount; i++) {
-          pos[i*3] = (Math.random()-0.5)*40;
-          pos[i*3+1] = (Math.random()-0.5)*28;
-          pos[i*3+2] = (Math.random()-0.5)*35;
-          const c = Math.random() > 0.5 ? cA : cB;
-          cols[i*3] = c.r; cols[i*3+1] = c.g; cols[i*3+2] = c.b;
-        }
-        const pGeo = new THREE.BufferGeometry();
-        pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-        pGeo.setAttribute('color', new THREE.BufferAttribute(cols, 3));
-        const pMat = new THREE.PointsMaterial({
-          size: 0.07, vertexColors: true, transparent: true,
-          opacity: 0.5, blending: THREE.AdditiveBlending, depthWrite: false
-        });
-        const particles = new THREE.Points(pGeo, pMat);
-        scene.add(particles);
-
-        renderer.domElement.addEventListener('pointerdown', (e) => {
-          const rect = renderer.domElement.getBoundingClientRect();
-          mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-          mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-          raycaster.setFromCamera(mouse, camera);
-          const hits = raycaster.intersectObjects(neurons.map(n => n.mesh));
-          if (hits.length) {
-            const n = neurons.find(nn => nn.mesh === hits[0].object);
-            if (n) activate(n, 1.1);
-          }
-        });
-
-        window.addEventListener('resize', () => {
-          const ww = container.clientWidth;
-          const hh = container.clientHeight;
-          if (ww < 10 || hh < 10) return;
-          camera.aspect = ww / hh;
-          camera.updateProjectionMatrix();
-          renderer.setSize(ww, hh);
-        });
-
-        setTimeout(() => fireInputs(), 600);
-        animate(particles);
-      }
-
-      function activate(n, amount = 1) {
-        n.activation = Math.min(1.5, n.activation + amount);
-        signalsFired++;
-        updateMini();
-        n.mesh.material.emissiveIntensity = 2.2;
-        n.light.intensity = 1.6;
-        setTimeout(() => propagate(n), 50);
-      }
-
-      function propagate(src) {
-        connections.filter(c => c.from === src).forEach(conn => {
-          if (Math.abs(conn.weight) < 0.12 || src.activation < 0.12) return;
-          const strength = src.activation * Math.tanh(conn.weight * 1.15);
-          if (Math.abs(strength) < 0.04) return;
-          conn.pulseProgress = 0;
-          conn.line.material.opacity = Math.min(0.8, 0.25 + Math.abs(strength) * 0.55);
-          const dist = src.mesh.position.distanceTo(conn.to.mesh.position);
-          const travel = (dist / PULSE_SPEED) * 900;
-          setTimeout(() => {
-            conn.to.activation = Math.min(1.5, conn.to.activation + Math.abs(strength) * 0.8);
-            updateMini();
-            if (conn.to.activation > 0.18 && conn.to.layer < LAYER_SIZES.length - 1) {
-              setTimeout(() => propagate(conn.to), 30);
+                ag.vx *= FRICTION; ag.vy *= FRICTION;
+                ag.x += ag.vx; ag.y += ag.vy;
+                if (ag.x < 0 || ag.x > W) ag.vx *= -1;
+                if (ag.y < 0 || ag.y > H) ag.vy *= -1;
+                ag.x = Math.max(0, Math.min(W, ag.x));
+                ag.y = Math.max(0, Math.min(H, ag.y));
+                ag.life -= 0.004;
+                if (ag.life <= 0) agents.splice(a, 1);
             }
-          }, travel);
-        });
-      }
 
-      function fireInputs() {
-        neurons.filter(n => n.layer === 0).forEach((n, i) => {
-          setTimeout(() => activate(n, 0.85 + Math.random() * 0.35), i * 60);
-        });
-      }
+            // nodes
+            for (var i = 0; i < nodes.length; i++) {
+                var n = nodes[i];
+                n.phase += 0.08;
 
-      function updateMini() {
-        const elF = document.getElementById('nn-fired');
-        const elA = document.getElementById('nn-active');
-        if (elF) elF.textContent = signalsFired;
-        if (elA) elA.textContent = neurons.filter(n => n.activation > 0.12).length;
-      }
+                // cursor repulsion + swell (design hallmark)
+                var dx = n.x - mouse.x, dy = n.y - mouse.y;
+                var d = Math.hypot(dx, dy);
+                if (d < 150 && d > 0.1) {
+                    var force = (150 - d) / 150;
+                    n.vx += (dx / d) * force * 1.6;
+                    n.vy += (dy / d) * force * 1.6;
+                    n.r = n.base * (1 + force * 1.4);
+                } else {
+                    n.r = n.base + Math.sin(n.phase) * 0.35;
+                }
 
-      function animate(particles) {
-        requestAnimationFrame(() => animate(particles));
-        const dt = Math.min(clock.getDelta(), 0.05);
-        const t = clock.getElapsedTime();
-        controls.update();
+                // soft pull toward nearest anchor
+                var best = null, bestD = 1e9;
+                for (var k = 0; k < anchors.length; k++) {
+                    var ad = Math.hypot(n.x - anchors[k].x, n.y - anchors[k].y);
+                    if (ad < bestD) { bestD = ad; best = anchors[k]; }
+                }
+                if (best) {
+                    var ax = best.x - n.x, ay = best.y - n.y;
+                    var ang = Math.atan2(ay, ax);
+                    if (bestD > 55) {
+                        n.vx += Math.cos(ang) * 0.018;
+                        n.vy += Math.sin(ang) * 0.018;
+                    } else {
+                        n.vx -= Math.cos(ang) * 0.08;
+                        n.vy -= Math.sin(ang) * 0.08;
+                    }
+                }
 
-        neurons.forEach(n => {
-          n.activation *= ACTIVATION_DECAY;
-          if (n.activation < 0.008) n.activation = 0;
-          const intens = 0.35 + n.activation * 2.1;
-          n.mesh.material.emissiveIntensity = THREE.MathUtils.lerp(n.mesh.material.emissiveIntensity, intens, 0.12);
-          const bright = n.baseColor.clone().multiplyScalar(0.35 + n.activation * 1.3);
-          n.mesh.material.color.lerp(bright, 0.1);
-          n.mesh.material.emissive.lerp(n.baseColor.clone().multiplyScalar(0.2 + n.activation * 0.85), 0.1);
-          const s = 1 + n.activation * 0.32;
-          n.mesh.scale.setScalar(THREE.MathUtils.lerp(n.mesh.scale.x, s, 0.14));
-          n.light.intensity = THREE.MathUtils.lerp(n.light.intensity, n.activation * 1.8, 0.14);
-        });
+                // agent influence
+                for (var j = 0; j < agents.length; j++) {
+                    var ag2 = agents[j];
+                    var adx = ag2.x - n.x, ady = ag2.y - n.y;
+                    var adist = Math.hypot(adx, ady);
+                    if (adist < ag2.r * 10 && adist > 0.1) {
+                        var ang2 = Math.atan2(ady, adx);
+                        n.vx += Math.cos(ang2) * ag2.force * 0.35;
+                        n.vy += Math.sin(ang2) * ag2.force * 0.35;
+                        if (ag2.type === 'creativity') {
+                            n.r += Math.random() * 0.8;
+                            n.vx += (Math.random() - 0.5) * 0.3;
+                            n.vy += (Math.random() - 0.5) * 0.3;
+                        } else if (ag2.type === 'ethical') {
+                            n.vx *= 1.04; n.vy *= 1.04;
+                        }
+                    }
+                }
 
-        connections.forEach(conn => {
-          if (conn.pulseProgress >= 0) {
-            conn.pulseProgress += dt * PULSE_SPEED * 0.5;
-            if (conn.pulseProgress >= 1) {
-              conn.pulseProgress = -1;
-              conn.line.material.opacity = THREE.MathUtils.lerp(conn.line.material.opacity, conn.baseOpacity, 0.25);
-            } else {
-              conn.line.material.opacity = 0.22 + Math.sin(conn.pulseProgress * Math.PI) * 0.5;
+                // light separation
+                for (var j2 = i + 1; j2 < nodes.length; j2++) {
+                    var o = nodes[j2];
+                    var sx = n.x - o.x, sy = n.y - o.y;
+                    var sd = Math.hypot(sx, sy);
+                    if (sd < 22 && sd > 0.1) {
+                        var sf = (22 - sd) / 22 * 0.12;
+                        n.vx += (sx / sd) * sf;
+                        n.vy += (sy / sd) * sf;
+                        o.vx -= (sx / sd) * sf;
+                        o.vy -= (sy / sd) * sf;
+                    }
+                }
+
+                // reward / punish
+                if (rewardPulse > 0) {
+                    n.energy = Math.min(1.5, n.energy + 0.04);
+                    n.base = Math.min(6, n.base + 0.02);
+                }
+                if (punishPulse > 0) {
+                    n.energy = Math.max(0.15, n.energy - 0.05);
+                    n.base = Math.max(1.5, n.base - 0.03);
+                }
+
+                n.vx *= FRICTION; n.vy *= FRICTION;
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < 0 || n.x > W) n.vx *= -1;
+                if (n.y < 0 || n.y > H) n.vy *= -1;
+                n.x = Math.max(0, Math.min(W, n.x));
+                n.y = Math.max(0, Math.min(H, n.y));
+
+                n.trail.push({ x: n.x, y: n.y });
+                if (n.trail.length > TRAIL) n.trail.shift();
             }
-          } else {
-            conn.line.material.opacity = THREE.MathUtils.lerp(
-              conn.line.material.opacity,
-              conn.baseOpacity * (0.85 + Math.sin(t * 1.4 + conn.weight * 2) * 0.12),
-              0.04
-            );
-          }
-        });
 
-        if (t - lastAutoTime > 1.6) {
-          lastAutoTime = t;
-          const inputs = neurons.filter(n => n.layer === 0);
-          activate(inputs[Math.floor(Math.random() * inputs.length)], 0.65 + Math.random() * 0.4);
+            if (rewardPulse > 0) rewardPulse = Math.max(0, rewardPulse - 0.08);
+            if (punishPulse > 0) punishPulse = Math.max(0, punishPulse - 0.08);
         }
 
-        if (particles) {
-          particles.rotation.y = t * 0.012;
-          particles.rotation.x = Math.sin(t * 0.07) * 0.03;
+        function draw() {
+            // dark radial field (reference design)
+            var bg = ctx.createRadialGradient(W * 0.5, H * 0.45, 0, W * 0.5, H * 0.45, Math.max(W, H) * 0.7);
+            bg.addColorStop(0, '#161a24');
+            bg.addColorStop(1, '#05070c');
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, W, H);
+
+            // soft vignette glow when rewarded / punished
+            if (rewardPulse > 0) {
+                ctx.fillStyle = 'rgba(52, 211, 153, ' + (rewardPulse * 0.08) + ')';
+                ctx.fillRect(0, 0, W, H);
+            }
+            if (punishPulse > 0) {
+                ctx.fillStyle = 'rgba(244, 63, 94, ' + (punishPulse * 0.08) + ')';
+                ctx.fillRect(0, 0, W, H);
+            }
+
+            // connections
+            ctx.lineWidth = 1;
+            for (var i = 0; i < nodes.length; i++) {
+                var links = 0;
+                for (var j = i + 1; j < nodes.length && links < MAX_LINKS; j++) {
+                    var a = nodes[i], b = nodes[j];
+                    var d = Math.hypot(a.x - b.x, a.y - b.y);
+                    if (d < LINK_DIST) {
+                        links++;
+                        var alpha = (1 - d / LINK_DIST) * 0.7 * Math.min(a.energy, b.energy);
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = 'rgba(255,255,255,' + alpha + ')';
+                        ctx.shadowBlur = 6;
+                        ctx.shadowColor = 'rgba(255,255,255,0.25)';
+                        ctx.stroke();
+                        ctx.shadowBlur = 0;
+                    }
+                }
+            }
+
+            // trails
+            for (var t = 0; t < nodes.length; t++) {
+                var n = nodes[t];
+                if (n.trail.length < 2) continue;
+                ctx.beginPath();
+                ctx.moveTo(n.trail[0].x, n.trail[0].y);
+                for (var p = 1; p < n.trail.length; p++) ctx.lineTo(n.trail[p].x, n.trail[p].y);
+                ctx.strokeStyle = 'rgba(255,255,255,0.28)';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+
+            // nodes — radial gradient fill (red → gold → blue) like the reference
+            for (var i2 = 0; i2 < nodes.length; i2++) {
+                var n2 = nodes[i2];
+                var r = Math.max(0.8, n2.r * (0.85 + n2.energy * 0.25));
+                var g = ctx.createRadialGradient(n2.x, n2.y, 0, n2.x, n2.y, r);
+                g.addColorStop(0, '#ff6b6b');
+                g.addColorStop(0.5, '#ffdd59');
+                g.addColorStop(1, '#1e90ff');
+                ctx.beginPath();
+                ctx.arc(n2.x, n2.y, r, 0, Math.PI * 2);
+                ctx.fillStyle = g;
+                ctx.shadowBlur = 14;
+                ctx.shadowColor = 'rgba(56,189,248,0.45)';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                if (n2.permanent) {
+                    ctx.strokeStyle = '#00FF00';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                }
+            }
+
+            // agents
+            for (var ai = 0; ai < agents.length; ai++) {
+                var ag = agents[ai];
+                ctx.beginPath();
+                ctx.arc(ag.x, ag.y, ag.r * ag.life, 0, Math.PI * 2);
+                ctx.fillStyle = ag.color;
+                ctx.globalAlpha = Math.max(0.2, ag.life);
+                ctx.shadowBlur = 22;
+                ctx.shadowColor = ag.color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.globalAlpha = 1;
+            }
         }
 
-        renderer.render(scene, camera);
-      }
+        function loop() {
+            step();
+            draw();
+            requestAnimationFrame(loop);
+        }
 
-      let started = false;
-      function tryStart() {
-        if (started) return;
-        if (!container.clientWidth) return;
-        started = true;
-        build();
-      }
-      if (document.readyState === 'complete') tryStart();
-      else window.addEventListener('load', tryStart);
-      setTimeout(tryStart, 500);
-      if (window.ResizeObserver) {
-        const ro = new ResizeObserver(() => tryStart());
-        ro.observe(container);
-      }
+        function start() {
+            if (started) return;
+            if (!frame.clientWidth) { setTimeout(start, 120); return; }
+            started = true;
+            resize();
+            window.addEventListener('resize', resize);
+            if (window.ResizeObserver) new ResizeObserver(resize).observe(frame);
+            seed();
+            loop();
+        }
+
+        if (document.readyState === 'complete') start();
+        else window.addEventListener('load', start);
+        setTimeout(start, 250);
     })();
     </script>
 <script>(function () {
@@ -4797,7 +4818,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
   let isCleaning = false;
   const observer = new MutationObserver((mutationsList) => {
     if (isCleaning) return;
-    for (const mutation of mutationsList) {
+    for (const mutation of mutationsList) {  
       if (mutation.type === 'attributes') {
           if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
           if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
@@ -4820,6 +4841,435 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
   observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
   cleanDOM();
 })();
-</script></body>
+</script>
+<script>
+(function initHeroSceneReel(){
+    'use strict';
+    var canvas = document.getElementById('heroSceneReel');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var host = canvas.parentElement;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var SCENES = ['circuits','numbers','brain','logic','machines','society'];
+    var SCENE_DURATION = 5200;
+    var CROSSFADE = 1100;
+
+    var PAL = {
+        cyan: [56,189,248],
+        indigo: [129,140,248],
+        lightCyan: [125,211,252],
+        deepIndigo: [99,102,241],
+        white: [226,232,240]
+    };
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, startTime = performance.now();
+    var data = {};
+
+    function rgba(c, a){ return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')'; }
+    function lerp(a,b,u){ return a + (b - a) * u; }
+
+    function buildPath(points){
+        var cum = [0];
+        for (var i = 1; i < points.length; i++){
+            var dx = points[i][0]-points[i-1][0], dy = points[i][1]-points[i-1][1];
+            cum.push(cum[i-1] + Math.sqrt(dx*dx + dy*dy));
+        }
+        return { pts: points, cum: cum, total: cum[cum.length-1] || 1 };
+    }
+    function pointAtU(path, u){
+        var target = u * path.total;
+        var pts = path.pts, cum = path.cum;
+        for (var i = 1; i < cum.length; i++){
+            if (target <= cum[i]){
+                var segU = (target - cum[i-1]) / Math.max(0.0001, cum[i]-cum[i-1]);
+                return [lerp(pts[i-1][0], pts[i][0], segU), lerp(pts[i-1][1], pts[i][1], segU)];
+            }
+        }
+        return pts[pts.length-1];
+    }
+
+    function buildCircuits(w,h){
+        var paths = [];
+        var count = 22;
+        for (var i = 0; i < count; i++){
+            var x = Math.random()*w, y = Math.random()*h;
+            var pts = [[x,y]];
+            var segs = 2 + Math.floor(Math.random()*3);
+            var horiz = Math.random() > 0.5;
+            for (var s = 0; s < segs; s++){
+                if (horiz) x += (Math.random()-0.5) * w * 0.35;
+                else y += (Math.random()-0.5) * h * 0.35;
+                x = Math.max(0, Math.min(w, x));
+                y = Math.max(0, Math.min(h, y));
+                pts.push([x,y]);
+                horiz = !horiz;
+            }
+            paths.push({ path: buildPath(pts), speed: 0.00012 + Math.random()*0.00018, phase: Math.random(), color: Math.random()>0.5?PAL.cyan:PAL.indigo });
+        }
+        data.circuits = paths;
+    }
+
+    function buildNumbers(w,h){
+        var glyphs = ['0','1','01','10','42','256','3.14','9','7','1024'];
+        var tokens = [];
+        for (var i = 0; i < 46; i++){
+            tokens.push({
+                x: Math.random()*w,
+                baseY: Math.random()*h,
+                str: glyphs[Math.floor(Math.random()*glyphs.length)],
+                size: 12 + Math.random()*16,
+                speed: 0.01 + Math.random()*0.015,
+                phase: Math.random()*Math.PI*2,
+                color: Math.random()>0.5?PAL.cyan:PAL.lightCyan
+            });
+        }
+        data.numbers = tokens;
+    }
+
+    function buildBrain(w,h){
+        var cx = w*0.5, cy = h*0.44;
+        var rx = Math.min(w*0.22, 260), ry = rx*0.8;
+        var nodeCount = 40;
+        var nodes = [];
+        for (var i = 0; i < nodeCount; i++){
+            var a = Math.random()*Math.PI*2;
+            var r = Math.sqrt(Math.random());
+            nodes.push({ x: cx + Math.cos(a)*rx*r, y: cy + Math.sin(a)*ry*r, pulse: Math.random() });
+        }
+        var edges = [];
+        for (var n = 0; n < nodes.length; n++){
+            var dists = [];
+            for (var m = 0; m < nodes.length; m++){
+                if (m === n) continue;
+                var dx = nodes[n].x-nodes[m].x, dy = nodes[n].y-nodes[m].y;
+                dists.push({ i: m, d: Math.sqrt(dx*dx+dy*dy) });
+            }
+            dists.sort(function(a,b){ return a.d-b.d; });
+            for (var k = 0; k < 2; k++){
+                edges.push({ a: n, b: dists[k].i, phase: Math.random(), speed: 0.0003 + Math.random()*0.0004 });
+            }
+        }
+        data.brain = { cx: cx, cy: cy, rx: rx, ry: ry, nodes: nodes, edges: edges };
+    }
+
+    function buildLogic(w,h){
+        var labels = ['AND','OR','NOT','XOR'];
+        var cols = [w*0.22, w*0.5, w*0.78];
+        var gates = [];
+        for (var c = 0; c < cols.length; c++){
+            var rows = c === 1 ? 2 : 3;
+            for (var r = 0; r < rows; r++){
+                gates.push({
+                    x: cols[c],
+                    y: h*(0.5) + (r - (rows-1)/2) * 90,
+                    label: labels[(c+r) % labels.length]
+                });
+            }
+        }
+        var wires = [];
+        var col0 = gates.filter(function(g){ return g.x === cols[0]; });
+        var col1 = gates.filter(function(g){ return g.x === cols[1]; });
+        var col2 = gates.filter(function(g){ return g.x === cols[2]; });
+        col0.forEach(function(g, i){
+            var target = col1[i % col1.length];
+            wires.push({ path: buildPath([[g.x+30,g.y],[target.x-30,target.y]]), phase: Math.random(), speed: 0.0006 });
+        });
+        col1.forEach(function(g, i){
+            var target = col2[i % col2.length];
+            wires.push({ path: buildPath([[g.x+30,g.y],[target.x-30,target.y]]), phase: Math.random(), speed: 0.0006 });
+        });
+        data.logic = { gates: gates, wires: wires };
+    }
+
+    function buildMachines(w,h){
+        var gears = [];
+        var count = 5;
+        for (var i = 0; i < count; i++){
+            gears.push({
+                x: w*(0.15 + Math.random()*0.7),
+                y: h*(0.25 + Math.random()*0.5),
+                r: 26 + Math.random()*34,
+                teeth: 8 + Math.floor(Math.random()*4),
+                rotSpeed: (Math.random()>0.5?1:-1) * (0.0002 + Math.random()*0.0004),
+                rotOffset: Math.random()*Math.PI*2,
+                color: Math.random()>0.5?PAL.cyan:PAL.deepIndigo
+            });
+        }
+        data.machines = gears;
+    }
+
+    function buildSociety(w,h){
+        var nodes = [];
+        for (var i = 0; i < 30; i++){
+            nodes.push({ x: Math.random()*w, y: Math.random()*h });
+        }
+        var edges = [];
+        for (var n = 0; n < nodes.length; n++){
+            for (var m = n+1; m < nodes.length; m++){
+                var dx = nodes[n].x-nodes[m].x, dy = nodes[n].y-nodes[m].y;
+                var d = Math.sqrt(dx*dx+dy*dy);
+                if (d < Math.min(w,h) * 0.18) edges.push({ a: n, b: m, phase: Math.random(), speed: 0.0004 + Math.random()*0.0004 });
+            }
+        }
+        data.society = { nodes: nodes, edges: edges };
+    }
+
+    function buildAll(){
+        buildCircuits(W,H);
+        buildNumbers(W,H);
+        buildBrain(W,H);
+        buildLogic(W,H);
+        buildMachines(W,H);
+        buildSociety(W,H);
+    }
+
+    function resize(){
+        W = host.clientWidth;
+        H = host.clientHeight;
+        canvas.width = Math.floor(W*dpr);
+        canvas.height = Math.floor(H*dpr);
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+        buildAll();
+    }
+
+    function drawCircuits(t, alpha){
+        ctx.save(); ctx.globalAlpha = alpha;
+        data.circuits.forEach(function(c){
+            ctx.beginPath();
+            c.path.pts.forEach(function(p,i){ if (i===0) ctx.moveTo(p[0],p[1]); else ctx.lineTo(p[0],p[1]); });
+            ctx.strokeStyle = rgba(c.color, 0.28);
+            ctx.lineWidth = 1.3;
+            ctx.stroke();
+            var u = (t*c.speed + c.phase) % 1;
+            var p = pointAtU(c.path, u);
+            ctx.beginPath();
+            ctx.arc(p[0], p[1], 3, 0, Math.PI*2);
+            ctx.fillStyle = rgba(c.color, 0.95);
+            ctx.shadowColor = rgba(c.color, 0.9);
+            ctx.shadowBlur = 10;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+        ctx.restore();
+    }
+
+    function drawNumbers(t, alpha){
+        ctx.save(); ctx.globalAlpha = alpha;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        data.numbers.forEach(function(n){
+            var y = (n.baseY + t*n.speed) % (H+40) - 20;
+            var x = n.x + Math.sin(t*0.0006 + n.phase) * 12;
+            var flicker = 0.35 + 0.4*Math.sin(t*0.0012 + n.phase);
+            ctx.font = n.size + 'px Space Grotesk, monospace';
+            ctx.fillStyle = rgba(n.color, Math.max(0.08, flicker));
+            ctx.fillText(n.str, x, y);
+        });
+        ctx.restore();
+    }
+
+    function drawBrain(t, alpha){
+        var b = data.brain;
+        ctx.save(); ctx.globalAlpha = alpha;
+        ctx.beginPath();
+        var steps = 64;
+        for (var i = 0; i <= steps; i++){
+            var a = (i/steps) * Math.PI*2;
+            var wobble = 1 + 0.08*Math.sin(a*6) + 0.05*Math.cos(a*9+1);
+            var x = b.cx + Math.cos(a)*b.rx*wobble;
+            var y = b.cy + Math.sin(a)*b.ry*wobble;
+            if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.closePath();
+        ctx.fillStyle = rgba(PAL.indigo, 0.06);
+        ctx.fill();
+        ctx.strokeStyle = rgba(PAL.lightCyan, 0.4);
+        ctx.lineWidth = 1.4;
+        ctx.stroke();
+
+        b.edges.forEach(function(e){
+            var na = b.nodes[e.a], nb = b.nodes[e.b];
+            ctx.beginPath();
+            ctx.moveTo(na.x, na.y);
+            ctx.lineTo(nb.x, nb.y);
+            ctx.strokeStyle = rgba(PAL.indigo, 0.18);
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+            var u = (t*e.speed + e.phase) % 1;
+            var px = lerp(na.x, nb.x, u), py = lerp(na.y, nb.y, u);
+            ctx.beginPath();
+            ctx.arc(px, py, 2, 0, Math.PI*2);
+            ctx.fillStyle = rgba(PAL.cyan, 0.9);
+            ctx.shadowColor = rgba(PAL.cyan, 0.8);
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+
+        b.nodes.forEach(function(n){
+            var s = 2 + 1.5*Math.abs(Math.sin(t*0.0015 + n.pulse*10));
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, s, 0, Math.PI*2);
+            ctx.fillStyle = rgba(PAL.white, 0.75);
+            ctx.fill();
+        });
+        ctx.restore();
+    }
+
+    function drawLogic(t, alpha){
+        var l = data.logic;
+        ctx.save(); ctx.globalAlpha = alpha;
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+
+        l.wires.forEach(function(w){
+            ctx.beginPath();
+            w.path.pts.forEach(function(p,i){ if(i===0) ctx.moveTo(p[0],p[1]); else ctx.lineTo(p[0],p[1]); });
+            ctx.strokeStyle = rgba(PAL.cyan, 0.25);
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+            var u = (t*w.speed + w.phase) % 1;
+            var p = pointAtU(w.path, u);
+            ctx.beginPath();
+            ctx.rect(p[0]-2.5, p[1]-2.5, 5, 5);
+            ctx.fillStyle = rgba(PAL.lightCyan, 0.95);
+            ctx.shadowColor = rgba(PAL.lightCyan, 0.8);
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+
+        l.gates.forEach(function(g){
+            ctx.beginPath();
+            ctx.roundRect ? ctx.roundRect(g.x-30, g.y-18, 60, 36, 8) : ctx.rect(g.x-30, g.y-18, 60, 36);
+            ctx.fillStyle = rgba(PAL.deepIndigo, 0.12);
+            ctx.fill();
+            ctx.strokeStyle = rgba(PAL.indigo, 0.5);
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+            ctx.fillStyle = rgba(PAL.white, 0.85);
+            ctx.font = '600 11px Space Grotesk, sans-serif';
+            ctx.fillText(g.label, g.x, g.y);
+        });
+        ctx.restore();
+    }
+
+    function drawGear(x,y,r,teeth,rot,color,alpha){
+        ctx.save();
+        ctx.translate(x,y);
+        ctx.rotate(rot);
+        ctx.beginPath();
+        var step = Math.PI*2/(teeth*2);
+        for (var i = 0; i < teeth*2; i++){
+            var rad = (i % 2 === 0) ? r : r*0.72;
+            var a = i*step;
+            var px = Math.cos(a)*rad, py = Math.sin(a)*rad;
+            if (i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+        }
+        ctx.closePath();
+        ctx.fillStyle = rgba(color, 0.08*alpha);
+        ctx.fill();
+        ctx.strokeStyle = rgba(color, 0.55*alpha);
+        ctx.lineWidth = 1.3;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0,0,r*0.22,0,Math.PI*2);
+        ctx.strokeStyle = rgba(color, 0.4*alpha);
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawMachines(t, alpha){
+        ctx.save(); ctx.globalAlpha = alpha;
+        data.machines.forEach(function(g){
+            var rot = t*g.rotSpeed + g.rotOffset;
+            drawGear(g.x, g.y, g.r, g.teeth, rot, g.color, 1);
+        });
+        ctx.restore();
+    }
+
+    function drawSociety(t, alpha){
+        var s = data.society;
+        ctx.save(); ctx.globalAlpha = alpha;
+        s.edges.forEach(function(e){
+            var na = s.nodes[e.a], nb = s.nodes[e.b];
+            ctx.beginPath();
+            ctx.moveTo(na.x, na.y);
+            ctx.lineTo(nb.x, nb.y);
+            ctx.strokeStyle = rgba(PAL.cyan, 0.14);
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+            var u = (t*e.speed + e.phase) % 1;
+            var px = lerp(na.x, nb.x, u), py = lerp(na.y, nb.y, u);
+            ctx.beginPath();
+            ctx.arc(px, py, 2, 0, Math.PI*2);
+            ctx.fillStyle = rgba(PAL.lightCyan, 0.9);
+            ctx.shadowColor = rgba(PAL.lightCyan, 0.7);
+            ctx.shadowBlur = 7;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        });
+        s.nodes.forEach(function(n){
+            ctx.beginPath();
+            ctx.arc(n.x, n.y-4, 4, 0, Math.PI*2);
+            ctx.fillStyle = rgba(PAL.white, 0.55);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(n.x, n.y+6, 7, Math.PI, 0);
+            ctx.strokeStyle = rgba(PAL.white, 0.4);
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+        });
+        ctx.restore();
+    }
+
+    var DRAW = {
+        circuits: drawCircuits,
+        numbers: drawNumbers,
+        brain: drawBrain,
+        logic: drawLogic,
+        machines: drawMachines,
+        society: drawSociety
+    };
+
+    function render(now){
+        var t = now - startTime;
+        ctx.clearRect(0,0,W,H);
+        var cycle = SCENE_DURATION;
+        var idx = Math.floor(t / cycle) % SCENES.length;
+        var localT = t % cycle;
+        var curName = SCENES[idx];
+        var prevName = SCENES[(idx - 1 + SCENES.length) % SCENES.length];
+
+        if (localT < CROSSFADE){
+            var fadeIn = localT / CROSSFADE;
+            DRAW[prevName](t, 1 - fadeIn);
+            DRAW[curName](t, fadeIn);
+        } else {
+            DRAW[curName](t, 1);
+        }
+
+        if (!reduceMotion) requestAnimationFrame(render);
+    }
+
+    function start(){
+        if (!host || !host.clientWidth || !host.clientHeight) { setTimeout(start, 200); return; }
+        resize();
+        window.addEventListener('resize', resize);
+        if (reduceMotion) render(performance.now());
+        else requestAnimationFrame(render);
+    }
+
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start);
+    setTimeout(start, 700);
+})();
+
+</script>
+
+
+</body>
 </html>
 
