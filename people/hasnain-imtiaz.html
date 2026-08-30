@@ -4,17 +4,552 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hasnain Imtiaz · Relogic Solutions</title>
-<meta name="description" content="Relogic profile page for Hasnain Imtiaz, Co-founder.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="profile.css">
+<meta name="description" content="Hasnain Imtiaz — Data & AI Strategist, Research Methodologist and Communication Professional at Relogic Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="profile.css">
 <link rel="stylesheet" href="../responsive.css">
-</head>
+<style>/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"],
+div[id*="pricing"],
+.modal-pricing {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
+}</style></head>
+
 <body class="page-profile">
-<header class="header"><div class="shell nav"><a class="brand" href="../index.html"><img src="../images/team/relogic-logo-main-crop.png" alt="Relogic Solutions logo" onerror="this.onerror=null;this.src='../images/team/relogic-logo_main.png';"><span>Relogic</span></a><nav class="links"><a href="../index.html">Home</a><a href="../services.html">Services</a><a href="../research.html">Research</a><a href="../digital-product.html">Digital Product</a><a class="active" href="../people.html">Our People</a></nav><a class="nav-cta" href="../index.html#contact">Let's Talk</a></div></header>
+
+<header class="header">
+  <div class="shell nav">
+    <a class="brand" href="../index.html">
+      <img src="../images/team/relogic-logo-main-crop.png" alt="Relogic Solutions logo" onerror="this.onerror=null;this.src='../images/team/relogic-logo_main.png';">
+      <span>Relogic</span>
+    </a>
+
+    <nav class="links">
+      <a href="../index.html">Home</a>
+      <a href="../services.html">Services</a>
+      <a href="../research.html">Research</a>
+      <a href="../digital-product.html">Digital Product</a>
+      <a class="active" href="../people.html">Our People</a>
+    </nav>
+
+    <a class="nav-cta" href="../index.html#contact">Let's Talk</a>
+  </div>
+</header>
+
 <main>
-<section class="profile-hero"><div class="shell profile-grid"><div class="portrait"><img src="../images/team/sakib.jpg" alt="Hasnain Imtiaz" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"><div class="portrait-fallback" style="display:none">HI</div></div><div class="profile-copy"><div class="team-label">Leadership · Relogic Profile</div><h1>Hasnain Imtiaz</h1><div class="role">Co-founder</div><p class="lead">Hasnain Imtiaz is currently listed on the Relogic website as <strong>Co-founder</strong> within the <strong>Leadership</strong> group. This individual page is prepared to hold a verified professional biography, background, expertise, selected work and public profile links.</p><div class="notice"><b>Profile-data note:</b> only the name, role, team grouping and existing image reference are carried over from the current Relogic site. No CV, education, employment history or achievements have been invented.</div></div></div></section>
-<section class="details"><div class="shell details-grid"><div class="panel"><div class="panel-label">Profile identity</div><div class="identity-row"><span>Name</span><b>Hasnain Imtiaz</b></div><div class="identity-row"><span>Current role</span><b>Co-founder</b></div><div class="identity-row"><span>Team</span><b>Leadership</b></div><div class="identity-row"><span>Organization</span><b>Relogic Solutions</b></div></div><div class="panel"><div class="panel-label">Persona details</div><h2>Professional profile</h2><p>This layout is ready for the person’s confirmed professional information. Replace the prompts below when the verified details are available.</p><div class="field"><b>Biography</b><span>Add a concise verified biography covering current responsibilities, professional background and the person’s contribution to Relogic.</span></div><div class="field"><b>Expertise</b><span>Add confirmed areas of specialization, technologies, disciplines or advisory focus.</span></div><div class="field"><b>Selected work</b><span>Add verified projects, research, products, publications or portfolio highlights.</span></div><div class="field"><b>Education & credentials</b><span>Add only confirmed education, certifications, affiliations or professional credentials.</span></div><div class="field"><b>Public links</b><span>Add LinkedIn, Google Scholar, GitHub, portfolio or other approved public links.</span></div></div></div></section>
-<section class="cta"><div class="shell cta-box"><h2>Explore the people building Relogic.</h2><div class="buttons"><a class="btn primary" href="../people.html">← Back to Our People</a><a class="btn" href="../index.html#contact">Contact Relogic</a></div></div></section>
+
+<!-- COMPACT HERO -->
+<section class="profile-hero">
+  <div class="shell profile-grid">
+
+    <div class="portrait">
+      <img
+        src="../images/team/sakib.jpg"
+        alt="Hasnain Imtiaz"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
+      >
+      <div class="portrait-fallback" style="display:none">HI</div>
+    </div>
+
+    <div class="profile-copy">
+      <div class="team-label">Core Team · Relogic</div>
+
+      <h1><strong>Hasnain Imtiaz</strong></h1>
+
+      <div class="role">Data &amp; AI Strategist · Research Methodologist</div>
+
+      <p class="lead">
+        Bridging machine learning, analytics, research methodology and strategic communication
+        to turn complex data into actionable insight and scalable decision systems.
+      </p>
+
+      <div class="basis">
+        Communication Associate · PPRC &nbsp;|&nbsp; Co-Founder · Relogic Solutions
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">NLP / LLMs</span>
+        <span class="tag">Research Design</span>
+        <span class="tag">Data Strategy</span>
+        <span class="tag">Time Series</span>
+        <span class="tag">Communication</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPACT INFORMATION BOXES -->
+<section class="details">
+  <div class="shell details-grid">
+
+    <!-- BOX 01 — PROFILE -->
+    <article class="panel">
+      <div class="panel-label">Profile</div>
+
+      <div class="identity-row">
+        <span>Role</span>
+        <b>Data &amp; AI Strategist</b>
+      </div>
+
+      <div class="identity-row">
+        <span>Team</span>
+        <b>Relogic Core Team</b>
+      </div>
+
+      <div class="identity-row">
+        <span>Experience</span>
+        <b>4+ Years</b>
+      </div>
+
+      <div class="identity-row">
+        <span>Current</span>
+        <b>PPRC · Relogic · Archon Digital IT</b>
+      </div>
+
+      <div class="identity-row">
+        <span>Alma Mater</span>
+        <b>University of Dhaka</b>
+      </div>
+    </article>
+
+    <!-- BOX 02 — ABOUT -->
+    <article class="panel">
+      <div class="panel-label">About</div>
+
+      <h2>Research, data and communication in one practice.</h2>
+
+      <p>
+        Hasnain works across machine learning, NLP, statistical analysis and strategic communication,
+        translating complex evidence into practical insights for research, business and policy contexts.
+      </p>
+
+      <p>
+        His growing interests include start-up data strategy, financial-market analytics,
+        time-series modelling, predictive systems and AI-enabled institutional transformation.
+      </p>
+    </article>
+
+    <!-- BOX 03 — EXPERTISE -->
+    <article class="panel">
+      <div class="panel-label">Expertise</div>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <b>Data &amp; ML</b>
+          <span>Predictive modelling, classification, forecasting and applied analytics.</span>
+        </div>
+
+        <div class="focus-card">
+          <b>NLP &amp; LLMs</b>
+          <span>Sentiment analysis, BERT, transformers, text intelligence and LLM workflows.</span>
+        </div>
+
+        <div class="focus-card">
+          <b>Research</b>
+          <span>Research design, statistical analysis, methodology and evidence synthesis.</span>
+        </div>
+
+        <div class="focus-card">
+          <b>Strategy</b>
+          <span>Data storytelling, business development, communication and innovation planning.</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOX 04 — SELECTED WORK -->
+    <article class="panel">
+      <div class="panel-label">Selected work</div>
+
+      <div class="bullet-list">
+        <div class="bullet">
+          <i>01</i>
+          <span>
+            <strong>APT Threat Detection</strong><br>
+            Ensemble ML system achieving 97.3% detection.
+          </span>
+        </div>
+
+        <div class="bullet">
+          <i>02</i>
+          <span>
+            <strong>GamersHub Sentiment</strong><br>
+            NLP analysis of 2.5M+ Reddit comments.
+          </span>
+        </div>
+
+        <div class="bullet">
+          <i>03</i>
+          <span>
+            <strong>Customer Churn Analysis</strong><br>
+            ANN-based telecom churn prediction with 89% accuracy.
+          </span>
+        </div>
+
+        <div class="bullet">
+          <i>04</i>
+          <span>
+            <strong>Cirrhosis Survival</strong><br>
+            Time-stratified ensemble modelling for prognosis.
+          </span>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOX 05 — EXPERIENCE -->
+    <article class="panel wide">
+      <div class="panel-label">Professional experience</div>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <b>Co-Founder · Relogic Solutions</b>
+          <span>2025–Present · Research consulting, ML solutions, international clients and project delivery.</span>
+        </div>
+
+        <div class="focus-card">
+          <b>Chief Operating Officer · Archon Digital IT</b>
+          <span>2026–Present · Operations, strategy, growth systems and organizational scalability.</span>
+        </div>
+
+        <div class="focus-card">
+          <b>Communication Associate · PPRC</b>
+          <span>2026–Present · Policy communication, research intelligence, AI transformation and institutional technology.</span>
+        </div>
+
+        <div class="focus-card">
+          <b>Research Officer – Statistician</b>
+          <span>2024–Present · Medical statistics, survival analysis, publications and automated data workflows.</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- BOX 06 — EDUCATION + TOOLS -->
+    <article class="panel wide">
+      <div class="panel-label">Education &amp; technical stack</div>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <b>Bachelor of Social Science</b>
+          <span>
+            University of Dhaka · 2017–2022<br>
+            CGPA 3.43 · Joint Merit Scholarship
+          </span>
+        </div>
+
+        <div class="focus-card">
+          <b>Post Graduate Diploma in Data Science</b>
+          <span>
+            BITM · 2023–2024<br>
+            Machine Learning, SQL, System Design &amp; Deep Learning
+          </span>
+        </div>
+
+        <div class="focus-card">
+          <b>Professional Certificate in ML Engineering</b>
+          <span>
+            Creative IT Institute · 2023–2024<br>
+            LLMs, Computer Vision, Time Series &amp; Big Data
+          </span>
+        </div>
+
+        <div class="focus-card">
+          <b>English Language Certification</b>
+          <span>
+            British Council · B2 Level<br>
+            Long-Term English Language Course
+          </span>
+        </div>
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Python</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">SciPy</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">spaCy</span>
+        <span class="tag">Hugging Face</span>
+        <span class="tag">BERT</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Plotly</span>
+        <span class="tag">Streamlit</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Docker</span>
+      </div>
+    </article>
+
+    <!-- BOX 07 — IMPACT -->
+    <article class="panel">
+      <div class="panel-label">Impact</div>
+
+      <div class="identity-row">
+        <span>Experience</span>
+        <b>4+ Years</b>
+      </div>
+
+      <div class="identity-row">
+        <span>Research</span>
+        <b>60+ Consultations</b>
+      </div>
+
+      <div class="identity-row">
+        <span>ML Projects</span>
+        <b>30+</b>
+      </div>
+
+      <div class="identity-row">
+        <span>Focus</span>
+        <b>AI · NLP · Data Science</b>
+      </div>
+    </article>
+
+    <!-- BOX 08 — CONNECT -->
+    <article class="panel">
+      <div class="panel-label">Connect</div>
+
+      <div class="source-links">
+        <a class="source-link" href="https://withimtiaz.netlify.app/" target="_blank" rel="noopener">Portfolio</a>
+        <a class="source-link" href="../research.html">Research</a>
+        <a class="source-link" href="../index.html#contact">Contact</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- SMALL CTA -->
+<section class="cta">
+  <div class="shell cta-box">
+    <h2>Research. Intelligence. Strategy.</h2>
+
+    <div class="buttons">
+      <a class="btn primary" href="../people.html">← Our People</a>
+      <a class="btn" href="../index.html#contact">Contact</a>
+    </div>
+  </div>
+</section>
+
 </main>
-<footer class="footer"><div class="shell footer-row"><a class="footer-brand" href="../index.html"><img src="../images/team/relogic-logo-main-crop.png" alt="Relogic logo" onerror="this.onerror=null;this.src='../images/team/relogic-logo_main.png';"><span>Relogic Solutions</span></a><div class="footer-links"><a href="../services.html">Services</a><a href="../research.html">Research</a><a href="../digital-product.html">Digital Product</a><a href="../people.html">Our People</a></div><span>© 2026 Relogic Solutions</span></div></footer>
-</body>
+
+<footer class="footer">
+  <div class="shell footer-row">
+    <a class="footer-brand" href="../index.html">
+      <img src="../images/team/relogic-logo-main-crop.png" alt="Relogic logo" onerror="this.onerror=null;this.src='../images/team/relogic-logo_main.png';">
+      <span>Relogic Solutions</span>
+    </a>
+
+    <div class="footer-links">
+      <a href="../services.html">Services</a>
+      <a href="../research.html">Research</a>
+      <a href="../digital-product.html">Digital Product</a>
+      <a href="../people.html">Our People</a>
+    </div>
+
+    <span>© 2026 Relogic Solutions</span>
+  </div>
+</footer>
+
+<script>(function () {
+  "use strict";
+
+  // Share link redirector
+  document.body.addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
+    const match = href.match(regex);
+
+    if (match) {
+      const isButton = event.target.closest("button");
+      if (isButton) return;
+
+      event.preventDefault();
+      const chatId = match[1];
+      const shareId = match[2];
+      window.location.href = `/share/${shareId}?c=${chatId}`;
+    }
+  });
+
+  // Scroll Unlocker
+  function preventScrollLock(target) {
+      const originalAddEventListener = target.addEventListener;
+      target.addEventListener = function(type, listener, options) {
+          if (type === 'wheel' || type === 'touchmove') return; 
+          return originalAddEventListener.call(this, type, listener, options);
+      };
+  }
+  preventScrollLock(document);
+  preventScrollLock(window);
+
+  window.addEventListener("hashchange", function (event) {
+      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        history.replaceState(null, null, " ");
+      }
+    }, true
+  );
+
+  const filterRules = [
+    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
+    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
+    { type: "selectorOnly", selector: "#modal-account-payment" },
+    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
+    { type: "selectorOnly", selector: 'a[href="/library"]' },
+    { type: "selectorOnly", selector: 'a[href="/admin"]' },
+    { type: "selectorOnly", selector: 'a[href="/apps"]' },
+    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
+    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
+    { type: "textOnly", text: "Report conversation" },
+    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
+    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
+    { type: "textOnly", text: "Archive" },
+    { type: "textOnly", text: "Start a group chat" },
+    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
+  ];
+
+  function cleanDOM() {
+    document.body.removeAttribute('data-scroll-locked');
+    document.documentElement.removeAttribute('data-scroll-locked');
+    
+    const nextRoot = document.getElementById('__next');
+    if (nextRoot) {
+        nextRoot.removeAttribute('aria-hidden');
+    }
+
+    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
+        el.remove();
+    });
+
+    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
+        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
+            el.remove();
+        }
+    });
+
+    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
+        if (el.parentElement) {
+          el.parentElement.innerHTML = `
+                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
+                `;
+        }
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+      
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.remove();
+    });
+
+    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
+    if (dynamicModal) {
+      dynamicModal.remove();
+    }
+
+    filterRules.forEach((rule) => {
+      if (rule.type === "selectorOnly") {
+        const elements = document.querySelectorAll(rule.selector);
+        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "textOnly") {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let textNode;
+        const nodesToHide = [];
+        while ((textNode = walker.nextNode())) {
+          if (textNode.nodeValue.trim() === rule.text) {
+            const parent = textNode.parentElement;
+            if (parent && parent.children.length === 0) nodesToHide.push(parent);
+          }
+        }
+        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "xpath") {
+        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < snapshot.snapshotLength; i++) {
+          const node = snapshot.snapshotItem(i);
+          if (node) node.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
+  let isCleaning = false;
+  const observer = new MutationObserver((mutationsList) => {
+    if (isCleaning) return;
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'attributes') {
+          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
+          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
+      }
+      if (mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
+                node.remove();
+            }
+        });
+
+        isCleaning = true;
+        cleanDOM();
+        isCleaning = false;
+        break;
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
+  cleanDOM();
+})();
+</script></body>
 </html>
