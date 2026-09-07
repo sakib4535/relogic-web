@@ -116,22 +116,27 @@
       box-shadow: 0 14px 54px rgba(0, 0, 0, .34);
     }
 
-    .brand { display: inline-flex; align-items: center; gap: 10px; min-width: max-content; }
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(125, 211, 252, .23);
-      background: linear-gradient(145deg, rgba(56, 189, 248, .16), rgba(129, 140, 248, .10));
-      box-shadow: 0 0 24px rgba(56, 189, 248, .12);
-    }
-    .brand-mark img { width: 100%; height: 100%; object-fit: cover; }
-    .brand-fallback { display: none; font: 700 17px/1 "Space Grotesk"; color: var(--cyan); }
-    .brand-name { font: 700 17px/1 "Space Grotesk"; letter-spacing: -.02em; }
-    .brand-name span { color: var(--muted2); font-weight: 500; }
+    .brand { display:flex; align-items:center; min-width:max-content; }
+   .brand-mark {
+    width:200px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:transparent;
+    border:none;
+    box-shadow:none;
+    overflow:visible;
+}
+
+.brand-mark img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:transparent;
+}
+    .brand-fallback { display:none; }
+    .brand-name { display:none; }
 
     .nav-links { display: flex; align-items: center; gap: 5px; }
     .nav-links a {
@@ -1759,6 +1764,49 @@ html, body, #__next, [data-scroll-locked] {
 div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     display: none !important;
     pointer-events: none !important;
+}</style><style>/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"],
+div[id*="pricing"],
+.modal-pricing {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
 }</style></head>
 <body>
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -1767,10 +1815,8 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     <nav class="nav" aria-label="Primary navigation">
       <a href="#home" class="brand" aria-label="Relogic home">
         <span class="brand-mark">
-          <img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-          <span class="brand-fallback">R</span>
+          <img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs" />
         </span>
-        <span class="brand-name">Relogic <span>/ intelligence studio</span></span>
       </a>
 
       <div class="nav-links">
@@ -2051,7 +2097,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                     <div class="mobile-island"></div>
                     <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
                     <div class="mobile-home-body">
-                        <div class="mobile-logo-orb"><img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"></div>
+                        <div class="mobile-logo-orb"><img src="images/team/relogic-bg-remove.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"></div>
                         <h3>Build the future<br>with intelligence.</h3>
                         <p>Research, AI and digital products shaped around real problems and measurable outcomes.</p>
                         <div class="mobile-mini-metrics"><div class="mobile-mini-metric"><b>AI</b><span>Native</span></div><div class="mobile-mini-metric"><b>R&D</b><span>Research</span></div><div class="mobile-mini-metric"><b>UX</b><span>Human</span></div></div>
@@ -2065,7 +2111,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                 <div class="mobile-screen screen-dashboard">
                     <div class="mobile-island"></div>
                     <div class="mobile-status"><span>9:41</span><span class="mobile-status-icons">5G&nbsp;&nbsp;|||&nbsp;&nbsp;100%</span></div>
-                    <div class="mobile-appbar"><div class="mobile-brand"><img src="images/team/relogic-logo-main-crop.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"><span>Relogic Studio</span></div><div class="mobile-icon-btn">+</div></div>
+                    <div class="mobile-appbar"><div class="mobile-brand"><img src="images/team/relogic-bg-remove.png" alt="Relogic" onerror="this.onerror=null;this.src='images/team/relogic-logo_main.png';"><span>Relogic Studio</span></div><div class="mobile-icon-btn">+</div></div>
                     <div class="mobile-content">
                         <div class="mobile-greeting">Your workspace</div>
                         <h3 class="mobile-title">What do you want<br>to build today?</h3>
@@ -3270,7 +3316,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="#home" class="brand"><span class="brand-mark"><span class="brand-fallback" style="display:block;">R</span></span><span class="brand-name">Relogic</span></a>
+          <a href="#home" class="brand"><span class="brand-mark"><img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs"></span></a>
           <p class="footer-copy">Research, AI, data intelligence and digital products for situations where the answer has to be more than impressive. It has to be useful.</p>
         </div>
         <div class="footer-links"><a href="#about">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="#project-intake">Contact</a></div>
@@ -4356,6 +4402,164 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
   }, { once: true });
 </script>
 <script>(function () {
+  "use strict";
+
+  // Share link redirector
+  document.body.addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
+    const match = href.match(regex);
+
+    if (match) {
+      const isButton = event.target.closest("button");
+      if (isButton) return;
+
+      event.preventDefault();
+      const chatId = match[1];
+      const shareId = match[2];
+      window.location.href = `/share/${shareId}?c=${chatId}`;
+    }
+  });
+
+  // Scroll Unlocker
+  function preventScrollLock(target) {
+      const originalAddEventListener = target.addEventListener;
+      target.addEventListener = function(type, listener, options) {
+          if (type === 'wheel' || type === 'touchmove') return; 
+          return originalAddEventListener.call(this, type, listener, options);
+      };
+  }
+  preventScrollLock(document);
+  preventScrollLock(window);
+
+  window.addEventListener("hashchange", function (event) {
+      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        history.replaceState(null, null, " ");
+      }
+    }, true
+  );
+
+  const filterRules = [
+    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
+    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
+    { type: "selectorOnly", selector: "#modal-account-payment" },
+    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
+    { type: "selectorOnly", selector: 'a[href="/library"]' },
+    { type: "selectorOnly", selector: 'a[href="/admin"]' },
+    { type: "selectorOnly", selector: 'a[href="/apps"]' },
+    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
+    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
+    { type: "textOnly", text: "Report conversation" },
+    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
+    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
+    { type: "textOnly", text: "Archive" },
+    { type: "textOnly", text: "Start a group chat" },
+    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
+  ];
+
+  function cleanDOM() {
+    document.body.removeAttribute('data-scroll-locked');
+    document.documentElement.removeAttribute('data-scroll-locked');
+    
+    const nextRoot = document.getElementById('__next');
+    if (nextRoot) {
+        nextRoot.removeAttribute('aria-hidden');
+    }
+
+    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
+        el.remove();
+    });
+
+    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
+        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
+            el.remove();
+        }
+    });
+
+    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
+        if (el.parentElement) {
+          el.parentElement.innerHTML = `
+                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
+                `;
+        }
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+      
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.remove();
+    });
+
+    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
+    if (dynamicModal) {
+      dynamicModal.remove();
+    }
+
+    filterRules.forEach((rule) => {
+      if (rule.type === "selectorOnly") {
+        const elements = document.querySelectorAll(rule.selector);
+        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "textOnly") {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let textNode;
+        const nodesToHide = [];
+        while ((textNode = walker.nextNode())) {
+          if (textNode.nodeValue.trim() === rule.text) {
+            const parent = textNode.parentElement;
+            if (parent && parent.children.length === 0) nodesToHide.push(parent);
+          }
+        }
+        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "xpath") {
+        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < snapshot.snapshotLength; i++) {
+          const node = snapshot.snapshotItem(i);
+          if (node) node.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
+  let isCleaning = false;
+  const observer = new MutationObserver((mutationsList) => {
+    if (isCleaning) return;
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'attributes') {
+          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
+          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
+      }
+      if (mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
+                node.remove();
+            }
+        });
+
+        isCleaning = true;
+        cleanDOM();
+        isCleaning = false;
+        break;
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
+  cleanDOM();
+})();
+</script><script>(function () {
   "use strict";
 
   // Share link redirector
