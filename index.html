@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://www.relogiclabs.com/">
 
 <meta property="og:url" content="https://www.relogiclabs.com/">
-  <title>Relogic | Make Complexity Useful</title>
+  <title>Relogic Labs | Open Research Hub and AI Native Studio </title>
 
   <style>
     :root {
@@ -658,6 +658,13 @@
 
     /* PROJECTS */
     .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .featured-project-wrap { margin-bottom: 55px; }
+    .featured-label { color:#67e8f9; font-size:11px; font-weight:900; letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px; }
+    .featured-project-card { min-height:650px; }
+    .featured-project-card .project-image img { filter:saturate(1.18) brightness(.68); }
+    .featured-project-card .project-content h3 { font-size:clamp(38px,5vw,70px); max-width:900px; }
+    .featured-project-card .project-content p { font-size:16px; max-width:760px; }
+    .featured-live { position:absolute; top:22px; right:22px; z-index:8; padding:11px 18px; border-radius:999px; background:linear-gradient(135deg,#a5f3fc,#38bdf8); color:#06111e; font-size:10px; font-weight:950; letter-spacing:.12em; }
     .project-card {
       position: relative;
       min-height: 440px;
@@ -676,6 +683,66 @@
     .project-kicker { color: #8eeeff; font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .project-card h3 { margin: 10px 0 10px; max-width: 520px; font: 700 clamp(26px, 3vw, 40px)/1.03 "Space Grotesk"; letter-spacing: -.04em; }
     .project-card p { margin: 0; max-width: 520px; color: #9aacbf; font-size: 12.5px; line-height: 1.65; }
+
+
+    /* DYNAMIC / EXCLUSIVE PROJECTS */
+    .project-card.exclusive {
+      border-color: rgba(103, 232, 249, .50);
+      box-shadow: 0 24px 68px rgba(56, 189, 248, .12), inset 0 1px 0 rgba(255,255,255,.05);
+    }
+    .project-exclusive-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      max-width: calc(100% - 36px);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #06111e;
+      background: linear-gradient(135deg, #a5f3fc, #38bdf8);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, .23);
+      font-size: 8.5px;
+      font-weight: 900;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+    .project-link,
+    .prototype-tryout {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 39px;
+      padding: 0 13px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 800;
+      transition: .2s ease;
+      text-decoration: none;
+    }
+    .project-link {
+      color: #dbeafe;
+      border: 1px solid rgba(148,163,184,.20);
+      background: rgba(255,255,255,.045);
+    }
+    .prototype-tryout {
+      color: #06111e;
+      border: 1px solid rgba(103,232,249,.72);
+      background: linear-gradient(135deg, #a5f3fc, #38bdf8);
+      box-shadow: 0 10px 28px rgba(56,189,248,.15);
+    }
+    .project-link:hover,
+    .prototype-tryout:hover { transform: translateY(-2px); }
+    .prototype-tryout:hover { box-shadow: 0 14px 34px rgba(56,189,248,.26); }
 
     a.service-card, a.project-card {
       display: block;
@@ -1807,6 +1874,131 @@ html, body, #__next, [data-scroll-locked] {
 div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     display: none !important;
     pointer-events: none !important;
+}</style><style>/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"] {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
+}/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"] {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
+}</style><style>/* ==========================================
+   🚀 HIDDEN ELEMENTS (Original Rules)
+   ========================================== */
+[data-testid="accounts-profile-button"],
+[data-testid="conversation-options-button"],
+[aria-description="Share sheet"],
+#modal-account-payment,
+#modal-conversation-history-rate-limit,
+a[href="/library"],
+a[href="/Invite team members"],
+a[href="/apps"],
+a[href="/logout"],
+a[href="/admin"],
+a[href="/deep-research"],
+div[id*="pricing"],
+.modal-pricing {
+  display: none !important;
+}
+
+#notice_share {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* ==========================================
+   🚀 COMBINED SCROLL UNLOCK (Wheel & Touch Fix)
+   ========================================== */
+html, body, #__next, [data-scroll-locked] {
+    overflow: visible !important;
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+    padding-right: 0 !important; 
+}
+
+.flex-1.overflow-hidden, 
+.react-scroll-to-bottom--css {
+    overflow-y: auto !important;
+    pointer-events: auto !important;
+}
+
+div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
+    display: none !important;
+    pointer-events: none !important;
 }</style></head>
 <body>
   <div class="scroll-progress" id="scrollProgress"></div>
@@ -2031,31 +2223,9 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
           <p class="section-copy">These are representative project directions rather than decorative case-study cards: healthcare data, adaptive security, analytical products and governance systems.</p>
         </div>
 
-        <div class="project-grid">
-          <a class="project-card reveal" href="projects.html" aria-label="Open Projects page: Make fragmented patient evidence readable across language and format.">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85" alt="Healthcare AI and clinical data" loading="lazy" decoding="async" fetchpriority="low" /></div>
-            <div class="project-overlay"></div>
-            <div class="project-content"><div class="project-kicker">Healthcare AI / Multimodal Data</div><h3>Make fragmented patient evidence readable across language and format.</h3><p>Clinical data ingestion, bilingual voice recognition, OCR and reviewable intelligence layers that preserve context.</p></div>
-          </a>
-
-          <a class="project-card reveal" href="projects.html" aria-label="Open Projects page: Find behavior that looks ordinary until the sequence becomes visible.">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=85" alt="Cybersecurity analytics" loading="lazy" decoding="async" fetchpriority="low" /></div>
-            <div class="project-overlay"></div>
-            <div class="project-content"><div class="project-kicker">Cybersecurity / Adaptive Detection</div><h3>Find behavior that looks ordinary until the sequence becomes visible.</h3><p>Threat-detection frameworks that connect weak signals, preserve investigation context and expose why a risk was raised.</p></div>
-          </a>
-
-          <a class="project-card reveal" href="projects.html" aria-label="Open Projects page: Turn scattered operational data into one explainable decision surface.">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85" alt="Data analytics dashboard" loading="lazy" decoding="async" fetchpriority="low" /></div>
-            <div class="project-overlay"></div>
-            <div class="project-content"><div class="project-kicker">Data Intelligence / Analytics</div><h3>Turn scattered operational data into one explainable decision surface.</h3><p>Metric design, data quality, predictive analytics and interactive dashboards built around action instead of reporting volume.</p></div>
-          </a>
-
-          <a class="project-card reveal" href="projects.html" aria-label="Open Projects page: Build AI systems whose boundaries are visible before something goes wrong.">
-            <div class="project-image"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85" alt="AI governance and technology infrastructure" loading="lazy" decoding="async" fetchpriority="low" /></div>
-            <div class="project-overlay"></div>
-            <div class="project-content"><div class="project-kicker">Responsible AI / Governance</div><h3>Build AI systems whose boundaries are visible before something goes wrong.</h3><p>Evaluation, model-risk controls, provenance and governance interfaces that keep powerful systems accountable.</p></div>
-          </a>
-        </div>
+        <div id="featuredProject"></div>
+        <div class="section-kicker" style="margin:50px 0 24px;">All Projects</div>
+        <div class="project-grid" id="projectGrid"></div>
       </div>
     </section>
 
@@ -3326,14 +3496,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
   </footer>
 
 <script>
-/* =========================================================
-   RELOGIC COMPATIBILITY / FUNCTIONAL ENHANCEMENT LAYER
-   Added without deleting or rewriting the existing source.
-   - Makes the project-intake final action produce a complete email draft.
-   - Prevents false "sent" state and duplicate final actions.
-   - Rebuilds only the rendered AI impact map into the requested stages:
-     Healthcare -> Finance -> Manufacturing & Supply Chain -> Cybersecurity.
-   ========================================================= */
+
 (function relogicCompatibilityLayer(){
     'use strict';
 
@@ -4516,6 +4679,448 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       }
     });
   }
+
+  let isCleaning = false;
+  const observer = new MutationObserver((mutationsList) => {
+    if (isCleaning) return;
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'attributes') {
+          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
+          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
+      }
+      if (mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
+                node.remove();
+            }
+        });
+
+        isCleaning = true;
+        cleanDOM();
+        isCleaning = false;
+        break;
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
+  cleanDOM();
+})();
+</script><script>(function () {
+  "use strict";
+
+  // Share link redirector
+  document.body.addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
+    const match = href.match(regex);
+
+    if (match) {
+      const isButton = event.target.closest("button");
+      if (isButton) return;
+
+      event.preventDefault();
+      const chatId = match[1];
+      const shareId = match[2];
+      window.location.href = `/share/${shareId}?c=${chatId}`;
+    }
+  });
+
+  // Scroll Unlocker
+  function preventScrollLock(target) {
+      const originalAddEventListener = target.addEventListener;
+      target.addEventListener = function(type, listener, options) {
+          if (type === 'wheel' || type === 'touchmove') return; 
+          return originalAddEventListener.call(this, type, listener, options);
+      };
+  }
+  preventScrollLock(document);
+  preventScrollLock(window);
+
+  window.addEventListener("hashchange", function (event) {
+      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        history.replaceState(null, null, " ");
+      }
+    }, true
+  );
+
+
+  function cleanDOM() {
+    document.body.removeAttribute('data-scroll-locked');
+    document.documentElement.removeAttribute('data-scroll-locked');
+    
+    const nextRoot = document.getElementById('__next');
+    if (nextRoot) {
+        nextRoot.removeAttribute('aria-hidden');
+    }
+
+    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
+        el.remove();
+    });
+
+    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
+        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
+            el.remove();
+        }
+    });
+
+    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
+        if (el.parentElement) {
+          el.parentElement.innerHTML = `
+                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
+                `;
+        }
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+      
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.remove();
+    });
+
+    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
+    if (dynamicModal) {
+      dynamicModal.remove();
+    }
+
+    filterRules.forEach((rule) => {
+      if (rule.type === "selectorOnly") {
+        const elements = document.querySelectorAll(rule.selector);
+        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "textOnly") {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let textNode;
+        const nodesToHide = [];
+        while ((textNode = walker.nextNode())) {
+          if (textNode.nodeValue.trim() === rule.text) {
+            const parent = textNode.parentElement;
+            if (parent && parent.children.length === 0) nodesToHide.push(parent);
+          }
+        }
+        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "xpath") {
+        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < snapshot.snapshotLength; i++) {
+          const node = snapshot.snapshotItem(i);
+          if (node) node.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+  }
+
+  let isCleaning = false;
+  const observer = new MutationObserver((mutationsList) => {
+    if (isCleaning) return;
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'attributes') {
+          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
+          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
+      }
+      if (mutation.addedNodes.length > 0) {
+        mutation.addedNodes.forEach(node => {
+            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
+                node.remove();
+            }
+        });
+
+        isCleaning = true;
+        cleanDOM();
+        isCleaning = false;
+        break;
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
+  cleanDOM();
+})();
+</script>
+
+<script id="dynamic-projects-script">
+(() => {
+  "use strict";
+
+  /* =========================================================
+     PROJECT DATA
+
+     show: true              -> visible
+     show: false             -> hidden
+     category: "exclusive"  -> always sorted to the top
+     prototypeUrl            -> Prototype Tryout button target
+
+     To publish an exclusive project, copy the template below,
+     set show: true, category: "exclusive", and paste its real
+     prototype URL into prototypeUrl.
+  ========================================================= */
+
+  const projects = [
+    {
+      /* EXCLUSIVE PROJECT TEMPLATE */
+      show: true,
+      category: "exclusive",
+      kicker: "AI PRODUCT / LIVE PROTOTYPE / TOUCHLESS WORKSTATION",
+      title: "Velos Workstation",
+      description: "A touchless workstation system designed for intuitive human-computer interaction through AI-powered control, gesture-based workflows and seamless digital operations.",
+      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "https://velos-space.vercel.app/",
+      prototypeUrl: "#live-prototype"
+    },
+
+    {
+      show: true,
+      category: "normal",
+      kicker: "Healthcare AI / Multimodal Data",
+      title: "Make fragmented patient evidence readable across language and format.",
+      description: "Clinical data ingestion, bilingual voice recognition, OCR and reviewable intelligence layers that preserve context.",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "projects.html",
+      prototypeUrl: ""
+    },
+
+    {
+      show: true,
+      category: "normal",
+      kicker: "Cybersecurity / Adaptive Detection",
+      title: "Find behavior that looks ordinary until the sequence becomes visible.",
+      description: "Threat-detection frameworks that connect weak signals, preserve investigation context and expose why a risk was raised.",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "projects.html",
+      prototypeUrl: ""
+    },
+
+    {
+      show: true,
+      category: "normal",
+      kicker: "Data Intelligence / Analytics",
+      title: "Turn scattered operational data into one explainable decision surface.",
+      description: "Metric design, data quality, predictive analytics and interactive dashboards built around action instead of reporting volume.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "projects.html",
+      prototypeUrl: ""
+    },
+
+    {
+      show: true,
+      category: "normal",
+      kicker: "Responsible AI / Governance",
+      title: "Build AI systems whose boundaries are visible before something goes wrong.",
+      description: "Evaluation, model-risk controls, provenance and governance interfaces that keep powerful systems accountable.",
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "projects.html",
+      prototypeUrl: ""
+    }
+  ];
+
+  const escapeHTML = (value) => String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+  const isExclusive = (project) =>
+    String(project.category || "").trim().toLowerCase() === "exclusive";
+
+  function visibleProjects() {
+    return projects
+      .filter((project) => project.show === true)
+      .map((project, index) => ({ ...project, _order: index }))
+      .sort((a, b) => {
+        const priority = Number(isExclusive(b)) - Number(isExclusive(a));
+        return priority || a._order - b._order;
+      });
+  }
+
+  function projectCard(project, featured=false) {
+    const exclusive = isExclusive(project);
+    const badge = featured
+      ? `<div class="featured-live"><i class="fa-solid fa-circle"></i> LIVE PROTOTYPE</div>`
+      : (exclusive ? `<div class="project-exclusive-badge"><i class="fa-solid fa-star"></i>Exclusive Product Available to Use Prototype</div>` : "");
+
+    const projectButton = project.projectUrl
+      ? `<a class="project-link" href="${escapeHTML(project.projectUrl)}">View Project <i class="fa-solid fa-arrow-right"></i></a>` : "";
+
+    const prototypeButton = (featured || exclusive) && project.prototypeUrl
+      ? `<a class="prototype-tryout" href="${escapeHTML(project.prototypeUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-flask"></i>Try Live Prototype <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : "";
+
+    return `<article class="project-card reveal visible${featured ? " featured-project-card" : ""}${exclusive ? " exclusive" : ""}">
+        ${badge}<div class="project-image"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)}"></div>
+        <div class="project-overlay"></div><div class="project-content">
+        <div class="project-kicker">${escapeHTML(project.kicker)}</div><h3>${escapeHTML(project.title)}</h3>
+        <p>${escapeHTML(project.description)}</p><div class="project-actions">${projectButton}${prototypeButton}</div></div></article>`;
+  }
+
+  function renderProjects() {
+    const grid = document.getElementById("projectGrid");
+    const featuredBox = document.getElementById("featuredProject");
+    if (!grid || !featuredBox) return;
+
+    const list = visibleProjects();
+    const featured = list.find(isExclusive) || list[0];
+    const others = list.filter(p => p !== featured);
+
+    featuredBox.innerHTML = featured ? `<div class="featured-project-wrap"><div class="featured-label">Featured Project</div>${projectCard(featured,true)}</div>` : "";
+    grid.innerHTML = others.length ? others.map(p => projectCard(p)).join("") : "";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderProjects, { once: true });
+  } else {
+    renderProjects();
+  }
+
+  /* Optional global access for a central app/admin layer. */
+  window.relogicProjects = {
+    data: projects,
+    render: renderProjects
+  };
+})();
+</script>
+
+<script>(function () {
+  "use strict";
+
+  // Share link redirector
+  document.body.addEventListener("click", function (event) {
+    const link = event.target.closest("a");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
+    const match = href.match(regex);
+
+    if (match) {
+      const isButton = event.target.closest("button");
+      if (isButton) return;
+
+      event.preventDefault();
+      const chatId = match[1];
+      const shareId = match[2];
+      window.location.href = `/share/${shareId}?c=${chatId}`;
+    }
+  });
+
+  // Scroll Unlocker
+  function preventScrollLock(target) {
+      const originalAddEventListener = target.addEventListener;
+      target.addEventListener = function(type, listener, options) {
+          if (type === 'wheel' || type === 'touchmove') return; 
+          return originalAddEventListener.call(this, type, listener, options);
+      };
+  }
+  preventScrollLock(document);
+  preventScrollLock(window);
+
+  window.addEventListener("hashchange", function (event) {
+      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+        history.replaceState(null, null, " ");
+      }
+    }, true
+  );
+
+  const filterRules = [
+    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
+    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
+    { type: "selectorOnly", selector: "#modal-account-payment" },
+    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
+    { type: "selectorOnly", selector: 'a[href="/library"]' },
+    { type: "selectorOnly", selector: 'a[href="/admin"]' },
+    { type: "selectorOnly", selector: 'a[href="/apps"]' },
+    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
+    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
+    { type: "textOnly", text: "Report conversation" },
+    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
+    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
+    { type: "textOnly", text: "Archive" },
+    { type: "textOnly", text: "Start a group chat" },
+    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
+  ];
+
+  function cleanDOM() {
+    document.body.removeAttribute('data-scroll-locked');
+    document.documentElement.removeAttribute('data-scroll-locked');
+    
+    const nextRoot = document.getElementById('__next');
+    if (nextRoot) {
+        nextRoot.removeAttribute('aria-hidden');
+    }
+
+    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
+        el.remove();
+    });
+
+    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
+        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
+            el.remove();
+        }
+    });
+
+    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
+        if (el.parentElement) {
+          el.parentElement.innerHTML = `
+                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
+                `;
+        }
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
+    });
+
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+      
+    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
+        if (el.parentElement) el.parentElement.parentElement.remove();
+    });
+
+    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
+    if (dynamicModal) {
+      dynamicModal.remove();
+    }
+
+    filterRules.forEach((rule) => {
+      if (rule.type === "selectorOnly") {
+        const elements = document.querySelectorAll(rule.selector);
+        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "textOnly") {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let textNode;
+        const nodesToHide = [];
+        while ((textNode = walker.nextNode())) {
+          if (textNode.nodeValue.trim() === rule.text) {
+            const parent = textNode.parentElement;
+            if (parent && parent.children.length === 0) nodesToHide.push(parent);
+          }
+        }
+        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
+      } else if (rule.type === "xpath") {
+        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
+        for (let i = 0; i < snapshot.snapshotLength; i++) {
+          const node = snapshot.snapshotItem(i);
+          if (node) node.style.setProperty('display', 'none', 'important');
+        }
+      }
+    });
+}
 
   let isCleaning = false;
   const observer = new MutationObserver((mutationsList) => {
