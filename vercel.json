@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/services", "destination": "/services/index.html" },
+    { "source": "/projects", "destination": "/projects/index.html" },
+    { "source": "/people", "destination": "/people/index.html" },
+    { "source": "/research", "destination": "/research/index.html" },
+    { "source": "/research/medical", "destination": "/research/medical/index.html" },
+    { "source": "/research/startups", "destination": "/research/startups/index.html" },
+    { "source": "/research/enterprise", "destination": "/research/enterprise/index.html" }
+  ]
+}

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /archive/
+Disallow: /docs/
+Disallow: /src/
+Disallow: /data/
+Disallow: /admin
+Disallow: /library
+
+Sitemap: https://www.relogiclabs.com/sitemap.xml

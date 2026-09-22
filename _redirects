@@ -1,0 +1,12 @@
+/services              /services/index.html              200
+/projects              /projects/index.html              200
+/people                /people/index.html                200
+/research              /research/index.html              200
+/research/medical      /research/medical/index.html      200
+/research/startups     /research/startups/index.html     200
+/research/enterprise   /research/enterprise/index.html   200
+/people/:slug          /people/:slug/index.html          200
+/services.html         /services/                        301
+/projects.html         /projects/                        301
+/people.html           /people/                          301
+/research.html         /research/                        301

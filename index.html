@@ -7,7 +7,7 @@
   <meta name="description" content="Relogic is an AI-native research, data and product studio turning complex evidence into useful intelligence and digital systems." />
   <meta property="og:title" content="Relogic | Make complexity useful" />
   <meta property="og:description" content="Research, AI, data intelligence and digital products for difficult problems." />
-  <meta property="og:image" content="https://www.relogiclabs.com/preview.jpg" />
+  <meta property="og:image" content="assets/brand/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -16,6 +16,21 @@
 
 <meta property="og:url" content="https://www.relogiclabs.com/">
   <title>Relogic Labs | Open Research Hub and AI Native Studio </title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#050816">
+  <meta property="og:image" content="assets/brand/og-image.png">
+  <meta name="twitter:image" content="assets/brand/og-image.png">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/chrome.css">
+  <link rel="stylesheet" href="assets/css/readability.css">
 
   <style>
     :root {
@@ -26,8 +41,8 @@
       --line: rgba(148, 163, 184, .14);
       --line-strong: rgba(125, 211, 252, .30);
       --text: #f8fafc;
-      --muted: #91a1b8;
-      --muted2: #5e7089;
+      --muted: #d5e0ee;
+      --muted2: #b7c6d8;
       --cyan: #67e8f9;
       --sky: #38bdf8;
       --blue: #60a5fa;
@@ -142,7 +157,7 @@
     .nav-links a {
       padding: 10px 12px;
       border-radius: 10px;
-      color: #8fa0b8;
+      color: #d7e3f1;
       font-size: 13px;
       font-weight: 650;
       transition: .2s ease;
@@ -299,7 +314,7 @@
     .hero-lead {
       margin: 26px 0 0;
       max-width: 640px;
-      color: #93a3ba;
+      color: #d7e3f2;
       font-size: clamp(16px, 1.45vw, 19px);
       line-height: 1.72;
     }
@@ -659,6 +674,8 @@
     /* PROJECTS */
     .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .featured-project-wrap { margin-bottom: 55px; }
+    .featured-stack { display:grid; gap:18px; }
+    .featured-stack .featured-project-card { min-height:520px; }
     .featured-label { color:#67e8f9; font-size:11px; font-weight:900; letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px; }
     .featured-project-card { min-height:650px; }
     .featured-project-card .project-image img { filter:saturate(1.18) brightness(.68); }
@@ -846,9 +863,9 @@
     /* FOOTER */
     footer { padding: 38px 0 44px; }
     .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: end; padding-top: 30px; border-top: 1px solid rgba(148, 163, 184, .09); }
-    .footer-copy { margin-top: 13px; max-width: 520px; color: #5e7089; font-size: 11px; line-height: 1.65; }
+    .footer-copy { margin-top: 13px; max-width: 520px; color: #c9d5e4; font-size: 11px; line-height: 1.65; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 14px; justify-content: flex-end; }
-    .footer-links a { color: #64748b; font-size: 11px; font-weight: 700; }
+    .footer-links a { color: #c5d0de; font-size: 11px; font-weight: 700; }
     .footer-links a:hover { color: var(--cyan); }
     .copyright { margin-top: 24px; color: #3f4d63; font-size: 10px; }
 
@@ -2014,10 +2031,9 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       <div class="nav-links">
         <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-        <a href="#people">Our People</a>
-        <a href="#project-intake">Contact</a>
+        <a href="services/index.html">Services</a>
+        <a href="projects/index.html">Digital Product</a>
+        <a href="people/index.html">Our People</a>
       </div>
 
       <div class="nav-actions">
@@ -2029,14 +2045,14 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     <div class="mobile-menu" id="mobileMenu">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="#people">Our People</a>
+      <a href="services/index.html">Services</a>
+      <a href="projects/index.html">Digital Product</a>
+      <a href="people/index.html">Our People</a>
       <a href="#project-intake">Contact</a>
     </div>
   </div>
 
-  <main>
+  <main id="main">
     <section class="hero" id="home">
       <canvas id="threadCanvas" aria-hidden="true"></canvas>
       <div class="hero-grid-bg" aria-hidden="true"></div>
@@ -2053,8 +2069,8 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="services.html">Explore what we build <i class="fa-solid fa-arrow-right"></i></a>
-              <a class="btn btn-ghost" href="projects.html">See selected work <i class="fa-solid fa-layer-group"></i></a>
+              <a class="btn btn-primary" href="services/index.html">Explore what we build <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-ghost" href="projects/index.html">See selected work <i class="fa-solid fa-layer-group"></i></a>
             </div>
 
             <div class="hero-meta">
@@ -2105,8 +2121,8 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
           <div class="route-head"><span>Continue through Relogic</span><span>The full site structure stays visible below.</span></div>
           <div class="route-grid">
             <a class="route-card" href="#about"><span><small>01 / Company</small><strong>About Relogic</strong></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="route-card" href="services.html"><span><small>02 / Capabilities</small><strong>Services</strong></span><i class="fa-solid fa-arrow-right"></i></a>
-            <a class="route-card" href="projects.html"><span><small>03 / Selected work</small><strong>Projects</strong></span><i class="fa-solid fa-arrow-right"></i></a>
+            <a class="route-card" href="services/index.html"><span><small>02 / Capabilities</small><strong>Services</strong></span><i class="fa-solid fa-arrow-right"></i></a>
+            <a class="route-card" href="projects/index.html"><span><small>03 / Selected work</small><strong>Projects</strong></span><i class="fa-solid fa-arrow-right"></i></a>
             <a class="route-card" href="#people"><span><small>04 / Team</small><strong>Our People</strong></span><i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
@@ -2178,7 +2194,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
         </div>
 
         <div class="service-grid">
-          <a class="service-card reveal" href="research.html" aria-label="Open Research & Evidence Intelligence service page">
+          <a class="service-card reveal" href="research/index.html" aria-label="Open Research & Evidence Intelligence service page">
             <span class="service-number">01 / RESEARCH</span>
             <div class="service-icon"><i class="fa-solid fa-microscope"></i></div>
             <h3>Research & Evidence Intelligence</h3>
@@ -2186,7 +2202,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="service-tags"><span>Research design</span><span>Evidence synthesis</span><span>Literature intelligence</span><span>Decision memos</span></div>
           </a>
 
-          <a class="service-card reveal" href="services.html" aria-label="Open Generative AI & Applied ML service page">
+          <a class="service-card reveal" href="services/index.html" aria-label="Open Generative AI & Applied ML service page">
             <span class="service-number">02 / AI SYSTEMS</span>
             <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
             <h3>Generative AI & Applied ML</h3>
@@ -2194,7 +2210,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="service-tags"><span>RAG</span><span>Agents</span><span>Evaluation</span><span>NLP</span><span>Model UX</span></div>
           </a>
 
-          <a class="service-card reveal" href="services.html" aria-label="Open Data Intelligence & Analytics service page">
+          <a class="service-card reveal" href="services/index.html" aria-label="Open Data Intelligence & Analytics service page">
             <span class="service-number">03 / DATA</span>
             <div class="service-icon"><i class="fa-solid fa-database"></i></div>
             <h3>Data Intelligence & Analytics</h3>
@@ -2202,7 +2218,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="service-tags"><span>Analytics</span><span>Dashboards</span><span>Forecasting</span><span>Data quality</span><span>Visualization</span></div>
           </a>
 
-          <a class="service-card reveal" href="projects.html" aria-label="Open Digital Products & Decision Interfaces service page">
+          <a class="service-card reveal" href="projects/index.html" aria-label="Open Digital Products & Decision Interfaces service page">
             <span class="service-number">04 / PRODUCTS</span>
             <div class="service-icon"><i class="fa-solid fa-object-group"></i></div>
             <h3>Digital Products & Decision Interfaces</h3>
@@ -2220,7 +2236,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
             <div class="section-kicker">Projects</div>
             <h2 class="section-title">Problem spaces where intelligence has to survive reality.</h2>
           </div>
-          <p class="section-copy">These are representative project directions rather than decorative case-study cards: healthcare data, adaptive security, analytical products and governance systems.</p>
+          <p class="section-copy">Live prototypes first — Velos, FounderCMD and Neervan — then the research and product directions behind healthcare data, adaptive security, analytics and governance.</p>
         </div>
 
         <div id="featuredProject"></div>
@@ -2237,13 +2253,13 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
               <div class="section-kicker">Our People</div>
               <h2>One mission. Different minds.</h2>
               <p>Research, engineering, data, product, governance and strategy meet in one team. The goal is not to hand work between disciplines, but to make them think together from the beginning.</p>
-              <a class="btn btn-ghost" href="people.html" style="margin-top:18px;">Meet the full team <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-ghost" href="people/index.html" style="margin-top:18px;">Meet the full team <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="people-links">
-              <a class="people-link" href="people.html#leadership"><div><small>01 / LEADERSHIP</small><i class="fa-solid fa-compass" style="float:right"></i></div><div><h3>Leadership</h3><p>Direction, partnerships and the operating thesis behind Relogic.</p></div></a>
-              <a class="people-link" href="people.html#advisors"><div><small>02 / ADVISORS</small><i class="fa-solid fa-circle-nodes" style="float:right"></i></div><div><h3>Advisors</h3><p>Specialist perspectives supporting research, engineering and market decisions.</p></div></a>
-              <a class="people-link" href="people.html#core-team"><div><small>03 / CORE TEAM</small><i class="fa-solid fa-code-branch" style="float:right"></i></div><div><h3>Core Team</h3><p>People who turn evidence, models and interfaces into usable systems.</p></div></a>
+              <a class="people-link" href="people/index.html#leadership"><div><small>01 / LEADERSHIP</small><i class="fa-solid fa-compass" style="float:right"></i></div><div><h3>Leadership</h3><p>Direction, partnerships and the operating thesis behind Relogic.</p></div></a>
+              <a class="people-link" href="people/index.html#advisors"><div><small>02 / ADVISORS</small><i class="fa-solid fa-circle-nodes" style="float:right"></i></div><div><h3>Advisors</h3><p>Specialist perspectives supporting research, engineering and market decisions.</p></div></a>
+              <a class="people-link" href="people/index.html#core-team"><div><small>03 / CORE TEAM</small><i class="fa-solid fa-code-branch" style="float:right"></i></div><div><h3>Core Team</h3><p>People who turn evidence, models and interfaces into usable systems.</p></div></a>
             </div>
           </div>
         </div>
@@ -2271,7 +2287,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                         <h3>Build the future<br>with intelligence.</h3>
                         <p>Research, AI and digital products shaped around real problems and measurable outcomes.</p>
                         <div class="mobile-mini-metrics"><div class="mobile-mini-metric"><b>AI</b><span>Native</span></div><div class="mobile-mini-metric"><b>R&D</b><span>Research</span></div><div class="mobile-mini-metric"><b>UX</b><span>Human</span></div></div>
-                        <a class="mobile-primary" href="services.html">Explore Relogic <span>&rarr;</span></a>
+                        <a class="mobile-primary" href="services/index.html">Explore Relogic <span>&rarr;</span></a>
                     </div>
                     <div class="mobile-home-indicator"></div>
                 </div>
@@ -2285,11 +2301,11 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
                     <div class="mobile-content">
                         <div class="mobile-greeting">Your workspace</div>
                         <h3 class="mobile-title">What do you want<br>to build today?</h3>
-                        <a href="research.html" class="mobile-service-card"><span class="mobile-service-icon">R</span><span><b>Research Consulting</b><span>Evidence, analysis and study design</span></span><em>&rarr;</em></a>
-                        <a href="projects.html" class="mobile-service-card"><span class="mobile-service-icon">P</span><span><b>Digital Products</b><span>Strategy, UX and product engineering</span></span><em>&rarr;</em></a>
+                        <a href="research/index.html" class="mobile-service-card"><span class="mobile-service-icon">R</span><span><b>Research Consulting</b><span>Evidence, analysis and study design</span></span><em>&rarr;</em></a>
+                        <a href="projects/index.html" class="mobile-service-card"><span class="mobile-service-icon">P</span><span><b>Digital Products</b><span>Strategy, UX and product engineering</span></span><em>&rarr;</em></a>
                         <div class="mobile-project"><div class="mobile-project-top"><div><small>Active engagement</small><strong>Discovery Sprint</strong></div><span class="mobile-project-badge">In progress</span></div><div class="mobile-progress"><i></i></div></div>
                     </div>
-                    <nav class="mobile-nav" aria-label="Mobile preview navigation"><a class="active" href="index.html"><b>⌂</b>Home</a><a href="services.html"><b>◇</b>Work</a><a href="people.html"><b>◎</b>People</a></nav>
+                    <nav class="mobile-nav" aria-label="Mobile preview navigation"><a class="active" href="#home"><b>⌂</b>Home</a><a href="services/index.html"><b>◇</b>Work</a><a href="people/index.html"><b>◎</b>People</a></nav>
                     <div class="mobile-home-indicator"></div>
                 </div>
             </div>
@@ -3489,7 +3505,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
           <a href="#home" class="brand"><span class="brand-mark"><img src="images/team/relogic-logo-transparent.png" alt="Relogic Labs"></span></a>
           <p class="footer-copy">Research, AI, data intelligence and digital products for situations where the answer has to be more than impressive. It has to be useful.</p>
         </div>
-        <div class="footer-links"><a href="#about">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="people.html">People</a><a href="#project-intake">Contact</a></div>
+        <div class="footer-links"><a href="#about">About</a><a href="services/index.html">Services</a><a href="research/index.html">Research</a><a href="projects/index.html">Digital Product</a><a href="people/index.html">Our People</a><a href="#project-intake">Contact</a></div>
       </div>
       <div class="copyright">© 2026 Relogic Solutions. Built around evidence, data and useful intelligence.</div>
     </div>
@@ -3815,12 +3831,28 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 
             const brief = collectBrief();
             const mail = buildEmail(brief);
-            const mailtoHref = openEmailDraft(mail);
-            showReadyState(mailtoHref, mail);
-
-            nextBtn.disabled = false;
-            nextBtn.removeAttribute('aria-busy');
-            busy = false;
+            brief.source = window.location.href;
+            brief.submittedAt = new Date().toISOString();
+            fetch('/api/intake', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(brief)
+            }).then(function(res){ return res.json().catch(function(){ return {}; }); })
+              .then(function(data){
+                  brief.serverId = data && data.id ? data.id : '';
+                  const mailtoHref = openEmailDraft(mail);
+                  showReadyState(mailtoHref, mail);
+              })
+              .catch(function(){
+                  const mailtoHref = openEmailDraft(mail);
+                  showReadyState(mailtoHref, mail);
+              })
+              .finally(function(){
+                  nextBtn.disabled = false;
+                  nextBtn.removeAttribute('aria-busy');
+                  busy = false;
+              });
+            return;
         }, true);
 
         backBtn.addEventListener('click', function(event){
@@ -4564,290 +4596,7 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     });
   }, { once: true });
 </script>
-<script>(function () {
-  "use strict";
 
-  // Share link redirector
-  document.body.addEventListener("click", function (event) {
-    const link = event.target.closest("a");
-    if (!link) return;
-
-    const href = link.getAttribute("href");
-    if (!href) return;
-
-    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
-    const match = href.match(regex);
-
-    if (match) {
-      const isButton = event.target.closest("button");
-      if (isButton) return;
-
-      event.preventDefault();
-      const chatId = match[1];
-      const shareId = match[2];
-      window.location.href = `/share/${shareId}?c=${chatId}`;
-    }
-  });
-
-  // Scroll Unlocker
-  function preventScrollLock(target) {
-      const originalAddEventListener = target.addEventListener;
-      target.addEventListener = function(type, listener, options) {
-          if (type === 'wheel' || type === 'touchmove') return; 
-          return originalAddEventListener.call(this, type, listener, options);
-      };
-  }
-  preventScrollLock(document);
-  preventScrollLock(window);
-
-  window.addEventListener("hashchange", function (event) {
-      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-        history.replaceState(null, null, " ");
-      }
-    }, true
-  );
-
-  
-
-  function cleanDOM() {
-    document.body.removeAttribute('data-scroll-locked');
-    document.documentElement.removeAttribute('data-scroll-locked');
-    
-    const nextRoot = document.getElementById('__next');
-    if (nextRoot) {
-        nextRoot.removeAttribute('aria-hidden');
-    }
-
-    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
-        el.remove();
-    });
-
-    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
-        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
-            el.remove();
-        }
-    });
-
-    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
-        if (el.parentElement) {
-          el.parentElement.innerHTML = `
-                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
-                `;
-        }
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
-    });
-      
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.remove();
-    });
-
-    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
-    if (dynamicModal) {
-      dynamicModal.remove();
-    }
-
-    filterRules.forEach((rule) => {
-      if (rule.type === "selectorOnly") {
-        const elements = document.querySelectorAll(rule.selector);
-        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "textOnly") {
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        let textNode;
-        const nodesToHide = [];
-        while ((textNode = walker.nextNode())) {
-          if (textNode.nodeValue.trim() === rule.text) {
-            const parent = textNode.parentElement;
-            if (parent && parent.children.length === 0) nodesToHide.push(parent);
-          }
-        }
-        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "xpath") {
-        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0; i < snapshot.snapshotLength; i++) {
-          const node = snapshot.snapshotItem(i);
-          if (node) node.style.setProperty('display', 'none', 'important');
-        }
-      }
-    });
-  }
-
-  let isCleaning = false;
-  const observer = new MutationObserver((mutationsList) => {
-    if (isCleaning) return;
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'attributes') {
-          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
-          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
-      }
-      if (mutation.addedNodes.length > 0) {
-        mutation.addedNodes.forEach(node => {
-            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
-                node.remove();
-            }
-        });
-
-        isCleaning = true;
-        cleanDOM();
-        isCleaning = false;
-        break;
-      }
-    }
-  });
-
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
-  cleanDOM();
-})();
-</script><script>(function () {
-  "use strict";
-
-  // Share link redirector
-  document.body.addEventListener("click", function (event) {
-    const link = event.target.closest("a");
-    if (!link) return;
-
-    const href = link.getAttribute("href");
-    if (!href) return;
-
-    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
-    const match = href.match(regex);
-
-    if (match) {
-      const isButton = event.target.closest("button");
-      if (isButton) return;
-
-      event.preventDefault();
-      const chatId = match[1];
-      const shareId = match[2];
-      window.location.href = `/share/${shareId}?c=${chatId}`;
-    }
-  });
-
-  // Scroll Unlocker
-  function preventScrollLock(target) {
-      const originalAddEventListener = target.addEventListener;
-      target.addEventListener = function(type, listener, options) {
-          if (type === 'wheel' || type === 'touchmove') return; 
-          return originalAddEventListener.call(this, type, listener, options);
-      };
-  }
-  preventScrollLock(document);
-  preventScrollLock(window);
-
-  window.addEventListener("hashchange", function (event) {
-      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-        history.replaceState(null, null, " ");
-      }
-    }, true
-  );
-
-
-  function cleanDOM() {
-    document.body.removeAttribute('data-scroll-locked');
-    document.documentElement.removeAttribute('data-scroll-locked');
-    
-    const nextRoot = document.getElementById('__next');
-    if (nextRoot) {
-        nextRoot.removeAttribute('aria-hidden');
-    }
-
-    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
-        el.remove();
-    });
-
-    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
-        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
-            el.remove();
-        }
-    });
-
-    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
-        if (el.parentElement) {
-          el.parentElement.innerHTML = `
-                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
-                `;
-        }
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
-    });
-      
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.remove();
-    });
-
-    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
-    if (dynamicModal) {
-      dynamicModal.remove();
-    }
-
-    filterRules.forEach((rule) => {
-      if (rule.type === "selectorOnly") {
-        const elements = document.querySelectorAll(rule.selector);
-        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "textOnly") {
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        let textNode;
-        const nodesToHide = [];
-        while ((textNode = walker.nextNode())) {
-          if (textNode.nodeValue.trim() === rule.text) {
-            const parent = textNode.parentElement;
-            if (parent && parent.children.length === 0) nodesToHide.push(parent);
-          }
-        }
-        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "xpath") {
-        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0; i < snapshot.snapshotLength; i++) {
-          const node = snapshot.snapshotItem(i);
-          if (node) node.style.setProperty('display', 'none', 'important');
-        }
-      }
-    });
-  }
-
-  let isCleaning = false;
-  const observer = new MutationObserver((mutationsList) => {
-    if (isCleaning) return;
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'attributes') {
-          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
-          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
-      }
-      if (mutation.addedNodes.length > 0) {
-        mutation.addedNodes.forEach(node => {
-            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
-                node.remove();
-            }
-        });
-
-        isCleaning = true;
-        cleanDOM();
-        isCleaning = false;
-        break;
-      }
-    }
-  });
-
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
-  cleanDOM();
-})();
-</script>
 
 <script id="dynamic-projects-script">
 (() => {
@@ -4877,6 +4626,28 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
       image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85",
       projectUrl: "https://velos-space.vercel.app/",
       prototypeUrl: "#live-prototype"
+    },
+
+    {
+      show: true,
+      category: "exclusive",
+      kicker: "FOUNDER OPERATIONS / LIVE PROTOTYPE / COMMAND CENTER",
+      title: "FounderCMD",
+      description: "An evidence-backed command center for founder-led businesses. Projects, clients, cash, operations and business signals sit in one place so decisions can be traced to the record behind them.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "https://foundercmd.vercel.app/",
+      prototypeUrl: "https://foundercmd.vercel.app/"
+    },
+
+    {
+      show: true,
+      category: "exclusive",
+      kicker: "LOGISTICS / LIVE PRODUCT / END-TO-END TRACKING",
+      title: "Neervan",
+      description: "A logistics tracking and support system covering the full movement lifecycle — intake, live location, exceptions, handoffs and proof of completion — so operations teams can act from one support surface.",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85",
+      projectUrl: "projects/index.html",
+      prototypeUrl: "#project-intake"
     },
 
     {
@@ -4969,10 +4740,12 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
     if (!grid || !featuredBox) return;
 
     const list = visibleProjects();
-    const featured = list.find(isExclusive) || list[0];
-    const others = list.filter(p => p !== featured);
-
-    featuredBox.innerHTML = featured ? `<div class="featured-project-wrap"><div class="featured-label">Featured Project</div>${projectCard(featured,true)}</div>` : "";
+    const featuredList = list.filter(isExclusive);
+    const others = list.filter(p => !isExclusive(p));
+    const featuredHtml = featuredList.length
+      ? `<div class="featured-project-wrap"><div class="featured-label">Live prototypes</div><div class="featured-stack">${featuredList.map(p => projectCard(p,true)).join("")}</div></div>`
+      : "";
+    featuredBox.innerHTML = featuredHtml;
     grid.innerHTML = others.length ? others.map(p => projectCard(p)).join("") : "";
   }
 
@@ -4990,321 +4763,6 @@ div[role="dialog"] ~ div[aria-hidden="true"][style*="position: fixed"] {
 })();
 </script>
 
-<script>(function () {
-  "use strict";
-
-  // Share link redirector
-  document.body.addEventListener("click", function (event) {
-    const link = event.target.closest("a");
-    if (!link) return;
-
-    const href = link.getAttribute("href");
-    if (!href) return;
-
-    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
-    const match = href.match(regex);
-
-    if (match) {
-      const isButton = event.target.closest("button");
-      if (isButton) return;
-
-      event.preventDefault();
-      const chatId = match[1];
-      const shareId = match[2];
-      window.location.href = `/share/${shareId}?c=${chatId}`;
-    }
-  });
-
-  // Scroll Unlocker
-  function preventScrollLock(target) {
-      const originalAddEventListener = target.addEventListener;
-      target.addEventListener = function(type, listener, options) {
-          if (type === 'wheel' || type === 'touchmove') return; 
-          return originalAddEventListener.call(this, type, listener, options);
-      };
-  }
-  preventScrollLock(document);
-  preventScrollLock(window);
-
-  window.addEventListener("hashchange", function (event) {
-      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-        history.replaceState(null, null, " ");
-      }
-    }, true
-  );
-
-  const filterRules = [
-    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
-    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
-    { type: "selectorOnly", selector: "#modal-account-payment" },
-    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
-    { type: "selectorOnly", selector: 'a[href="/library"]' },
-    { type: "selectorOnly", selector: 'a[href="/admin"]' },
-    { type: "selectorOnly", selector: 'a[href="/apps"]' },
-    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
-    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
-    { type: "textOnly", text: "Report conversation" },
-    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
-    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
-    { type: "textOnly", text: "Archive" },
-    { type: "textOnly", text: "Start a group chat" },
-    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
-  ];
-
-  function cleanDOM() {
-    document.body.removeAttribute('data-scroll-locked');
-    document.documentElement.removeAttribute('data-scroll-locked');
-    
-    const nextRoot = document.getElementById('__next');
-    if (nextRoot) {
-        nextRoot.removeAttribute('aria-hidden');
-    }
-
-    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
-        el.remove();
-    });
-
-    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
-        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
-            el.remove();
-        }
-    });
-
-    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
-        if (el.parentElement) {
-          el.parentElement.innerHTML = `
-                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
-                `;
-        }
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
-    });
-      
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.remove();
-    });
-
-    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
-    if (dynamicModal) {
-      dynamicModal.remove();
-    }
-
-    filterRules.forEach((rule) => {
-      if (rule.type === "selectorOnly") {
-        const elements = document.querySelectorAll(rule.selector);
-        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "textOnly") {
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        let textNode;
-        const nodesToHide = [];
-        while ((textNode = walker.nextNode())) {
-          if (textNode.nodeValue.trim() === rule.text) {
-            const parent = textNode.parentElement;
-            if (parent && parent.children.length === 0) nodesToHide.push(parent);
-          }
-        }
-        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "xpath") {
-        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0; i < snapshot.snapshotLength; i++) {
-          const node = snapshot.snapshotItem(i);
-          if (node) node.style.setProperty('display', 'none', 'important');
-        }
-      }
-    });
-}
-
-  let isCleaning = false;
-  const observer = new MutationObserver((mutationsList) => {
-    if (isCleaning) return;
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'attributes') {
-          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
-          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
-      }
-      if (mutation.addedNodes.length > 0) {
-        mutation.addedNodes.forEach(node => {
-            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
-                node.remove();
-            }
-        });
-
-        isCleaning = true;
-        cleanDOM();
-        isCleaning = false;
-        break;
-      }
-    }
-  });
-
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
-  cleanDOM();
-})();
-</script><script>(function () {
-  "use strict";
-
-  // Share link redirector
-  document.body.addEventListener("click", function (event) {
-    const link = event.target.closest("a");
-    if (!link) return;
-
-    const href = link.getAttribute("href");
-    if (!href) return;
-
-    const regex = /^\/c\/([^\/]+)\/share\/([^\/]+)$/;
-    const match = href.match(regex);
-
-    if (match) {
-      const isButton = event.target.closest("button");
-      if (isButton) return;
-
-      event.preventDefault();
-      const chatId = match[1];
-      const shareId = match[2];
-      window.location.href = `/share/${shareId}?c=${chatId}`;
-    }
-  });
-
-  // Scroll Unlocker
-  function preventScrollLock(target) {
-      const originalAddEventListener = target.addEventListener;
-      target.addEventListener = function(type, listener, options) {
-          if (type === 'wheel' || type === 'touchmove') return; 
-          return originalAddEventListener.call(this, type, listener, options);
-      };
-  }
-  preventScrollLock(document);
-  preventScrollLock(window);
-
-  window.addEventListener("hashchange", function (event) {
-      if (window.location.hash === "#settings" || window.location.hash === "#pricing") {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-        history.replaceState(null, null, " ");
-      }
-    }, true
-  );
-
-  const filterRules = [
-    { type: "selectorOnly", selector: '[data-testid="accounts-profile-button"]' },
-    { type: "selectorOnly", selector: '[data-testid="conversation-options-button"]' },
-    { type: "selectorOnly", selector: "#modal-account-payment" },
-    { type: "selectorOnly", selector: ".data-prompt-textarea-header aside" },
-    { type: "selectorOnly", selector: 'a[href="/library"]' },
-    { type: "selectorOnly", selector: 'a[href="/admin"]' },
-    { type: "selectorOnly", selector: 'a[href="/apps"]' },
-    { type: "selectorOnly", selector: 'a[href="/c/mustbe_hidden_pin"]' },
-    { type: "selectorOnly", selector: 'a[href="/deep-research"]' },
-    { type: "textOnly", text: "Report conversation" },
-    { type: "textOnly", text: "This is a copy of a shared ChatGPT conversation" },
-    { type: "textOnly", text: "Messages beyond this point are only visible to you" },
-    { type: "textOnly", text: "Archive" },
-    { type: "textOnly", text: "Start a group chat" },
-    { type: "xpath", query: "//button[contains(., 'Invite team members')]" }
-  ];
-
-  function cleanDOM() {
-    document.body.removeAttribute('data-scroll-locked');
-    document.documentElement.removeAttribute('data-scroll-locked');
-    
-    const nextRoot = document.getElementById('__next');
-    if (nextRoot) {
-        nextRoot.removeAttribute('aria-hidden');
-    }
-
-    document.head.querySelectorAll('style[data-radix-scroll-prevent-default]').forEach(el => {
-        el.remove();
-    });
-
-    document.querySelectorAll('div[aria-hidden="true"][style*="position: fixed"]').forEach(el => {
-        if (el.style.backgroundColor || el.style.backdropFilter || el.style.opacity) {
-            el.remove();
-        }
-    });
-
-    document.querySelectorAll('[aria-description="Share sheet"]').forEach((el) => {
-        if (el.parentElement) {
-          el.parentElement.innerHTML = `
-                    <div role="dialog" id="radix-_r_4j_ notice_share" aria-describedby="radix-_r_4l_" aria-labelledby="radix-_r_4k_" data-state="open" class="popover bg-token-sidebar-surface relative start-1/2 col-auto col-start-2 row-auto row-start-2 h-full w-full min-w-0  overflow-hidden text-start ltr:-translate-x-1/2 rtl:translate-x-1/2 dark:bg-[#171717] rounded-[36px] shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_48px_rgba(0,0,0,0.175),_0_0_1px_rgba(255,255,255,0.4)] flex flex-col focus:outline-hidden max-w-[640px]" tabindex="-1" style="pointer-events: auto;"><img src="https://placehold.co/600x400" alt="Notice"></div>
-                `;
-        }
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#f7f872"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.remove();
-    });
-
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#61ee0c"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.parentElement.parentElement.remove();
-    });
-      
-    document.querySelectorAll('[href="/cdn/assets/sprites-core-9c5054d5.svg#427dd9"]').forEach((el) => {
-        if (el.parentElement) el.parentElement.parentElement.remove();
-    });
-
-    const dynamicModal = document.querySelector('#settings, #pricing, [id*="pricing"], [class*="modal-pricing"], [id*="settings"], [class*="modal-settings"]');
-    if (dynamicModal) {
-      dynamicModal.remove();
-    }
-
-    filterRules.forEach((rule) => {
-      if (rule.type === "selectorOnly") {
-        const elements = document.querySelectorAll(rule.selector);
-        elements.forEach((element) => { if(element) element.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "textOnly") {
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-        let textNode;
-        const nodesToHide = [];
-        while ((textNode = walker.nextNode())) {
-          if (textNode.nodeValue.trim() === rule.text) {
-            const parent = textNode.parentElement;
-            if (parent && parent.children.length === 0) nodesToHide.push(parent);
-          }
-        }
-        nodesToHide.forEach((node) => { if(node) node.style.setProperty('display', 'none', 'important'); });
-      } else if (rule.type === "xpath") {
-        const snapshot = document.evaluate(rule.query, document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0; i < snapshot.snapshotLength; i++) {
-          const node = snapshot.snapshotItem(i);
-          if (node) node.style.setProperty('display', 'none', 'important');
-        }
-      }
-    });
-  }
-
-  let isCleaning = false;
-  const observer = new MutationObserver((mutationsList) => {
-    if (isCleaning) return;
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'attributes') {
-          if (mutation.attributeName === 'data-scroll-locked' && mutation.target === document.body) document.body.removeAttribute('data-scroll-locked');
-          if (mutation.attributeName === 'aria-hidden' && mutation.target.id === '__next') mutation.target.removeAttribute('aria-hidden');
-      }
-      if (mutation.addedNodes.length > 0) {
-        mutation.addedNodes.forEach(node => {
-            if (node.tagName === 'STYLE' && node.hasAttribute('data-radix-scroll-prevent-default')) {
-                node.remove();
-            }
-        });
-
-        isCleaning = true;
-        cleanDOM();
-        isCleaning = false;
-        break;
-      }
-    }
-  });
-
-  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class', 'data-scroll-locked', 'aria-hidden'] });
-  cleanDOM();
-})();
-</script></body>
+<script src="assets/js/site.js" defer></script>
+</body>
 </html>
