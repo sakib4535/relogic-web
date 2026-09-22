@@ -1,0 +1,104 @@
+{
+  "leadership": [
+    {
+      "slug": "hasnain-imtiaz",
+      "name": "Hasnain Imtiaz",
+      "role": "Co-founder",
+      "focus": "AI, data science and research strategy",
+      "image": "images/team/sakib.jpg",
+      "initials": "HI"
+    },
+    {
+      "slug": "robin-jamal",
+      "name": "Robin Jamal",
+      "role": "Co-founder",
+      "focus": "Strategy, operations and research delivery",
+      "image": "images/team/robin.jpg",
+      "initials": "RJ"
+    },
+    {
+      "slug": "tanvir-mehedi",
+      "name": "Tanvir Mehedi",
+      "role": "Leadership · BUET",
+      "focus": "Technical leadership and systems review",
+      "image": "images/team/tanvir.jpg",
+      "initials": "TM"
+    },
+    {
+      "slug": "dr-tariq-mohammad",
+      "name": "Dr. Tariq Mohammad",
+      "role": "Advisor",
+      "focus": "Research rigor and senior advisory review",
+      "image": "images/team/tarek.png",
+      "initials": "TM"
+    }
+  ],
+  "advisors": [
+    {
+      "slug": "tahsin-h-khan",
+      "name": "Tahsin H. Khan",
+      "role": "Advisor — Portfolio & Brand",
+      "focus": "Portfolio positioning and brand direction",
+      "image": "images/team/tahsin.jpg",
+      "initials": "TH"
+    },
+    {
+      "slug": "shayne-mallet",
+      "name": "Shayne Mallet",
+      "role": "Advisor — Core Engineering",
+      "focus": "Architecture, reliability and engineering standards",
+      "image": "images/team/shayn.jpg",
+      "initials": "SM"
+    }
+  ],
+  "core": [
+    {
+      "slug": "sayem-walid",
+      "name": "Sayem Walid",
+      "role": "Legal & Communication",
+      "focus": "Communication, documentation and operations",
+      "image": "images/team/Walid.jpg",
+      "initials": "SW"
+    },
+    {
+      "slug": "adnan-rahman",
+      "name": "Adnan Rahman",
+      "role": "Backend / ML Programmer",
+      "focus": "Backend services and ML integration",
+      "image": "images/team/Adnan.jpg",
+      "initials": "AR"
+    },
+    {
+      "slug": "sazzad-hossain-pranto",
+      "name": "Sazzad Hossain Pranto",
+      "role": "MERN Stack Developer",
+      "focus": "MERN full-stack product engineering",
+      "image": "images/team/sazzad-hossain-pranto.jpg",
+      "initials": "SP"
+    },
+    {
+      "slug": "hassan-arif",
+      "name": "Hassan Arif",
+      "role": "Database Programmer",
+      "focus": "Database structure, performance and reliability",
+      "image": "images/team/hassan-arif.jpg",
+      "initials": "HA"
+    },
+    {
+      "slug": "Fahim-Shahriar",
+      "name": "Fahim Shahriar",
+      "role": "Research & Analytics",
+      "focus": "Research synthesis and analytical reporting",
+      "image": "images/team/fahim-shahriar.jpg",
+      "initials": "FS"
+    },
+    {
+      "slug": "atikul-islam-dipto",
+      "name": "Atikul Islam Dipto",
+      "role": "Product Developer & Designer",
+      "focus": "Product design, UX and implementation",
+      "image": "images/team/atik.jpg",
+      "initials": "AD"
+    }
+  ]
+}

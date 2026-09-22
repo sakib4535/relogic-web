@@ -1,0 +1,135 @@
+/* Readability layer — brighter type on dark surfaces.
+   Does not remove section layouts, cards, diagrams or motion. */
+
+html { color-scheme: dark; }
+
+body {
+  color: #f4f8fd;
+}
+
+/* Dark-theme running copy */
+.hero-lead,
+.hero p,
+.section-copy,
+.caption-copy,
+.project-card p,
+.practice p,
+.person-info .card-focus,
+.module p,
+.process-card p,
+.capability-head p,
+.map-copy p,
+.project-copy p,
+.hero-copy p {
+  color: #d7e3f2 !important;
+}
+
+.hero-lead strong,
+.section-copy strong,
+p strong { color: #ffffff !important; }
+
+h1, h2, h3, h4, .section-title {
+  color: #ffffff;
+}
+
+/* Dim chips / labels stay visible but not muddy */
+.kicker,
+.eyebrow,
+.section-kicker,
+.section-index,
+.caption-kicker,
+.portfolio-index,
+.study-type,
+.project-no,
+.num,
+.capability-kicker,
+.cta-kicker {
+  color: #b9ecff !important;
+}
+
+.muted,
+.hero-meta,
+.hero-meta span,
+.stat span,
+.tag,
+.tags .tag {
+  color: #d2deec !important;
+}
+
+/* Light paper regions keep dark ink so contrast stays correct */
+.portfolio,
+.portfolio-shell,
+.research-map,
+.map-copy,
+.diagram,
+.page-research .portfolio,
+.page-research .research-map {
+  color: #102027;
+}
+
+.page-research .portfolio h2,
+.page-research .portfolio h3,
+.page-research .map-copy h3 {
+  color: #0d1a1c;
+}
+
+.page-research .portfolio p,
+.page-research .map-copy p,
+.page-research .map-list span {
+  color: #33464a !important;
+}
+
+/* Dark feature cards inside research stay bright */
+.page-research .project-feature,
+.page-research .project-copy,
+.page-research .process,
+.page-research .cta,
+.page-research .hero {
+  color: #f3fbfb;
+}
+
+.page-research .project-copy p,
+.page-research .process-card p,
+.page-research .hero-copy p {
+  color: #d5e7e7 !important;
+}
+
+.page-research .project-copy h3,
+.page-research .process-head h2,
+.page-research .cta h2,
+.page-research h1 {
+  color: #ffffff;
+}
+
+/* People cards */
+.person-info h3 { color: #ffffff; }
+.person-info p { color: #7ddcff !important; }
+.person-info span { color: #c5d3e4; }
+
+/* Forms / intake leftovers */
+input, textarea, select {
+  color: #f8fafc;
+}
+
+::selection {
+  background: rgba(103, 232, 249, .32);
+  color: #fff;
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #67e8f9;
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+a { text-decoration: none; }
+.page-research a.project-meta a,
+.page-research .project-meta a { text-decoration: underline; text-underline-offset: 3px; }

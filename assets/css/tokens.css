@@ -1,0 +1,33 @@
+/* Relogic shared design tokens
+   Brightened for contrast on the dark studio background.
+   Page-specific visual systems stay intact; these tokens
+   raise body/muted text so copy is readable. */
+
+:root {
+  --rl-bg: #050816;
+  --rl-bg-2: #080d1d;
+  --rl-panel: rgba(10, 17, 34, .76);
+  --rl-panel-solid: #0b1224;
+  --rl-line: rgba(186, 210, 232, .22);
+  --rl-line-strong: rgba(125, 211, 252, .38);
+  --rl-text: #f8fbff;
+  --rl-text-bright: #ffffff;
+  --rl-muted: #d5e0ee;
+  --rl-muted-2: #b7c6d8;
+  --rl-cyan: #7ef0ff;
+  --rl-sky: #67d4ff;
+  --rl-blue: #7db4ff;
+  --rl-violet: #c4b5fd;
+  --rl-mint: #7ff5e0;
+  --rl-max: 1240px;
+  --rl-ease: cubic-bezier(.22, 1, .36, 1);
+  --rl-nav-h: 92px;
+}
+
+/* Lift original page variables when they exist */
+:root {
+  --text: var(--rl-text);
+  --muted: var(--rl-muted);
+  --muted2: var(--rl-muted-2);
+  --ink: var(--rl-text);
+}

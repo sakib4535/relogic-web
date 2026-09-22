@@ -1,0 +1,18 @@
+{
+  "name": "Relogic Labs",
+  "legalName": "Relogic Solutions",
+  "url": "https://www.relogiclabs.com/",
+  "email": "hello@relogic.ai",
+  "tagline": "Make complexity useful.",
+  "description": "AI-native research, data and product studio turning complex evidence into useful intelligence and digital systems.",
+  "navigation": [
+    { "label": "Home", "href": "index.html" },
+    { "label": "About", "href": "index.html#about" },
+    { "label": "Services", "href": "services.html" },
+    { "label": "Research", "href": "research.html" },
+    { "label": "Digital Product", "href": "projects.html" },
+    { "label": "Our People", "href": "people.html" }
+  ],
+  "cta": { "label": "Start a project", "href": "index.html#project-intake" },
+  "logo": "images/team/relogic-logo-transparent.png"
+}

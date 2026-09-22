@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanvir Mehedi · Relogic People</title>
+  <link rel="icon" href="../../assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png" sizes="180x180">
+  <link rel="manifest" href="../../site.webmanifest">
+  <meta name="theme-color" content="#050816">
+  <meta property="og:image" content="../../assets/brand/og-image.png">
+  <meta name="twitter:image" content="../../assets/brand/og-image.png">
+  <meta name="description" content="Tanvir Mehedi — Leadership · BUET at Relogic. Technical leadership and systems review.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/chrome.css">
+  <link rel="stylesheet" href="../../assets/css/readability.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 14% 2%, rgba(56,189,248,.10), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(129,140,248,.08), transparent 25%),
+        #050816;
+      color: #f8fbff;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    .profile-wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 128px 0 80px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .portrait {
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(186,210,232,.18);
+      background: #0b1224;
+      aspect-ratio: 1 / 1.05;
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .fallback {
+      width: 100%; height: 100%; display: grid; place-items: center;
+      font: 700 72px "Space Grotesk", sans-serif; color: #7dd3fc;
+    }
+    .kicker { color: #9beaf7; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { font: 700 clamp(40px, 6vw, 68px)/.95 "Space Grotesk", sans-serif; letter-spacing: -.05em; margin: 14px 0 10px; }
+    .role { color: #67d4ff; font-size: 16px; margin: 0 0 18px; }
+    .focus { color: #d7e3f2; font-size: 16px; line-height: 1.7; max-width: 560px; }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px;
+    }
+    .meta span {
+      padding: 8px 11px; border-radius: 999px; border: 1px solid rgba(186,210,232,.18);
+      background: rgba(255,255,255,.04); font-size: 11px; font-weight: 700; color: #e8eef6;
+    }
+    .back {
+      display: inline-flex; margin-top: 34px; color: #7ef0ff; font-weight: 800; font-size: 13px;
+    }
+    @media (max-width: 800px) {
+      .profile-wrap { grid-template-columns: 1fr; padding-top: 110px; }
+    }
+  </style>
+</head>
+<body class="page-profile">
+<a class="rl-skip" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="nav-shell" id="navShell">
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="../../index.html" class="brand" aria-label="Relogic home">
+      <span class="brand-mark">
+        <img src="../../images/team/relogic-logo-transparent.png" alt="Relogic Labs">
+      </span>
+    </a>
+    <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../index#about">About</a>
+        <a href="../../services/index.html">Services</a>
+        <a href="../../projects/index.html">Digital Product</a>
+        <a href="../../people/index.html" class="active">Our People</a>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-cta" href="../index#project-intake">Start a project</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true"><b></b><b></b><b></b></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+      <a href="../../index.html">Home</a>
+      <a href="../index#about">About</a>
+      <a href="../../services/index.html">Services</a>
+      <a href="../../projects/index.html">Digital Product</a>
+      <a href="../../people/index.html" class="active">Our People</a>
+      <a href="../index#project-intake">Contact</a>
+  </div>
+</div>
+<main id="main">
+  <div class="profile-wrap">
+    <div class="portrait">
+      <img src="../../images/team/tanvir.jpg" alt="Tanvir Mehedi" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+      <div class="fallback" style="display:none">TM</div>
+    </div>
+    <div>
+      <div class="kicker">Leadership · Relogic</div>
+      <h1>Tanvir Mehedi</h1>
+      <p class="role">Leadership · BUET</p>
+      <p class="focus">Technical leadership and systems review</p>
+      <div class="meta">
+        <span>Leadership</span>
+        <span>Relogic Labs</span>
+      </div>
+      <a class="back" href="../../people/index.html">← Back to Our People</a>
+    </div>
+  </div>
+</main>
+<footer class="rl-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../../index.html" class="brand" aria-label="Relogic home">
+          <span class="brand-mark"><img src="../../images/team/relogic-logo-transparent.png" alt="Relogic Labs"></span>
+        </a>
+        <p class="footer-copy">Research, AI, data intelligence and digital products for situations where the answer has to be more than impressive. It has to be useful.</p>
+      </div>
+      <div class="footer-links"><a href="../index#about">About</a><a href="../../services/index.html">Services</a><a href="../../research/index.html">Research</a><a href="../../projects/index.html">Digital Product</a><a href="../../people/index.html">Our People</a><a href="../index#project-intake">Contact</a></div>
+    </div>
+    <div class="copyright">© 2026 Relogic Solutions. Built around evidence, data and useful intelligence.</div>
+  </div>
+</footer>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
